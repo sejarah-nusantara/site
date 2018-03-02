@@ -1,0 +1,158 @@
+{% extends "base.html" %}
+{% load thumbnail i18n %}
+
+{% block js %}
+{{ block.super }}
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.ad-gallery.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}/css/jquery.ad-gallery.css">
+	<script src="{{ STATIC_URL }}js/jquery-colorbox/jquery.colorbox.js"></script>
+	<link rel="stylesheet" href="{{ STATIC_URL }}js/jquery-colorbox/example1/colorbox.css" />
+	<script type="text/javascript">
+		$(document).ready(function() {				
+			/* see here for options: http://adgallery.codeplex.com/documentation */
+		    var galleries = $('.ad-gallery').adGallery({
+    			width: false,
+    			height: false,
+    			cycle: false,
+    			slideshow: { enable: false},
+    			description_wrapper: $('#image_caption'),
+    			hooks: {
+    				displayDescription: function(image) {
+	    				$('#image_caption_text').text(image.title);
+    				},
+    			},
+    			callbacks: {
+    				afterImageVisible: function() {
+    					/* make is so that if the user clicks on the image, he opens the image viewer */
+    					original_image_url = $('.ad-thumb-list li a').get(this.current_index).getAttribute('original_image_url');
+						$(".ad-image, #image_viewer_link").colorbox({iframe:true, width:"80%", height:"80%",
+							href:function(){return "/imageviewer_{{LANGUAGE_CODE}}/?image=" + original_image_url;}
+						});
+    				}	
+    			}
+    		});	
+		    // disable right mouse click
+    		document.oncontextmenu = function() { return false};
+		});
+	</script>
+
+		
+{% endblock js %}
+{% block body_id %}hartakarun_item{% endblock %}
+{% block description %}
+	<p>{{ page.long_title }}</p>  
+{% endblock %}		
+{% block content %}
+    <div class="content">
+    <div class="tabs">
+	    <div class="tab {% ifequal section "introduction" %}selected{% endifequal %}" >
+	    <a href="{% url "hartakarunitem" page.number "introduction" %}">{% trans "Introduction" %}</a>
+	    </div>
+{% if page.scans %}
+	    <div class="tab {% ifequal section "images" %}selected{% endifequal %}" >
+	    <a href="{% url "hartakarunitem" page.number "images" %}">{% trans "Images" %}
+	    </a>
+	    </div>
+{% endif %}
+	    <div class="tab {% ifequal section "transcription" %}selected{% endifequal %}" >
+		    <a href="{% url "hartakarunitem" page.number "transcription" %}">{% trans "Old Dutch Text" %}</a>
+	    </div>
+	    <div class="tab {% ifequal section "translation_id" %}selected{% endifequal %}" >
+	    <a href="{% url "hartakarunitem" page.number "translation_id" %}">{% trans "Indonesian Translation" %}</a>
+	    </div>
+	    <div class="tab {% ifequal section "translation_en" %}selected{% endifequal %}" >
+	    <a href="{% url "hartakarunitem" page.number "translation_en" %}">{% trans "English Translation" %}</a>
+	    </div>
+	    <div class="tab {% ifequal section "metadata" %}selected{% endifequal %}" >
+	    <a href="{% url "hartakarunitem" page.number "metadata" %}">{% trans "Colophon" %}</a>
+	    </div>
+    </div>
+    <div class="tabcontent {{section}}">
+{% ifequal section "introduction" %}
+    <span class="image">
+        {% thumbnail page.image '300x300' as im %}
+             <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+             {% if page.image_caption %}
+             <div class="caption">{{ page.image_caption }}</div>
+             {% endif %}
+        {% endthumbnail %}
+    </span>    
+    {% if page.introduced_by %}
+	<p><b>{% trans "Introduced" %}</b> {{ page.introduced_by }}</p>
+	{% endif %}
+	{% if pdf_link %}
+	<p>
+		{{ pdf_link|safe }}
+	</p>
+    {% endif %}
+	<p>{{ page.introduction|safe }}</p>
+	<p>{{ page.citation|safe }}</p> 
+   <br class="clear" />
+{% endifequal %}
+
+{% ifequal section "images" %}
+<div id="container">
+    <div id="gallery" class="ad-gallery">
+    <div class="ad-nav">
+        <div class="ad-thumbs">
+          <ul class="ad-thumb-list">
+        {% for scan in page.scans.all %}
+        {% thumbnail scan.image '660' as im %}
+	    {% thumbnail scan.image '50' as im_thumb %}
+        <li>
+        <a href="{{ im.url }}" title="{{ scan.image_caption|default:'' }}" 
+        	original_image_url="/image/{{ scan.image.name }}">
+	         <img src="{{ im_thumb.url }}" width="{{ im_thumb.width }}" height="{{ im_thumb.height }}" 
+		         title="{{ scan.image_caption|default:'&nbsp;' }}" longdes="">
+        </a>
+        </li>
+	    {% endthumbnail %}
+	    {% endthumbnail %}
+        {% endfor %} 
+	       <li style="width:60px;height:1px"></li>
+			</ul>
+	</div>      
+	<div id="ad-hartakarun_image">
+		<div id="image_caption" class="caption">
+			<span id="image_caption_text"></span>
+		    <a href="" id="image_viewer_link">{% trans "view image in detail"  %}</a>
+		</div>
+		<div class="ad-image-wrapper small"> </div>
+		</div>
+	    <div class="ad-controls"></div>
+	</div>	
+    </div>
+
+</div>
+{% endifequal %}
+    
+
+  {% ifequal section "transcription" %}
+      {{ page.transcription|safe }}
+  {% endifequal %}
+  {% ifequal section "translation_id" %}
+      {{ page.translation_id|safe }}
+  {% endifequal %}
+  {% ifequal section "translation_en" %}
+      {{ page.translation_en|safe }}
+  {% endifequal %}
+  
+  {% ifequal section "metadata" %}
+    <table  class="table_data no_border">
+        {% for key, value in hartakarun_fields %}
+        <tr>
+        <th style="width:200px">{{ key }}</th> 
+        <td>{{ value|safe }}</td>
+        </tr> 
+        {% endfor %}
+
+     </table>
+                    
+{% endifequal %}
+   <br class="clear" clear="both" />
+   </div>
+    </div>  
+        
+     
+
+{% endblock %}

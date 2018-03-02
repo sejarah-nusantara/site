@@ -1,0 +1,78 @@
+{% extends "admin/base_site.html" %}
+{% block content %}
+<h1>MANAGE RETROBOOKS</h1>
+{% if view.request.REQUEST.message %}
+<ul>
+<li style="font-size: 120%" >
+<em>{{ view.request.REQUEST.message }}</em>
+</li>
+</ul>
+<p>&nbsp;</p>
+{% endif %}
+<h2>Books published in the repository <a href="{{ REPOSITORY_PUBLIC_URL }}/archivefiles">{{REPOSITORY_PUBLIC_URL}}/archivefiles</a>:</h2>
+<p>&nbsp;</p>
+<table>
+<tr>
+<th>Link to book in repository</th>
+<th>EADs</th>
+<th>Info from EAD</th>
+<th>Pagelist</th>
+<th>Link to book in pagebrowser</th>
+<th>Last changed in pagebrowser</th>
+<th>Actions</th>
+</tr>
+{% for archivefile in view.published_archivefiles_from_repo %}
+<tr>
+    <td>
+        <a href="{{ archivefile.URL }}">{{ archivefile.archive_id }}/{{archivefile.archiveFile}}</a>
+            ({{archivefile.number_of_scans}} scans, status: {{archivefile.status }})
+     </td>
+     <td>
+     {{ archivefile.ead_id }}<br />
+     </td>
+     <td>
+     <a href="{{ REPOSITORY_PUBLIC_URL }}lists/get_component_for_viewer?ead_id={{archivefile.ead_id}}&archiveFile={{archivefile.archiveFile}}">info</a><br/>
+     
+     </td>
+     <td>
+     <a href="{{ archivefile.pagelist_url }}">
+     pagelist.xml
+     </a>
+     </td>
+     <td>
+     {% if archivefile.is_published %} 
+        <a href="{{ archivefile.link_to_pagebrowser }}">{{archivefile.link_to_pagebrowser }}</a>
+    {% else %}
+        (not published)
+    {% endif %}
+     </td>
+     <td>
+     	{{ archivefile.pagebrowser_last_changed}}
+     
+     </td>
+     <td>
+     <a href="{% url "sync_archivefiles" %}?publish=1&archivefile={{ archivefile.id }}&ead_id={{archivefile.ead_id| default:""}}&redirect=1">publish/refresh in pagebrowser</a>
+     </td>
+     <td>
+     {% if archivefile.pagebrowser_id in view.pagebrowser_books %} 
+     <a href="{% url "sync_archivefiles" %}?delete=1&archivefile={{ archivefile.id }}&ead_id={{archivefile.ead_id| default:""}}&redirect=1">delete from pagebrowser</a>
+    {% endif %}
+     </td>
+</tr>
+{% endfor %}
+</table>
+
+
+<p>&nbsp;</p>
+<h2>settings</h2>
+<p>&nbsp;</p>
+<table>
+<tr><th>PAGEBROWSER_URL</th><td><a href="{{settings.PAGEBROWSER_URL }}">{{ settings.PAGEBROWSER_URL }}</a></td></tr>
+<tr><th>PAGEBROWSER_ADMIN_URL</th><td><a href="{{settings.PAGEBROWSER_ADMIN_URL }}">{{ settings.PAGEBROWSER_ADMIN_URL }}</a></td></tr>
+<tr><th>PAGEBROWSER_URL (zmi)</th><td><a href="{{settings.PAGEBROWSER_URL }}manage_main">{{ settings.PAGEBROWSER_URL }}manage_main</a></td></tr>
+<tr><th>REPOSITORY_PUBLIC_URL</th><td><a href="{{ settings.REPOSITORY_PUBLIC_URL }}">{{ settings.REPOSITORY_PUBLIC_URL }}</a></td></tr>
+<tr><th>REPOSITORY_URL</th><td><a href="{{ settings.REPOSITORY_URL }}">{{ settings.REPOSITORY_URL }}</a></td></tr>
+<tr><td></td><td><a href="{% url "sync_archivefiles" %}?refresh_all">click to refresh all published archivefiles</a> 
+	[THIS CAN LAST A LONG TIME - please be patient, and do not click a second time]</td></tr>
+</table>
+{% endblock content %}

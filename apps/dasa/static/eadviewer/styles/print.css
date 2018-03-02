@@ -1,0 +1,30 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body {width: 29cm;}
+
+#accessMenu,
+/ *#tree_column, */
+#result_wrapper,
+#ead_search,
+#pagenav
+{
+	display: none !important;
+}
+
+#content_column {
+	margin-left: 10px;
+}
+
+#header h1, 
+#header h2, 
+#header h3,
+#component .head   {
+	color: #000;
+}
+
+#component_breadcrumbs {
+	display:block;
+	margin-bottom: 5px;
+}
+

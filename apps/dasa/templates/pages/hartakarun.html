@@ -1,0 +1,63 @@
+{% extends "basicpage_with_readmore.html" %}
+{% load url from future %}
+{% load thumbnail i18n %}
+{% block js %}
+{{ block.super }}
+{% comment %}
+<!--  timeglider -->
+DISABLED TIMEGLIDER 
+
+{% include "widgets/timeglider_imports.html" %}
+<script>
+   $(document).ready(function () { 
+      var tg1 = $("#timeglider").timeline({
+         "data_source":"/json/timeglider_hartakaruncategory.json/",
+         "min_zoom":15,
+         "max_zoom":100, 
+         "icon_folder":"..",
+         "show_footer":false,
+     });
+   });
+</script> 
+<!--  /timeglider -->
+{% endcomment %}
+
+
+{% endblock js %}
+
+{% block body_id %}hartakarun{% endblock %}
+
+{% block content %}
+{{ block.super }}
+
+<table id="hartakarun_categories_grid" class="table_data showcase">
+	<tr>
+	{% for cat in main_categories %}
+		<th>
+			<a href="{% url SLUG_HARTAKARUN_MAIN_CATEGORY cat.pk %}">
+			{{ cat.name }}
+			 {% thumbnail cat.image_intro '160' as im %}
+			     <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+			{% endthumbnail %}
+			</a>
+		</th>
+	{% endfor %}
+	</tr>        
+    {% for row in categories_grid %}
+    <tr>
+    {% for subcategory in row %}
+    <td class="link_to_category">
+			<a href="{% url "hartakaruncategory" subcategory.pk %}">
+			{{ subcategory.name }}</a>
+			<br>
+			({{ subcategory.print_number_of_articles }})
+	  </td> 
+    {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+{% comment %}    
+<br class="clear" />
+<div id="timeglider"></div>
+{% endcomment %}    
+{% endblock %}

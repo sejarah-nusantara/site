@@ -1,0 +1,12 @@
+{% load localeurl_tags %}
+{% for lang in LANGUAGES %}
+{% ifequal lang.0 LANGUAGE_CODE %}
+    <a href="" class="selected">
+        <img src="{{ STATIC_URL }}images/icon_flags_{{ lang.0 }}.gif" alt="{{ lang.0 }}" title="{{ lang.1 }}" border="0" class="selected" />
+    </a>
+{% else %}
+    <a href="{{ request.path|chlocale:lang.0 }}">
+        <img src="{{ STATIC_URL }}images/icon_flags_{{ lang.0 }}.gif" alt="{{ lang.0 }}" title="{{ lang.1 }}" border="0"  />
+    </a>
+{% endifequal %}
+{% endfor %}

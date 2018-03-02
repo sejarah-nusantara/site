@@ -1,0 +1,37 @@
+{% extends "basicpage.html" %}
+{% load url from future %}
+{% load thumbnail i18n %}
+
+{% comment %}
+XXX: body_id should be changed, but CSS depends on this id
+{% endcomment %}
+{% block body_id %}resolution_subjects{% endblock %}
+
+{% block content %}
+{{ block.super }}
+<div class="alphabet">
+    {% for letter, count in letters %}
+    <a href="{% url SLUG_MARGINALIA_SHIPS %}?first_letter={{ letter }}">
+        <span class="letter">{{letter}}</span>
+        <br>
+        <span class="count">
+        {{ count }}
+        </span>
+    </a>
+    {% endfor %}
+</div>
+<br class="clear" />
+{% for col in vessel_names %}
+	<div class="column">
+	<ul>
+	{% for subject, nr in col %}
+	<li>
+	<a href="{% url SLUG_MARGINALIA_SEARCH %}?vessel_name={{ subject }}&q=">
+	{{ subject }} ({{ nr }})
+	</a>
+	</li>
+	{% endfor %}
+	</ul>
+</div>
+{% endfor %}
+{% endblock %}

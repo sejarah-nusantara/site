@@ -1,0 +1,48 @@
+{% extends "basicpage.html" %}
+{% load localeurl_tags i18n thumbnail admin_urls %}
+
+{% block content %}
+{{ block.super }}
+<table class="table_data hartakarun-articles">
+        <tr class="navigation">
+            <td colspan="4">
+            {% include "widgets/paginator_navigation.html"%}
+         </tr>
+<tr class="headers">
+    <th><a href=".?{{ qs.order_by_release_date }}">{% trans "Release date" %}</a></th>
+    <th><a href=".?{{ qs.order_by_number }}">{% trans "Number" %}</a></th>
+    <th><a href=".?{{ qs.order_by_short_title }}">{% trans "Title" %}</a></th>
+    <th><a href=".?{{ qs.order_by_date_on_timeline }}">
+    {{ field_date_on_timeline.verbose_name }}
+    </a> </th>
+    <th><a href=".?{{ qs.order_by_hartakaruncategory__name }}">
+    {% trans "Category" %}</a></th>
+</tr>
+{% for article in paginator_page.object_list %}
+
+<tr>
+    <td><a href="{% url "hartakarunitem" article.number %}">{{ article.release_date|default:"" }}</a></td>
+    <td>{{ article.number }}</td>
+    <td>
+        <a href="{% url "hartakarunitem" article.number %}">
+        {% thumbnail article.image '100x100' as im %}
+         <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" style="float:right;margin-left:10px;">
+        {% endthumbnail %}
+        <span class="title">
+        {{ article.title }}
+        </span>
+        <br>
+        {{ article.long_title }}
+        </a>
+        <br>
+        {{ article.link_to_pdf|safe }}
+        
+            
+    </td>
+    <td><a href="{% url "hartakarunitem" article.number %}">{{ article.date_on_timeline|default:"" }}</a></td>
+    <td><a href="{% url "hartakaruncategory" article.hartakaruncategory.pk %}">{{ article.hartakaruncategory }}</a></td>
+
+ </tr>
+{% endfor %}
+</table>
+{% endblock %}

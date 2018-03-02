@@ -1,0 +1,94 @@
+[circus]
+# statsd = 1
+httpd = 1
+check_delay = 5
+endpoint = ipc:///${buildout:directory}/var/circus/endpoint
+pubsub_endpoint = ipc:///${buildout:directory}/var/circus/pubsub
+stats_endpoint = ipc:///${buildout:directory}/var/circus/stats
+httpd_port = ${ports:circus_httpd}
+
+
+[watcher:pagebrowser]
+# setting cmd= bin/pagebrowser fg on production makes
+# pagebrowser use 100% consistently. 
+# using bin/pagebrowser start makes circus useless when trying to stop 
+# the process. Some solution needs to be found (probably zope-wsgi)
+cmd = bin/pagebrowser start
+numprocesses =1 
+
+# will push in django.log the stream every 300 ms
+stdout_stream.class = FileStream
+stdout_stream.filename = ${buildout:directory}/var/log/pagebrowser_stdout.log
+
+# optionally rotate the log file when it reaches 10 Mb 
+# and save 5 copied of rotated files
+stdout_stream.max_bytes = 10485800
+stdout_stream.backup_count = 5
+stdout_stream.class = FileStream
+
+# will push in django.log the stream every 300 ms
+stderr_stream.class = FileStream
+stderr_stream.filename = ${buildout:directory}/var/log/pagebrowser_stderr.log
+
+# optionally rotate the log file when it reaches 10 Mb 
+# and save 5 copied of rotated files
+stderr_stream.max_bytes = 10485800
+stderr_stream.backup_count = 5
+stderr_stream.class = FileStream
+    
+;
+; # the django process is not controlled by circus, but by apache using mod_wsgi
+;    [socket:website]
+;    host = 127.0.0.1
+;    port = ${ports:django} 
+;    
+;    
+;    [watcher:website]
+;    cmd = bin/chaussette --fd $(circus.sockets.website) wsgi.application 
+;    use_sockets = True
+;    # we need two processes to avoid race conditions when syncing archive files
+;    # (a problem that needs to be resolved)
+;    # having >1 process works around this, but we need to check if this does not lead to other problems
+;    numprocesses = 2
+;    
+;    # will push in django.log the stream every 300 ms
+;    stdout_stream.class = FileStream
+;    stdout_stream.filename = ${buildout:directory}/var/log/website_stdout.log
+;    
+;    # optionally rotate the log file when it reaches 10 Mb 
+;    # and save 5 copied of rotated files
+;    stdout_stream.max_bytes = 10485800
+;    stdout_stream.backup_count = 5
+;    stdout_stream.class = FileStream
+;    
+;    
+;    # will push in django.log the stream every 300 ms
+;    stderr_stream.class = FileStream
+;    stderr_stream.filename = ${buildout:directory}/var/log/website_stderr.log
+;    
+;    # optionally rotate the log file when it reaches 10 Mb 
+;    # and save 5 copied of rotated files
+;    stderr_stream.max_bytes = 10485800
+;    stderr_stream.backup_count = 5
+;    stderr_stream.class = FileStream
+;    
+;    [env:website]
+;    PYTHONPATH =  ${buildout:directory}
+;    DJANGO_SETTINGS_MODULE = project.settings_local
+;
+
+[watcher:solr]
+cmd = java -Djava.security.egd=file:/dev/urandom -jar start.jar 
+working_dir = ${buildout:parts-directory}/solr 
+
+# will push in django.log the stream every 300 ms
+stdout_stream.class = FileStream
+stdout_stream.filename = ${buildout:directory}/var/log/solr.log
+
+# optionally rotate the log file when it reaches 10 Mb 
+# and save 5 copied of rotated files
+stdout_stream.max_bytes = 10485800
+stdout_stream.backup_count = 5
+stdout_stream.class = FileStream
+
+

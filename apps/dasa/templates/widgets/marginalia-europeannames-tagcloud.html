@@ -1,0 +1,9 @@
+{% load url from future %}
+{% load i18n %}
+<h2>{% trans "European Names" %}</h2>
+<div  id="tagcloud">
+{% for tag, font_size in tags_europeannames %}
+<a href="{% url SLUG_MARGINALIA_SEARCH %}?q=&european_name={{ tag }}" style="font-size:{{ font_size }}px">{{ tag }}</a>
+{% endfor %}
+</div>
+<a href="{% url SLUG_MARGINALIA_EUROPEANNAMES %}" class="link_to_subjects">{% trans "all European names" %}</a>

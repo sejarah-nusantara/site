@@ -1,0 +1,117 @@
+{% extends "browse-and-search-template.html" %}
+{% load thumbnail i18n highlight snippet %}
+{% block js %}
+{{ block.super }}
+<style>
+.map_canvas {
+    width: 200px;
+    height: 100px;
+    background-color : #ccc;
+}
+</style>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5DeY8shJrwMsdRHX6AMaIfs-Xdg_71xY"></script>
+<script>
+$(document).ready(function() {
+    $(document).tooltip();
+});
+</script>
+{% endblock %}
+
+{% block search_form %}
+<div id="search_container">
+    <form method="get" action="." id="search-form" class="horizontal-form">
+        <ul>
+            {{ form.as_ul }}
+            <li>
+                <input type="submit" value="{% trans "Search" %}">
+                <input type="reset" value="{% trans "Reset" %}"
+                    onclick="frm=$(this).parents('form:first');resetForm(frm);frm.submit();return false;" >
+            </li>
+        </ul>
+   </form>
+</div>
+
+<p>
+{% if query_prettyprinted %}
+    {% trans "You searched for" %}: {{ query_prettyprinted|safe }}.
+    {% with paginator_page.paginator.count as count %}
+        {% blocktrans  %}We found {{ count }} results{% endblocktrans %}.
+    {% endwith %}
+{% endif %}
+</p>
+{% endblock search_form %}
+
+{% block headers %} 
+<div class="alphabet">
+    {% for letter, count in letters %}
+    <a href="{% url SLUG_DIPLOMATICLETTERS_LOCATIONS %}?first_letter={{ letter }}">
+        <span class="letter">{{letter}}</span>
+        <br>
+        <span class="count">
+        {{ count }}
+        </span>
+    </a>
+    {% endfor %}
+</div>
+<br class="clear" />
+    <tr class="headers"> 
+        <th>
+            <a href=".?{{ qs.order_by_city_exact }}">
+            {% trans "Place" %}
+            </a>
+        </th>
+        <th>
+        </th>
+     
+        <th>
+            <a href=".?{{ qs.order_by_number_of_letters }}">
+            {% trans "Number of letters" %}
+            </a>
+        </th>
+        <th>
+            {% trans "Location" %}
+        </th>
+    </tr>
+{% endblock headers %} 
+
+
+{% block result_row %}
+    <tr {% ifequal selected_order result.object.id %}class="selected"{% endifequal %}> 
+        <td>
+            <a href="{% url SLUG_DIPLOMATICLETTERS_SEARCH %}?location={{ result.object.city }}">
+            {{ result.object.city }}
+            </a>
+        </td>
+        <td>
+           {{ result.object.specifications_without_city }}
+        </td>
+        <td>
+        {{ result.object.number_of_letters }} 
+        </td>
+        <td>
+        <div id="map_canvas_{{result.object.pk}}" class="map_canvas"></div>
+        <script>
+
+  function initialize() {
+    var mapCanvas = document.getElementById('map_canvas_{{result.object.pk }}');
+    var latlng = new google.maps.LatLng({{result.object.latitude_as_string}}, {{result.object.longitude_as_string}});
+    var mapOptions = {
+      center: latlng,
+      zoom: 6,
+      mapTypeId: google.maps.MapTypeId.TERRAIN,
+      disableDefaultUI: true
+    }
+    var map = new google.maps.Map(mapCanvas, mapOptions);
+    var marker = new google.maps.Marker({
+      position: latlng,
+      map: map,
+    });
+  
+  }
+  google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+        </td>
+    </tr>
+{% endblock %}
+ 
+ 

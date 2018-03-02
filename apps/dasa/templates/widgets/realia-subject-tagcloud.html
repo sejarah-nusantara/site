@@ -1,0 +1,8 @@
+{% load url from future %}
+{% load i18n %}
+<div  id="tagcloud">
+{% for subject, font_size in tags %}
+<a href="{% url SLUG_REALIA_SEARCH %}?q=&subject={{ subject }}" style="font-size:{{ font_size }}px">{{ subject }}</a>
+{% endfor %}
+</div>
+<a href="{% url SLUG_REALIA_SUBJECTS %}" class="link_to_subjects">{% trans "all subjects" %}</a>

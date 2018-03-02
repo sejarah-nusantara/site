@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load thumbnail i18n %}
+
+{% block content %} 
+{{ block.super }}
+<table class="table_data">
+    {% for page in items %}
+    <tr>
+        <td style="width:100px">
+ 	        {% thumbnail page.image_description '99x80'  crop="center" as im %}
+	        <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+	        {% empty %} 
+	        {% endthumbnail %}
+        </td>
+        <td>
+          <p>
+            <a href="{% url "news" page.id %}">
+              <span class="title">
+                {{ page.date }}:
+                {{ page.title }}
+              </span>
+            <br>
+             {{ page.description|safe }}
+            </a>  
+          </p>
+          <a href="{% url "news" page.id %}" style="float:right;position:relative;bottom: 0px;">{% trans "read more" %}...</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

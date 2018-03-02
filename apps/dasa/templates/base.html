@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+{% load localeurl_tags i18n thumbnail admin_urls %}
+<html xml:lang="nl" xmlns="http://www.w3.org/1999/xhtml" lang="nl">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="shortcut icon" href="{{STATIC_URL}}images/favicon.ico">
+    <title>{% block head_title %}{{ page.title }}{% endblock %} :: Sejarah Nusantara</title>
+    <meta name="keywords" content="{{ meta_keywords }}" />
+    <meta name="description" content="{{ meta_description }}" />
+    {% block css %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/struct.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/dasa.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/print.css" type="text/css" media="print">
+    <!--[if IE]>
+        <link rel="stylesheet" href="{{ STATIC_URL}}css/ie.css" type="text/css" media="screen" />
+        <![endif]-->{% load localeurl_tags i18n thumbnail %}
+    <!--[if lt IE 8]>
+    <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE8.js"></script>
+    <![endif]-->
+    {% endblock %}
+
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery-ui.js"></script>
+    <link rel="stylesheet" href="{{ STATIC_URL }}js/jquery-ui.css" />
+    <script>
+    function openPageBrowser(pb_url) {
+      {% if user.is_authenticated %}
+        // the user is authenticated, so we go immediately to the pagebrowser
+        window.open(pb_url, '_pagebrowser');
+      {% else %}
+        // unauthenticated users are directed to the login page
+        // (which will then forward them to the pagebrowser)
+        // var next_url = pb_url;
+        var next_url = window.location.href;
+        window.open('/accounts/signin/?next=' + next_url, '_self')
+      {% endif %}
+      return false;
+    };
+    </script>
+    {% block js %}
+    {% endblock js %}
+  </head>
+<body id="{% block body_id %}{% endblock %}">
+<div id="wrapper">
+{% block body %}
+
+    <a name="pageTop" id="pageTop"></a>
+
+    <div id="print_logo"><img src="{{ STATIC_URL }}images/logo.png" alt="" border="0" /></div>
+
+    <div id="header_bg"></div>
+
+    <!-- pageWrapper -->
+    <div id="pageWrapper">
+            <div id="content_gradient"></div>
+        <!-- header row -->
+        <div id="headerRow">
+        {% include "widgets/header.html" %}
+        </div>
+        <!-- content row -->
+        <div id="contentRow">
+            <div id="contentWrapper">
+                <!-- left column -->
+                <div id="left_column">
+                    {% include "widgets/menu.html" %}
+					<div class="clearfix"></div>
+	          	    <div class="sponsors" style="white-space: nowrap;">
+				        <a href="http://www.anri.go.id/index.php">
+                            <img src="{{ STATIC_URL }}images/ANRIcortsLOGOs_part1.png" alt="ANRI" style="width:85px"
+                            /></a><a
+                            href="http://www.cortsfoundation.org/" ><img src="{{ STATIC_URL }}images/ANRIcortsLOGOs_part2.png" alt="The Corts Foundation"  style="width:115px" />
+                        </a>
+			        </div>
+                </div>
+                <!-- content column -->
+                <div id="right_column">
+
+                    <!-- content -->
+                    <div id="content">
+                    {% block breadcrumbs %}
+	                    <div id="breadCrumb">
+	                        <div id="breadCrumb_links">
+	                    	{% trans "you are here" %}:
+	                            &rArr; <a href="{% url "home" %}">{% trans "Home" %}</a>
+	                        {% for name, url in breadcrumbs %}
+	                            &gt;  <a href="{{ url }}">{{ name }}</a>
+	                        {% endfor %}
+	                        </div>
+	                    </div>
+                    {% endblock %}
+
+
+					{% block header %}
+						<h1 id="pageTitle">{% block title %}{{ page.title }}{% endblock %}</h1>
+					{% endblock header %}
+					<div id="description">
+					{% block description %}
+						<div class="image">
+						    {% thumbnail page.image_description '170x150' as im %}
+						         <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+						    {% endthumbnail %}
+						</div>
+						{{ page.description|safe }}
+					{% endblock %}
+					</div>
+					<div class="hr_dotted"></div>
+
+					{% block content %}
+						<div class="content" id="content_block">
+							<div class="scan_preview">
+							    {% thumbnail page.image  '700x500' upscale=false as im %}
+							         <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+							    {% endthumbnail %}
+							</div>
+							{{ page.content|safe }}
+						</div>
+					{% endblock %}
+	            </div>
+
+            <div class="clear"></div>
+            </div> <!-- // contentWrapper -->
+            <div style="height:8em;"></div>
+    </div> <!-- // contentRow -->
+
+    </div>
+    </div>
+    <!-- // pageWrapper -->
+
+    <!-- footer row -->
+    <div id="footerRow">
+        <div id="footer">
+             <ul id="footerLinks">
+            {% for page in footerlinks %}
+                <li><a href="{% url "basicpage" page.slug %}">{{ page.title }}</a></li>
+            {% endfor %}
+            </ul>
+
+        </div>
+    </div>
+    <div id="footer_bg"></div>
+{% endblock body %}
+</div>
+
+{% if google_analytics_id %}
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', '{{ google_analytics_id }}', 'anri.go.id');
+  ga('send', 'pageview');
+
+</script>
+{% endif %}
+</body>
+</html>

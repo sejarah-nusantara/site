@@ -1,0 +1,49 @@
+{% extends "browse-and-search-template.html" %}
+{% load i18n highlight %}
+
+{% block headers %} 
+    <tr class="headers"> 
+        <th style="width:90px">
+            <a href=".?{{ qs.order_by_date }}">
+            {% trans "Date" %}
+            </a>
+        </th>
+        <th style="width:400px">
+            <a href=".?{{ qs.order_by_description }}">
+            {% trans "Description" %}
+            </a>
+        </th>
+        <th style="width:200px">
+            <a href=".?{{ qs.order_by_archive_reference }}">
+            {% trans "Archive Reference" %}
+            </a>
+        </th>
+        <th>
+            <a href=".?{{ qs.order_by_subject }}">
+            {% trans "Subject" %}
+            </a>
+        </th>
+    </tr>
+{% endblock headers %} 
+
+{% block result_row %}
+    <tr {% ifequal selected_order result.order %}class="selected"{% endifequal %}> 
+        <td>
+            {{ result.date|default:"" }}
+        </td>
+        <td>
+            {{ result.description }}
+        </td>
+        <td>
+	        {{ result.link_to_pagebrowser }}
+        </td>
+        
+        <td>
+            <a href="{% url SLUG_REALIA_SEARCH %}?subject={{ result.subject }}"> 
+            {{ result.subject }}
+            </a>
+        </td>
+        </td>
+    </tr>
+{% endblock result_row %}
+ 

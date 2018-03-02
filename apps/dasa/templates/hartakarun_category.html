@@ -1,0 +1,42 @@
+{% extends "basicpage.html" %}
+{% load thumbnail i18n snippet %}
+
+{% block body_id %}hartakarun_category{% endblock %}
+
+{% block content %}
+{{ block.super }}
+
+<table class="table_data">
+{% for item in hartakarun_items %}
+    <tr onclick="window.location='{% url "hartakarunitem" item.number %}';return false; ">
+        <td>
+ 	        {% thumbnail item.image '100x100'  crop="center" as im %}
+	         <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+	        {% endthumbnail %}
+        </td>
+        <td>
+       <a href="{% url "hartakarunitem" item.number %}">
+        <span class="title">
+       {{ item.title }}
+        </span>
+        <br>
+        {% if item.description %}
+        {{ item.description|safe }}
+        <br>
+        {% endif %}
+        <br>
+        {{ item.fields.introduced_by.verbose_name }}: {{ item.fields.introduced_by.value }}
+        <br>
+      {{ item.fields.release_date.verbose_name }}: {{ item.fields.release_date.value|default:"-" }} 
+       
+          </a>  
+        
+       <a style="float:right" href="{% url "hartakarunitem" item.number %}">{% trans "read more" %}...</a>
+            
+        </td>
+    
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

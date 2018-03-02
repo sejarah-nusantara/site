@@ -1,0 +1,34 @@
+{% extends "basicpage.html" %}
+{% load i18n thumbnail %}
+
+{% block content %}
+{% if readmore_buttons %}
+    <div id="content_block" class="content">
+        {% thumbnail page.image '500' upscale=false as im %}
+        <div class="image">
+             <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+             {% if page.image_caption %}
+         	 <div class="caption">{{ page.image_caption|safe }}</div>
+         	 {% endif %}
+        </div>
+        {% endthumbnail %}
+    {{ page.first_paragraphs|safe }}
+    <span id="other_paragraphs" style="display:None">
+    {{ page.other_paragraphs|safe }}
+    </span>
+    {% if page.other_paragraphs %}
+        <p class="readmore">
+        <span id="readmore">
+    	    <a href="" onclick="$('#other_paragraphs').show(500);$('#readmore').hide();$('#hidemore').show();return false" >>> {% trans "read more" %}</a>
+    	</span>
+    	<span id="hidemore" style="display:None">
+    	    <a href="" onclick="$('#other_paragraphs').hide(500);$('#hidemore').hide();$('#readmore').show();return false" ><< {% trans "hide" %}</a>
+    	</span>
+        </p>
+    {% endif %}
+    </div>
+{% else %}
+    {{ block.super }}
+{% endif %}
+{% endblock %}
+ 

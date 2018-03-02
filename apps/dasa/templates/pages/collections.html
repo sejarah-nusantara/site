@@ -1,0 +1,44 @@
+{% extends "basicpage_with_readmore.html" %}
+{% load thumbnail i18n %}
+
+{% block content %}
+{{ block.super }}
+{% comment %}
+Inventory - archive general resolutions
+{% endcomment %}
+<table class="table_data">
+<tr class="headers">
+	<th style="width:140px">{% trans "Inventory Number" %}</th>
+	<th>{% trans "Date period" %}</th>
+	<th colspan="3" style="width:240px">{% trans "Image viewer" %}</th>
+</tr>
+{% for book in books %}
+<tr>
+    <td>{{ book.archiveFile }}</td>
+    <td>{{ book.title }}</td>
+    {% comment %}
+        <td>{{ book.description }}</td>
+    {% endcomment %}
+    <td width="90px">
+        <a href="#" onClick="return openPageBrowser('{{ book.link_to_pagebrowser_id }}')"
+           class="link_to_pagebrowser">{% trans "Indonesian [short]" %}
+	    <img class="icon" src="{{ STATIC_URL }}images/book.png"></img></a>
+    </td>
+    <td width="70px">
+        <a href="#" onClick="return openPageBrowser('{{ book.link_to_pagebrowser_en }}')"
+            class="link_to_pagebrowser">{% trans "English [short]" %}
+	    <img class="icon" src="{{ STATIC_URL }}images/book.png"></img></a>
+    </a></td>
+    <td width="70px">
+        <a href="#" onClick="return openPageBrowser('{{ book.link_to_pagebrowser_nl }}')"
+            class="link_to_pagebrowser">{% trans "Dutch [short]" %}
+	    <img class="icon" src="{{ STATIC_URL }}images/book.png"></img></a>
+    </a>
+    </td>
+</tr>
+
+{% endfor %}
+</table>
+<div class="hr_dotted"></div>
+
+{% endblock %}

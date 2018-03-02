@@ -1,0 +1,28 @@
+{% load i18n %}
+{% if user.is_authenticated %}
+	<li>
+	    <a href="{% url "userena_profile_edit" user.username %}">{% trans "welcome" %} {{ user.first_name }} {{ user.last_name }}</a>
+	</li>
+	<li>
+	    <a href="{% url "userena_signout" %}?next={{ request.path }}">{% trans "sign out" %}</a>
+	</li>
+	{% if admin_link %}
+		{% if perms.dasa.change_basicpage %}
+		<li>
+		    <a href="{{ admin_link }}">{% trans "edit this page" %}</a>
+		</li>
+		{% endif %}
+	{% else %}
+		{% if show_admin_link %}
+		{% if perms.dasa.change_basicpage %}
+		<li><a href="{% url  'admin:dasa_basicpage_change' page.pk %}">
+		{% trans "edit this page" %}</a>
+		</li>
+		{% endif %}
+		{% endif %}
+	{% endif %}
+{% else %}
+	<li>
+       <a href="{% url "userena_signin" %}">{% trans "sign in" %} </a>
+	</li>
+{% endif %}

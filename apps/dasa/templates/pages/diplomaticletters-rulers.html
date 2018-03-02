@@ -1,0 +1,102 @@
+{% extends "browse-and-search-template.html" %}
+{% load thumbnail i18n highlight snippet %}
+{% block js %}
+{{ block.super }}
+
+ <script>
+  $(document).ready(function() {
+    $(document).tooltip();
+  });
+  </script>
+{% endblock %}
+
+
+{% block search_form %}
+<div id="search_container">
+        <form method="get" action="." id="search-form" class="horizontal-form">
+            <ul>
+                {{ form.as_ul }}
+                <li>
+                    <input type="submit" value="{% trans "Search" %}">
+                    <input type="reset" value="{% trans "Reset" %}"
+                      onclick="frm=$(this).parents('form:first');resetForm(frm);frm.submit();return false;" >
+                </li>
+            </ul>
+              
+       </form>
+</div>
+
+<p>
+{% if query_prettyprinted %}
+    {% trans "You searched for" %}: {{ query_prettyprinted|safe }}.
+    {% with paginator_page.paginator.count as count %}
+        {% blocktrans  %}We found {{ count }} results{% endblocktrans %}.
+    {% endwith %}
+{% endif %}
+</p>
+{% endblock search_form %}
+
+{% block headers %} 
+    <div class="alphabet">
+    {% for letter, count in letters %}
+    <a href="{% url SLUG_DIPLOMATICLETTERS_RULERS %}?first_letter={{ letter }}">
+        <span class="letter">{{letter}}</span>
+        <br>
+        <span class="count">
+        {{ count }}
+        </span>
+    </a>
+    {% endfor %}
+    </div>
+<br class="clear" />
+    <tr class="headers"> 
+        <th>
+            <a href=".?{{ qs.order_by_name_modern_exact }}">
+            {% trans "Name" %}
+            </a>
+        </th>
+        <th>
+            {% trans "Alternative names" %}
+        </th>
+        
+        <th style="width:145px">
+            <a href=".?{{ qs.order_by_location }}">
+            {% trans "Location" %}
+            </a>
+        </th>
+        <th style="width:145px">
+            <a href=".?{{ qs.order_by_number_of_letters }}">
+            {% trans "Number of letters" %}
+            </a>
+        </th>
+    </tr>
+{% endblock headers %} 
+
+
+{% block result_row %}
+    <tr {% ifequal selected_order result.object.id %}class="selected"{% endifequal %}> 
+        <td> 
+        <a href="{% url SLUG_DIPLOMATICLETTERS_SEARCH %}?ruler={{ result.object.name_modern }}">
+        {{ result.name_modern }}
+        </a>
+        {{ result.object.period }} 
+        </td>
+        <td>
+        {% for name in result.object.alternativenames %}
+        <a href="{% url SLUG_DIPLOMATICLETTERS_SEARCH %}?ruler={{ result.object.name_modern }}">
+        {{ name }}</a><br>
+        {% endfor%}
+        
+        </td>
+        <td>
+        <a href="{% url SLUG_DIPLOMATICLETTERS_SEARCH %}?location={{ result.object.location }}">
+        {{ result.object.location }} 
+        </a>
+        </td>
+        <td>
+        {{ result.object.number_of_letters }} 
+        </td>
+    </tr>
+{% endblock %}
+ 
+ 

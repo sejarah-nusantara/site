@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>DASA - Scanstore - Viewer</title>
+    <link rel="stylesheet" href="{{ STATIC_URL }}iviewer/jquery/jquery-ui.min.css">
+    <link rel="stylesheet" href="{{ STATIC_URL }}iviewer/styles.css">
+    <link rel="icon" type="image/png" href="{{ STATIC_URL }}iviewer/images/application.png" />
+    <link rel="shortcut icon" type="image/png" href="{{ STATIC_URL }}iviewer/images/application.png" />
+    <script type="text/javascript" src="{{ STATIC_URL }}iviewer/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}iviewer/jquery/jquery-ui.min.js" ></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}iviewer/jquery/jquery.mousewheel.js" ></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}iviewer/jquery/jquery.iviewer.min.js" ></script>
+    <script src="{{ STATIC_URL }}iviewer/pixastic/pixastic.js"></script>
+    <script src="{{ STATIC_URL }}iviewer/pixastic/pixastic.effects.js"></script>
+    <script src="{{ STATIC_URL }}iviewer/pixastic/pixastic.worker.js"></script>
+    <script src="{{ STATIC_URL }}iviewer/scripts.js"></script>
+	<script>
+	$(document).ready(function() {
+		document.oncontextmenu = function() {return false;}
+	})	
+	</script>
+</head>
+<body>
+	<img id="image" />
+	<div id="loader">Laden scan, even wachten aub ...</div>
+	<!-- wrapper div is needed for opera because it shows scroll bars for reason -->
+	<div class="wrapper">
+		<div id="viewer"></div>
+	</div>
+	<div id="controlPanel">
+		<div class="left">
+			<button id="fitButton">Zoom naar passend</button>
+			<button id="zoomOrgButton">Zoom naar volledig</button>
+			<button id="zoomInButton">Zoom in</button>
+			<button id="zoomOutButton">Zoom out</button>
+			<button id="rotateLeftButton">Roteer scan naar links</button>
+			<button id="rotateRightButton">Roteer scan naar rechts</button>
+			<div id="resolutionButton">
+				<input type="radio" id="resolutionButton1" name="resolutionButton" value="1750" checked="checked" /><label for="resolutionButton1">Toon lage resolutie scan [ &plusmn; 2MP ]</label>
+				<input type="radio" id="resolutionButton2" name="resolutionButton" value="3500" /><label for="resolutionButton2">Toon medium resolutie scan [ &plusmn; 8MP ]</label>
+				<input type="radio" id="resolutionButton3" name="resolutionButton" /><label for="resolutionButton3">Toon hoge resolutie scan [ &plusmn; 15MP ]</label>
+			</div>			
+		</div>
+		<div class="right">
+			<span id="filterControl">
+				<input type="checkbox" id="autoFilterButton" name="autoFilterButton" checked="checked" /><label for="autoFilterButton">Aan/uitzetten automatisch filteren</label>
+				<button id="applyButton">Filters toepassen</button>
+			</span>
+			<button id="resetButton">Zet filters terug naar originele scan</button>
+			<input type="checkbox" id="filterPanelButton" name="filterPanelButton" /><label for="filterPanelButton">Open filter paneel</label>
+		</div>
+	</div>
+	<div id="panelIdleText">Filter paneel</div>
+	<div id="panelFailureText">Geen filter</div>
+    <div id="panelFailureIOSText">iOS is not supported</div>
+	<div id="panelProcessingText">Scan verwerken:</div>
+	<div id="panelReplacingText">Scan vervangen...</div>
+	<div id="filterPanel">
+		<div id="progressBar" class="progress"><div class="progress-label">&nbsp;</div></div>
+		<div id="contractSlider" class="slider"><div>Contrast</div></div>
+		<div id="brightnessSlider" class="slider"><div>Belichting</div></div>
+		<div id="hueSlider" class="slider"><div>Tint</div></div>
+		<div id="saturationSlider" class="slider"><div>Verzadiging</div></div>
+		<div id="lightnessSlider" class="slider"><div>Helderheid</div></div>
+		<div id="sharpenSlider" class="slider"><div>Verscherpen</div></div>
+	</div>
+</body>
+</html>

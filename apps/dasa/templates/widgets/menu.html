@@ -1,0 +1,48 @@
+{% load i18n %}
+{% comment %}
+TODO: do this with proper recursion
+{% endcomment %}
+<div id="subNav">
+    <ul>
+        {% for menuitem in menuitems %}
+        <li>
+            <a href="{{ menuitem.get_absolute_url }}"
+                class="{% if menuitem.is_selected %}selected{% endif %}">
+                {{ menuitem.title }}</a>
+            {% if menuitem.show_submenu %}
+            <ul>
+                {% for submenu in menuitem.children %}
+                <li>
+                <a href="{{ submenu.get_absolute_url }}"
+                    class="{% if submenu.is_selected %}selected{% endif %}"
+                >{{ submenu.title }}</a>
+                {% if submenu.show_submenu %}
+                <ul>
+                {% for ssubmenu in submenu.children %}
+                    <li>
+                        <a href="{{ ssubmenu.get_absolute_url }}"
+                            class="{% if ssubmenu.is_selected %}selected{% endif %}"
+                            >{{ ssubmenu.title }}</a>
+                        {% if ssubmenu.show_submenu %}
+        	            <ul>
+        	            {% for sssubmenu in ssubmenu.children %}
+        	                <li>
+            	                <a href="{{ sssubmenu.get_absolute_url }}"
+                	                class="{% if sssubmenu.is_selected %}selected{% endif %}"
+            	                >{{ sssubmenu.title }}</a>
+            	            </li>
+        	            {% endfor %} 
+        	            </ul>
+    	            {% endif %}
+                    </li>
+                {% endfor %} 
+                </ul> 
+                </li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% endfor %}
+        </li>
+    </ul>
+</div>

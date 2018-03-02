@@ -1,0 +1,12 @@
+#!${buildout:directory}/bin/python
+import os
+import requests
+
+url = 'http://127.0.0.1:${ports:pagebrowser}/Control_Panel/Database/main/manage_pack'
+
+data = {'days:float': '0'}
+auth = ${pagebrowser:auth}
+
+print 'opening url...'
+response = requests.post(url, auth=auth, data=data)
+print response

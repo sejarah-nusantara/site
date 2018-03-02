@@ -1,0 +1,8 @@
+<ul>
+
+{% for k, v in page.get_fields %}
+<li>
+{{ k.verbose_name }} : {{ v }}
+</li>
+{% endfor %}
+</ul>

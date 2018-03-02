@@ -1,0 +1,122 @@
+#ead #archives {float: left; width: 200px;}
+
+#ead #inventories {float: left; width: 800px;}
+
+#ead select {width: 300px;}
+
+
+
+
+/* opmaak results */
+#ead #results_wrapper {
+	margin-top: 2em;
+	font-size: 66%;
+	padding-top: 2em;
+	border-top: 2px dotted #8b1f55;	
+}
+
+#ead .result {
+    padding-left : 20px;
+    margin-bottom: 10px;
+}
+
+#ead .result .title {
+	font-weight: normal;
+	font-size : 13px;
+	padding-bottom: 0px;
+	margin-left: -20px;
+}
+#ead .result .title a {
+    font-weight: bold;
+
+    }
+#ead .result .snippet p {
+    margin: 0px;
+    }
+#ead .result .breadcrumbs, 
+#ead .result .breadcrumbs a,
+#ead .result .breadcrumbs span{
+	font-size: .9em;
+	color: #979189;
+}
+
+#ead #results em {
+	color: black;
+	background: yellow;
+}
+
+#ead #numberOfResults { 
+	margin-bottom: 2em;
+	padding-bottom: 2em;
+	border-bottom: 1px solid #999; 
+}
+
+#ead #pager {
+	text-align: center;
+}
+
+#ead #pager .page {
+	padding: 0 5px;
+}
+
+#ead #pager span.page.selected {
+	font-weight: bold;
+}
+
+#ead #results {
+	margin-right: 100px;
+}
+
+#ead #facets {
+	float: right;
+	width: 90px;
+}
+
+#ead #facets h4 {
+	margin-bottom: 3px;
+}
+
+#ead #facets ul  {
+	list-style-type:none;
+	padding: 0;
+	margin: 0;
+}
+
+#ead .tipTip {float: right;}
+
+
+/* browse window */
+#ead table#results {
+	width: 100%;
+}
+
+#ead table#results a {
+	color: #555555;
+}
+
+#ead table#results th.scans {
+	width: 20px;
+}
+
+#ead table#results td.country, table#results td.scans {
+	text-align: center;
+}
+
+#ead th.header {
+	background-image: url(../images/no_sort.png);
+    background-repeat: no-repeat;
+    background-position: center right;
+    padding-right: 20px;
+}
+
+#ead th.header.headerSortUp {
+	background-image: url(../images/desc.png);
+}
+	
+#ead th.header.headerSortDown {
+	background-image: url(../images/asc.png);
+}
+
+#ead .TBL_data td.country {
+	padding: 5px 0 5px 0;
+}

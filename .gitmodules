@@ -1,0 +1,12 @@
+[submodule "src/INGBook"]
+	path = src/INGBook
+	url = ssh://iddesk/opt/repositories/pagebrowser/ingbook.git
+[submodule "src/INGSearch"]
+	path = src/INGSearch
+	url = ssh://iddesk/opt/repositories/pagebrowser/ingsearch.git
+[submodule "src/INGBookService"]
+	path = src/INGBookService
+	url = ssh://iddesk/opt/repositories/pagebrowser/ingbookservice.git
+[submodule "src/INGBookDasa"]
+	path = src/INGBookDasa
+	url = ssh://iddesk/opt/repositories/pagebrowser/ingbookdasa.git

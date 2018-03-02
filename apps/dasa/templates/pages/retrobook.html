@@ -1,0 +1,13 @@
+{% extends "basicpage_with_readmore.html" %}
+{% load thumbnail i18n %}
+
+{% block body_id %}retrobooks_index{% endblock %}
+
+{% block content %} 
+{{ block.super }}
+<div class="book_list">
+{% for book in retrobooks %}
+    {% include "widgets/book_link_with_preview.html" %}
+{% endfor %}
+</div>
+{% endblock %}

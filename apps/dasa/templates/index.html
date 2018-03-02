@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+{% load i18n localeurl_tags thumbnail %}
+{% block css %}
+<link rel="stylesheet" href="{{ STATIC_URL }}/css/home.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="{{ STATIC_URL }}js/nivo-slider/nivo-slider.css" type="text/css" media="screen">
+<link rel="stylesheet" href="{{ STATIC_URL }}js/nivo-slider/themes/dasa/default.css" type="text/css" media="screen">
+{% endblock css %}
+
+{% block js %}
+<script type="text/javascript" src="{{ STATIC_URL }}js/nivo-slider/jquery.nivo.slider.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $(window).resize(function(){
+    $('#frame_container').css({
+     position:'absolute',
+     left: ($(window).width()
+       - $('#frame_container').outerWidth())/2,
+         top: Math.max(($(window).height() - ($('#frame_container').outerHeight() + 100))/2, 0)
+    });
+  });
+  // to initially run the function:
+  $(window).resize();
+});
+</script>
+{% endblock js %}
+<body>
+
+{% block body %}
+<div id="frame_container">
+    <div id="frame_inner_container">
+        <div id="frame">
+            <div id="toolbar">
+        {% for lang in LANGUAGES %}
+    {% ifequal lang.0 LANGUAGE_CODE %}
+        <a href="" class="selected">
+            {{ lang.1 }}
+        <img src="{{ STATIC_URL }}images/icon_flags_{{ lang.0 }}.gif" alt="{{ lang.0 }}" title="{{ lang.1 }}" border="0" class="selected" />
+        </a>
+    {% else %}
+        <a href="{{ request.path|chlocale:lang.0 }}">
+            {{ lang.1 }}
+        <img src="{{ STATIC_URL }}images/icon_flags_{{ lang.0 }}.gif" alt="{{ lang.0 }}" title="{{ lang.1 }}" border="0" class="selected" />
+        </a>
+    {% endifequal %}
+    {% endfor %}
+            </div>
+            <img class="content" src="{{ STATIC_URL }}/images/home/frame_en2.png"/>
+            <div id="frame_content">
+                <div class="slider-wrapper theme-default">
+            <div class="ribbon"></div>
+            <div id="slider" class="nivoslider" style="width:469px;height:277px; border-right:1px solid #c1954a;">
+                {% for item in lightbox_items %}
+	                <a href="{{ item.url }}">
+	                {% thumbnail item.image "469x275" crop="center" as im %}
+					         <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"
+					           title="{{ item.title }}">
+	                {% endthumbnail %}
+	                </a>
+                {% endfor %}
+                     </div>
+        </div>
+            </div>
+            <div id="menu">
+
+                    <ul>
+                    {% for menuitem in home_menuitems %}
+                    <li><a href="{{ menuitem.get_absolute_url }}">{{ menuitem.title }}</a></li>
+                    {% endfor %}
+                    </ul>
+
+            </div>
+            <div id="logo">
+                <img class="content" src="{{ STATIC_URL }}/images/home/logo.png"/>
+            </div>
+            <div id="menu2">
+                     <ul>
+                    {% for menuitem in home_menuitems2 %}
+                    <li><a href="{{ menuitem.get_absolute_url }}">{{ menuitem.title }}</a></li>
+                    {% endfor %}
+                    </ul>
+
+            </div>
+
+        </div>
+    </div>
+    <div id="under">
+        <div id="content">
+	        <p><img class="content" src="{{ STATIC_URL }}images/arsip.png"></p>
+
+            {{ page.content|safe }}
+        </div>
+        <div id="sponsors">
+        <a href="http://www.anri.go.id/index.php">
+           <img src="{{ STATIC_URL }}/images/anri_logo.png" alt="ANRI" />
+       </a>
+       <a href="http://www.cortsfoundation.org/">
+           <img src="{{ STATIC_URL }}/images/corts_logo.png" alt="The Corts Foundation" />
+       </a>
+        </div>
+        <div id="footer">
+            <ul id="footerLinks">
+                {% include "widgets/login_and_edit.html" %}
+                {% for p in footerlinks %}
+                    <li><a href="{% url "basicpage" p.slug %}">{{ p.title }}</a></li>
+                {% endfor %}
+                </ul>
+        </div>
+
+    </div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+        $('#slider').nivoSlider({
+            effect: 'fade',
+            pauseTime: 12000
+            });
+    });
+</script>
+
+{% endblock body %}
+</body>
+</html>

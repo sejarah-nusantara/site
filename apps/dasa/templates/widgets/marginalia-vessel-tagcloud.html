@@ -1,0 +1,9 @@
+{% load url from future %}
+{% load i18n %}
+<h2>{% trans "Ship Names" %}</h2>
+<div  id="tagcloud">
+{% for tag, font_size in tags_vessels %}
+<a href="{% url SLUG_MARGINALIA_SEARCH %}?q=&vessel_name={{ tag }}" style="font-size:{{ font_size }}px">{{ tag }}</a>
+{% endfor %}
+</div>
+<a href="{% url SLUG_MARGINALIA_SHIPS %}" class="link_to_subjects">{% trans "all ship names" %}</a>

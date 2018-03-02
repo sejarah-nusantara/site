@@ -1,0 +1,21 @@
+{% load i18n humanize %}
+<div>
+    {{ paginator.count|intcomma }} {% trans "results found" %} |
+    {% blocktrans with page_number=paginator_page.number number_of_pages=paginator_page.paginator.num_pages %}page {{ page_number }} of {{ number_of_pages }}{% endblocktrans %}
+        |
+	    {% if paginator_page.has_previous or paginator_page.has_next %}
+        {% if qs_first %}   &laquo; <a href="?{{ qs_first }}">{% trans "first" %}</a>| {% endif %}
+        {% if paginator_page.has_previous %}<a href="?{{ qs_prev }}">{% endif %}&laquo; {% trans "previous" %}{% if paginator_page.has_previous %}</a>{% endif %}
+        |
+
+    {% if paginator.num_pages > 1 %}
+    <input type="text"
+        onchange="window.location='.?{{qs_nopage}}&page=' + this.value;return false;"
+        style="width:4em"
+        value="{{paginator_page.number}}">
+    |
+    {% endif %}
+        {% if paginator_page.has_next %}<a href="?{{ qs_next }}">{% endif %}{% trans "next" %} &raquo;{% if paginator_page.has_next %}</a>{% endif %}
+        {% if qs_last %} | <a href="?{{ qs_last }}">{% trans "last" %} &raquo;</a> {% endif %}
+    {% endif %}
+</div

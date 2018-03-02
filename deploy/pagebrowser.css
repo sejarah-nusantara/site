@@ -1,0 +1,12 @@
+#book_logo img {
+  height: 110px;
+}
+
+#book_logo {
+    position:absolute;
+}
+
+#navigationPane {
+	background-image : url('http://dasa10.gerbrandy.com/static/images/canvas_bg2.jpg');
+	background-repeat: repeat-x;
+}

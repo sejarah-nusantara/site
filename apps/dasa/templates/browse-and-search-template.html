@@ -1,0 +1,75 @@
+{% extends "basicpage_with_readmore.html" %}
+{% comment %}
+
+    THIS TEMPLATE SERVES AS A MASTER TEMPLATE FOR THE SEARCH ADN BROWSE PAGES OF
+        REALIA
+        MARGINALIA
+        DIPLOMATIC_LETTERS
+        
+{% endcomment %}
+
+{% load url from future %}
+{% load thumbnail i18n highlight %}
+{% block js %}
+{{ block.super }}
+<script>
+function resetForm($form) {
+    $form.find('input:text, input:password, input:file, select').val('');
+    $form.find('input:radio, input:checkbox')
+         .removeAttr('checked').removeAttr('selected');
+};
+</script>
+{% endblock js %}
+
+{% block body_id %}realia_browse{% endblock %}
+
+{% block content %}
+<div class="content">
+
+{{ block.super }}
+
+{% block search_form %}
+{% endblock search_form %}
+
+<div id="search_results">
+{% if paginator_page.object_list %} 
+    <table class="table_data">
+        <tr class="navigation">
+            <td colspan="4">
+            {% include "widgets/paginator_navigation.html"%}
+            </td>
+         </tr>
+        {% block headers %} 
+        <tr class="headers"> 
+            <th> HEADER1 </th>
+            <th> HEADER2 </th>
+        </tr>
+        {% endblock headers %} 
+    
+    {% for result in paginator_page.object_list %}
+        {% block result_row %}
+        <tr>
+            <td> {{ result }} </td>
+            <td> {{ result }} </td>
+        </tr>
+        {% endblock %}
+    {% empty %}
+        <p>{% trans "No results found"  %}.</p>
+    {% endfor %}
+         <tr class="navigation">
+            <td colspan="4">
+            {% include "widgets/paginator_navigation.html"%}
+            </td>
+        </tr>
+    </table>
+{% else %}
+    <p>{% trans "No results found"  %}.</p>
+{% endif %} 
+</div>
+<br class="clear" />
+</div> <!--  endblock content -->
+
+{% block below_results %}
+{% endblock below_results %}
+
+{% endblock content %}

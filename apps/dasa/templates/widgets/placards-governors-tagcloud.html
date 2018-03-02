@@ -1,0 +1,8 @@
+{% load url from future %}
+{% load i18n %}
+<div  id="tagcloud">
+{% for tag, font_size in tags_governors %}
+<a href="{% url SLUG_PLACARD_SEARCH %}?governor={{ tag }}" style="font-size:{{ font_size }}px">{{ tag }}</a>
+{% endfor %}
+</div>
+<a href="{% url SLUG_PLACARD_GOVERNORS %}" class="link_to_subjects">{% trans "all governors" %}</a>

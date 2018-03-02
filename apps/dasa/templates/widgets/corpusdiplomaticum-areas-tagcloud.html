@@ -1,0 +1,8 @@
+{% load url from future %}
+{% load i18n %}
+<div  id="tagcloud">
+{% for tag, font_size in tags_areaNames %}
+<a href="{% url SLUG_CORPUSDIPLOMATICUM_CONTRACTS_SEARCH %}?q=&areaName={{ tag }}" style="font-size:{{ font_size }}px">{{ tag }}</a>
+{% endfor %}
+</div>
+<a href="{% url SLUG_CORPUSDIPLOMATICUM_CONTRACTS_AREAS %}" class="link_to_subjects">{% trans "all areas" %}</a>

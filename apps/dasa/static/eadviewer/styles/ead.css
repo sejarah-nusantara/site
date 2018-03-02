@@ -1,0 +1,360 @@
+/* ============================================ */
+/* EAD styles                                   */
+/* Content styles                               */
+/* Medium: screen                               */
+/* ============================================ */
+
+@charset "UTF-8";
+
+
+/* ============================================ */
+/* EAD styles                                   */
+/* structural styles                            */
+/* Medium: screen                               */
+/* ============================================ */
+
+@charset "UTF-8";
+#ead { 
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight : normal;
+	color: #000;
+	background-color: #fff;
+	
+	line-height: 1.4em;
+}
+
+/* non-layout div's */
+
+#ead #accessMenu { position: absolute; }
+#ead #accessMenu a {
+	position: absolute;
+	width: 30em;
+	left: -200em;
+}
+#ead #accessMenu a:active, 
+#ead #accessMenu a:focus {
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 100;
+	color: red;
+	background: white;
+}
+
+/* ======================================== */
+/* layout div's                             */
+/* ======================================== */
+
+#ead #page_wrapper {
+	position: relative;
+	font-size: 1.2em;
+}
+
+/*
+#ead #tree_column {
+
+	float: left;
+	overflow: hidden;
+    padding : 0px;
+    padding-right : 20px;
+    width: 100%;
+}
+*/
+
+#ead #pageFooter {
+	clear: both;
+	margin: 2em;
+	font-size: .9em;
+	color: #777;
+	text-align: center;
+	border-top: 1px dotted #dddad8;
+}
+
+#ead #numberOfResults { 
+	padding-bottom: 2px;
+}
+
+#ead #result_wrapper {
+	margin:0;
+	background:#fff;
+	overflow:hidden;
+	padding-left: 10px;
+}
+#ead #ead_search {
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+
+#ead #ead_search input#contains_text {
+	border: 1px solid #777;
+	height: 1.3em;
+	width:80%;
+}
+
+#ead_component {
+	margin-left: 0px;
+}
+
+/* ========== header ========== */
+
+#ead #header {
+	border-bottom: 1px dotted #dddad8;
+	margin: 0 1em 1em 1em;
+}
+
+#ead #header h1, 
+#ead #header h2, 
+#ead #header h3,
+#ead #component .head   {
+	color: #8b1f55;
+}
+
+#ead #header_EAD_nr { font-size: 1.2em; }
+
+#ead #header h1 {
+	margin: 10px 0 0 0;
+	padding: 0;
+	font-size: 2em; 
+	font-weight: 200; 
+	letter-spacing: 1px;
+}
+
+#ead #header h2 {
+	font-size: 1.2em; 
+	margin-bottom: 0;
+}
+
+#ead #header h3 {
+	font-size: 1.2em; 
+	margin-top: 0;
+}
+
+#ead #component {
+	min-height: 400px;
+}
+
+#ead .busy {
+	background: url(../images/wait.gif) no-repeat;
+	background-size: 40px 40px;
+	height: 40px;
+	width: 40px;
+	margin: 10px;
+}
+	
+#ead #component a:link, #component a:visited {
+	color: #777; 
+	text-decoration: none;
+}
+
+#ead #component a:hover {
+	color: #000; 
+	text-decoration: underline;
+}
+
+#ead .component_breadcrumbs {
+	display:none;
+}
+
+#ead #component .scans {
+	display: none;
+	min-width: 16px;
+	min-height: 16px;
+	background: url(../images/scans.gif) no-repeat;
+}
+
+#ead .custodhist p {
+   margin: 0em;
+   line-height: normal; 
+    
+}
+#ead .custodhist .header ,
+#ead .custodhist p {
+    font-weight: normal; 
+    display: inline;
+    }
+
+#ead .component_date {
+    margin-top: .3em;
+    margin-bottom: .3em;
+    }
+#ead #component .paragraph {margin-bottom:1em;}
+
+#ead .children .child {margin-top: 10px;}
+
+#ead .title,  
+#ead .title a {
+    font-weight: bold;
+    }
+#ead .content {padding-left: 20px;}
+
+#ead .content p {
+    padding-bottom: 5px;
+    margin-bottom : 0px;
+    margin-top: 0px;
+    }
+
+#ead #component .head {
+	margin-bottom: 1em;
+	font-weight: bold; 
+	font-size: 140%;
+}
+
+#ead .childNodes {
+	margin-top: 20px;
+	padding-top: 20px;
+	border-top: 1px dotted #dddad8;	
+}
+#ead .childNodes a {
+	display: block;
+	width: 30%;
+	float: left;
+	padding: 3px 10px 3px 0;
+}
+
+#ead #pagenav {
+	clear: both;
+	width: 100%;
+	margin-top: 2em;
+	letter-spacing: 1px;
+	border-top: 1px solid #999;
+}
+
+#ead #pagenav #previous a:link, 
+#ead #previous a:visited {
+	float: left;
+	padding: .5em 0 .5em 1em;
+	font-weight: bold;
+	color: #8b1f55;
+}
+
+#ead #pagenav #next a:link, 
+#ead #pagenav #next a:visited {
+	float: right;
+	padding: .5em 1em .5em 0;
+	font-weight: bold;
+	color: #8b1f55;
+}
+
+#ead #pagenav #previous a:hover,
+#ead #pagenav #next a:hover {
+	color: #000;
+	text-decoration: underline;
+}
+#ead #search_wrapper {display:none;}
+
+#ead #tabs {margin-bottom: 10px;}
+#ead #tabs a {
+	border: 1px solid #777;
+	width: 40%;
+	display: block;
+	float: left;
+	text-align: center;
+	padding: 2px 5px;
+	text-decoration: none;
+	color: black;
+	background: #fff;
+}
+
+#ead #tabs a:hover,
+#ead #tabs a.selected {
+	font-weight: bold;
+	background: #8B1F55;
+	color: #fff;
+}
+#ead #tabs {position: relative; height: 20px;}
+#ead .tab.toc {
+}
+#ead .tab.search {
+}
+/* TREE */
+#ead .jstree a { white-space:normal !important; height: auto !important; padding:1px 2px; } 
+#ead .jstree li > ins { vertical-align:top; }
+#ead .jstree .jstree-hovered, .jstree a .jstree-clicked { border:0; }
+#ead .slide-out-div {
+    width: 500px;
+    background-color: #fff;
+    border: 1px solid #8B1F55;
+    height: auto !important;
+    padding: 5px;
+}      
+#ead .jstree-classic .jstree-no-dots .jstree-leaf > ins {background: url(../images/square.png) no-repeat 50% 50% !important;}
+
+
+#ead .component_viewer #ead_tree  {
+       float: left;
+}
+#ead .component_viewer #component  {
+       width: 500px; 
+       float: left;
+}
+
+
+#ead .tab.toc {
+    left : 0px;
+    
+}
+
+#ead #tabs a {
+    width : 55px;
+}
+
+#ead #ead_search {
+    margin-left : 0px;
+}
+
+#ead #ead_title {
+    font-size : 1.5em;
+}
+#ead #ead_header #institution_description, 
+#ead #ead_header #archive {
+    padding-bottom : 0px;
+}
+
+#ead .component_viewer .child {
+    position : relative;
+}
+
+#ead .link_to_pagebrowser {
+    margin-top: 2px;
+}
+#ead .link_to_pagebrowser.icon {
+    padding-left: 20px;
+    min-height: 20px;
+    background: url('/static/images/book.png') no-repeat left;
+}
+
+#ead .component_viewer .has_link_to_pagebrowser .title,
+#ead .component_viewer .has_link_to_pagebrowser .content {
+    padding-right: 100px;
+    
+}
+#ead .component_viewer .has_link_to_pagebrowser {
+    min-height: 97px;
+}
+
+#ead .jstree .content {
+    white-space: normal; 
+}
+#ead .jstree li.content ins.jstree-icon {
+    display: None;
+    }
+
+#ead .component ,
+#ead .children {
+    margin-left : 18px; 
+}
+
+#ead .jstree-last > .component ,
+#ead .jstree-last > .children {
+   margin-left : 0px; 
+}
+
+
+#ead .jstree-classic .jstree-leaf .jstree-hovered {
+    background-color: transparent; 
+} 
+
+
+#ead a {
+    text-decoration: None; 
+}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load url from future %}
+{% load thumbnail i18n %}
+{% block body_id %}resolution_subjects{% endblock %}
+{% block content %}
+{{ block.super }}
+<div class="alphabet">
+{% for letter, count in letters %}
+<a href="{% url SLUG_REALIA_SUBJECTS %}?first_letter={{ letter }}">
+<span class="letter">{{letter}}</span>
+<br>
+{{ count }}
+</a>
+{% endfor %}
+</div>
+<br class="clear" />
+{% for col in subjects %}
+	<div class="column">
+	<ul>
+	{% for subject, nr in col %}
+	<li>
+	<a href="{% url SLUG_REALIA_SEARCH %}?subject={{ subject }}&q=">
+	{{ subject }} ({{ nr }})
+	</a>
+	</li>
+	{% endfor %}
+	</ul>
+</div>
+{% endfor %}
+{% endblock %}

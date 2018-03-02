@@ -1,0 +1,334 @@
+/************************************************/
+/* TANAP Databases EAD inventories        			*/
+/* Website styles                               */
+/* Medium: screen                           		*/
+/* Structural styles: main content          		*/
+/* -------------------------------------------- */
+/* Copyright Hic et Nunc            						*/
+/* www.hicetnunc.nl - info@hicetnunc.nl         */
+/* Date: October 2004, Februari 2005            */
+/************************************************/
+
+/************************************************/
+/*                 HTML-styles                  */
+/************************************************/
+
+.finding_aids_tools {
+	margin: 1em;
+	border-bottom: 1 px solid #c1954a;
+}
+
+
+/*
+a:link, a:visited {
+	color: #777; 
+	text-decoration: none;
+}
+a:hover {
+	color: #000; 
+	text-decoration: underline;
+}
+*/
+
+br {clear:both;}
+
+table {
+	font-size: 100%;
+}
+
+td {
+	vertical-align: top;
+}
+
+img {
+	margin-right: 5px
+}
+
+hr {
+	clear: both;
+	margin: 0;
+	font-size: 1px;
+	line-height: 1px;
+	height: 1px;
+	border-top: 1px solid #999;
+}
+
+/************************************************/
+/*            COMMON Custom-styles              */
+/************************************************/
+
+/* Upper Inventory title: screen mode: invisible */
+.titleproper {
+  clear:both;
+	margin-bottom: 1em;
+	font-size: 1.6em;
+	font-weight: normal; 
+	color: #c1954a;
+	letter-spacing: 0.4px;
+} 
+
+/* Upper nav: breadcrumb path-items */
+.path {
+	margin-top: 5px; 
+	margin-bottom: 5px;
+	font-size: 90%;
+}
+
+/* Common paragraph style */
+#description .paragraph {margin: 1em 0 1em 0;}
+/* Common paragraph style: italic */
+#description .paragraph .emphitalic {color: #000; font-style:italic;}
+/* Embedded "title" class in paragraph style: italic */
+#description .paragraph .title {font-style:italic;}
+.paragraph {margin-bottom:1em;}
+
+/* Content: make sure to display as block/paragraph */
+#descgrp {clear: both;}
+
+.num {
+	list-style-type: none;
+}
+
+/* __________ Hyperlinks __________ */
+.link a:link, .link a:visited {
+	margin-top: .2em;
+	color: #777;
+	text-decoration: none;
+}
+.link a:hover {
+	color: #000;
+	text-decoration: underline;
+}
+
+/* Links for "Archiefbestanddelen": have a left-margin */
+#series .link a , #subseries .link a, #subgrp .link a {
+	display: block;
+	margin-left: 7em;
+}
+
+/* __________ Headings __________ */
+
+/* Page heading: "Archief" */
+.head {
+	margin-top: 1em;
+	margin-bottom: 1em;
+	padding-top: 1em;
+	font-weight: bold; 
+	font-size: 140%;
+	color: #003366;
+	border-top: 1px solid #999;
+}
+
+/* Footnote embedded in heading */
+.head .noteref a {
+	font-size: 70%;
+	font-weight: normal;
+	color: #666;
+}
+
+/* Page heading: "Archiefbestanddelen": Start page: no border-top */
+#c01 .head {
+	margin-top: 0;
+	margin-bottom: 1em;
+	padding-top: 0;
+	font-weight: bold; 
+	font-size: 140%;
+	color: #003366;
+	border-top: none;
+}
+
+/* Subheading of .chpdescgrp .head */
+.chpdescription .head {
+	font-size: 120%;
+}
+
+/* Page heading: "Archiefbestanddelen" */
+#main {
+	margin-top: 1em;
+	padding-left: 5em;
+	margin-bottom: 1em;
+	padding-top: 1em;
+	font-weight: bold; 
+	font-size: 140%;
+	color: #003366;
+	border-top: 1px solid #999;
+}
+
+/* __________ Table styles __________ */
+
+#chronlist table {width: 100%;}
+#chronlist .th {font-weight: bold;}
+#chronlist .head01 {width: 20%; white-space:nowrap; text-align: left;}
+#chronlist .head02 {width: 80%; text-align: left;}
+#chronlist .date {width: 20%; white-space:nowrap;}
+#chronlist .event {width: 80%;}
+
+/* __________ Literature styles __________ */
+
+#bibref {
+	margin-left: 1em;	
+	d\isplay: list-item;
+	\display: block;
+	list-style-position: outside;
+	list-style-type: square;
+	font-style: italic;
+}
+
+#bibref .persname {font-style:normal;}
+
+/************************************************/
+/*                 Start page                   */
+/************************************************/
+
+/* Wrapper for top of page: metadata: grey container-block */
+#filedesc {
+	padding: 2px;
+	font-size: 85%; 
+	color: #777;
+	border: 1px solid #ededed;
+	background-color: #f5f5f5;
+}
+
+/* Metadata: date formatting */
+#publicationstmt #date {
+	float: left;
+	padding-right: 5px;
+}
+
+/* Content data */
+
+/* "label": bold + margin-top */
+#did .label {
+	margin-top: 1em;
+	font-weight: bold;
+}
+#did .paragraph {
+	position: relative;
+	font-weight: normal;
+	margin-bottom: 0;
+}
+
+/************************************************/
+/*               Beschrijvingen                 */
+/************************************************/
+
+/* __________ unitid __________ */
+
+.firstlevel {
+	margin-bottom: 1em;
+}
+
+/* __________ unitid __________ */
+
+td.unitid .black {
+	width: 7em;
+	color: #000;
+	font-weight: bold;
+}
+
+td.unitid .red {
+	width: 6em;
+	color: red;
+	padding-right: 10px;
+}
+
+td.unitid .redfirstlevel {
+	width: 7em;
+	color: red;
+}
+
+/* __________ unitdate & description __________ */
+
+.unitdate  {
+	float: left;
+	margin-right: 10px;
+}
+
+.singleunitdate {
+	float: left;
+	text-align: left;
+}
+
+.physdesc {
+	float: right;	
+	top: 0;
+	right: 0;
+	font-size: 85%;
+	color: #597A9B;
+	text-align: right;
+}
+
+/* notabene's / opmerkingen: color is Grey */
+.chpdescription, .scopecontent, .arrangement, .phystech {
+	margin: 0;
+	padding: 0;
+	font-size: 90%;
+	color: #777;
+}
+
+/* notabene's / opmerkingen bij een rubrieksbeschrijving: color = black  */
+.chpdescgrp .chpdescription{
+	font-size: 100%; 
+	color: #000;
+}
+/* notabene's / opmerkingen bij een rubrieksbeschrijving: color = black  */
+#series .chpdescription {
+	color: #000;
+}
+/* No line breaks for paragraphs in .chpdescription */
+.chpdescription .paragraph {
+	margin: 0;
+	color: #777;
+}
+
+/* "opmerkingen": margin-bottom for some space between text and hyperlinks */
+#subfonds #chpbody .chpdescription, #subseries #chpbody .chpdescription {
+	margin-bottom: 1.5em;
+	color: #000;
+}
+/* "opmerkingen": same as above, but inline in "Beschrijvingen", so no margin-bottom */
+#subseries #chpbody table .chpdescription {
+	margin-bottom: 0;
+	color: #777;
+}
+
+/************************************************/
+/*                   Foot notes                 */
+/************************************************/
+
+/* Footnote area wrapper */
+#footnotes {
+	margin-top: 2em;
+	font-size: 85%;
+}
+
+#footnoteborder {
+	padding-top: 2em;
+	line-height: 1px;
+	height: 1px;
+	border-top: 1px solid #999;
+}
+
+/* Footnote wrapper */
+.note {
+	clear: both;
+	font-weight: normal;
+	color: #666;
+}
+/* Footnote number */
+.note .nmb {
+	float: left;
+	clear: both;
+	padding-right: 5px;
+}
+/* No linebreaks within footnotes */
+#footnotes .paragraph {
+	margin: 0;
+}
+#footnotes .paragraph .title {
+	font-style: italic;
+}
+
+.bibref {
+	font-style: italic;
+}

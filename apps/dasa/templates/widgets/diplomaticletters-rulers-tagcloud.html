@@ -1,0 +1,8 @@
+{% load url from future %}
+{% load i18n %}
+<div  id="tagcloud">
+{% for tag, font_size in tags_rulers %}
+<a href="{% url SLUG_DIPLOMATICLETTERS_SEARCH %}?q=&ruler={{ tag }}" style="font-size:{{ font_size }}px">{{ tag }}</a>
+{% endfor %}
+</div>
+<a href="{% url SLUG_DIPLOMATICLETTERS_RULERS %}" class="link_to_subjects">{% trans "all rulers" %}</a>

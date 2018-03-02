@@ -1,0 +1,9 @@
+{% load url from future %}
+{% load i18n %}
+<h2>{% trans "Document types" %}</h2>
+<div  id="tagcloud">
+{% for tag, font_size in tags_documenttypes %}
+<a href="{% url SLUG_APPENDIX_SEARCH %}?q=&document_type={{ tag }}" style="font-size:{{ font_size }}px">{{ tag }}</a>
+{% endfor %}
+</div>
+<a href="{% url SLUG_APPENDIX_DOCUMENTTYPES %}" class="link_to_subjects">{% trans "all document types" %}</a>

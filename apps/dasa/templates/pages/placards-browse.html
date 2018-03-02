@@ -1,0 +1,69 @@
+{% extends "browse-and-search-template.html" %}
+{% load thumbnail i18n highlight snippet %}
+{% block js %}
+{{ block.super }}
+
+ <script>
+  $(document).ready(function() {
+    $(document).tooltip();
+  });
+  </script>
+{% endblock %}
+
+{% block headers %} 
+    <tr class="headers"> 
+        <th style="width:100px">
+            {% trans "Volume" %}
+        </th>
+        <th style="width:100px">
+            <a href=".?{{ qs.order_by_date }}">
+            {% trans "Date issued" %}
+            </a>
+        </th>
+        <th>
+            <a href=".?{{ qs.order_by_date }}">
+            {% trans "Description" %}
+        </th>
+        <th style="width:100px">
+            <a href=".?{{ qs.order_by_location }}">
+            {% trans "Governor" %}
+            </a>
+        </th>
+    </tr>
+    </tr>
+{% endblock headers %} 
+ 
+
+
+{% block result_row %}
+    <tr {% ifequal selected_order result.order %}class="selected"{% endifequal %}> 
+        <td>
+            {% trans "Volume" %} {{ result.object.volume_number|floatformat }},
+            {% if result.object.page_number_to %}
+                {% trans "pages"  %}
+                {{ result.object.page_number_from|floatformat }}-{{ result.object.page_number_to|floatformat }}
+            {% else %}
+                {% trans "page" %} {{ result.object.page_number_from|floatformat }}
+            {% endif %}
+        </td>
+        <td> 
+         {% if result.object.issued_date %} 
+         {{ result.object.issued_date }} 
+         {% endif %}
+        </td>
+        <td>
+        {{ result.object.text }}
+        {% if result.object.published_date %}
+           [{% trans "published on" %} {{ result.object.published_date }}]
+        {% endif %}
+        </td>
+        <td>
+        {% if result.object.governor %}
+        <a href="/{{ SLUG_PLACARD_SEARCH }}?governor={{result.object.governor}}">{{ result.object.governor }}</a> 
+        {% endif %}
+        </td>
+    </tr>
+{% endblock %}
+ 
+ 
+

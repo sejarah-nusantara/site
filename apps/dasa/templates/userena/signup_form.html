@@ -1,0 +1,16 @@
+{% extends 'basicpage.html' %}
+{% load i18n %}
+
+
+{% block content %}
+
+
+<form action="" method="post">
+  <table>
+{% include "widgets/form.html" %}
+    <tr><td></td><td>
+  <input type="submit" value="{% trans "Signup"%}" />
+  </td></tr>
+  </table>
+</form>
+{% endblock %}

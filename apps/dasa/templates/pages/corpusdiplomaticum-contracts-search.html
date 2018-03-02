@@ -1,0 +1,74 @@
+{% extends "pages/corpusdiplomaticum-contracts-browse.html" %}
+{% load url from future %}
+{% load i18n highlight %}
+{% block js %}
+{{ block.super }}
+<link href="{{ STATIC_URL }}selectable/css/dj.selectable.css" type="text/css" media="all" rel="stylesheet">
+<script type="text/javascript" src="{{ STATIC_URL }}selectable/js/jquery.dj.selectable.js"></script>
+<script>
+    $(document).ready(function() {
+	    min_date = new Date({{min_year}}, {{ min_month}}, {{ min_day }})
+	    max_date = new Date({{max_year}}, {{ max_month}}, {{ max_day }})
+        $("#id_date_from").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            showButtonPanel: true,
+            yearRange: '{{ min_year }}:{{ max_year }}',
+            defaultDate: min_date
+        });
+	    $("#id_date_to").datepicker({
+	        changeMonth: true,
+	        changeYear: true,
+	        showButtonPanel: true,
+	        yearRange: '{{ min_year }}:{{ max_year }}',
+	        defaultDate: max_date
+	    });
+	});
+</script>
+{% endblock %}
+{% block search_form %}
+<script>
+
+</script>
+
+<div id="search_container">
+    <div id="search_box">
+        <form method="get" action="." id="search_resolution">
+            <table>
+                {{ form.as_table }}
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        <input type="submit" value="{% trans "Search" %}">
+                        <input type="reset" value="{% trans "Reset" %}"
+                            onclick="frm=$('#search_resolution');resetForm(frm);frm.submit();return false;" >
+                    </td>
+                </tr>
+
+            </table>
+       </form>
+    </div>
+</div>
+
+<div class="tagcloud_box">
+    {% include "widgets/corpusdiplomaticum-areas-tagcloud.html" %}
+</div>
+<br class="clear" />
+
+<div id="search_description">
+    {% if query_prettyprinted %}
+        {% trans "You searched for" %}: {{ query_prettyprinted|safe }}.
+    {% endif %}
+    {% with paginator_page.paginator.count as count %}
+        {% blocktrans  %}We found {{ count }} results{% endblocktrans %}.
+    {% endwith %}
+    <a href="" onclick="$('#search_container').show(500);$('.tagcloud_box').show(500);$('#show').hide();$('#hide').show();return false;" id="show" style="display:none">
+        {% trans "show search form" %}</a>
+    <a href="" onclick="$('#search_container').hide(500);$('.tagcloud_box').hide(500);$('#show').show();$('#hide').hide();return false;" id="hide">
+        {% trans "hide search form" %}
+    </a>
+</div>
+
+<br class="clear" clear="both" />
+
+{% endblock search_form %}

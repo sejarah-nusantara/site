@@ -1,0 +1,1 @@
+bin/django test dasa -v 2 --settings=project.settings_test

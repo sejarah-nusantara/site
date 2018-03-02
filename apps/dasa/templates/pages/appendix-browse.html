@@ -1,0 +1,118 @@
+{% extends "browse-and-search-template.html" %}
+{% load thumbnail i18n highlight snippet %}
+
+{% block js %}
+{{ block.super }}
+<script>
+    $(document).ready(function() {
+        $(document).tooltip();
+ 	});
+</script>
+{% endblock %}
+
+
+{% block headers %}
+    <tr class="headers">
+        <th style="width:145px">
+            <a href=".?{{ qs.order_by_archive_reference }}">
+            {% trans "Archive Reference" %}
+            </a>
+        </th>
+        <th style="width:90px">
+            <a href=".?{{ qs.order_by_date }}">
+            {% trans "Document Date" %}
+            </a>
+        </th>
+        <th style="width: 300px">
+            {% trans "Description" %}
+        </th>
+        {% comment %}
+        <th>
+            <a href=".?{{ qs.order_by_vessel_names }}">
+            {% trans "Ship Names" %}
+            </a>
+        </th>
+        {% endcomment %}
+    </tr>
+{% endblock headers %}
+
+{% block result_row %}
+    <tr {% ifequal selected_order result.order %}class="selected"{% endifequal %}>
+        <td>
+        {% if result.object.archiveFile in published_archivefiles %}
+            <a href="#" onClick="return openPageBrowser('{{result.object.link_to_pagebrowser}}');">
+                {{ result.object.archive_reference }}
+                <img src="{{STATIC_URL}}images/book.png" style="float:right">
+            </a>
+        {% else %}
+            {{ result.object.archive_reference }}
+        {% endif %}
+        </td>
+        <td>
+            {% if result.object.doc_date %}
+            {{ result.object.doc_date }}
+            {% endif %}
+        </td>
+        <td class="marginalia_description">
+            {% if result.object.res_date %}
+                {% trans "Resolution Date" %}: {{ result.object.res_date }}
+                <br>
+            {% endif %}
+            {% if result.resolution_reference %}
+                {{ result.resolution_reference }}
+                <br>
+            {% endif %}
+            {% trans "Title" %}: {{ result.object.title_nl }}
+            <br>
+            {% trans "Document type" %}:
+            <a href="{% url SLUG_APPENDIX_SEARCH %}?document_type={{ result.object.document_type_nl }}">{{ result.object.document_type_nl }}</a>
+
+            {% if result.object.vessel_names %}
+                <br>
+                {% trans "Ship names" %}:
+                {% for name in result.object.vessel_names_as_list %}
+                    <a href="{% url SLUG_APPENDIX_SEARCH %}?vessel_name={{ name }}">{{ name }}</a>{% if forloop.last %}{%else%};{%endif%}
+                {% endfor %}
+            {% endif %}
+            {% if result.object.person_names_european %}
+                <br>
+                {% trans "European names" %}:
+                {% for name in result.object.person_names_european_list %}
+                    <a href="{% url SLUG_APPENDIX_SEARCH %}?european_name={{ name }}">{{ name }}</a>{% if forloop.last %}{%else%};{%endif%}
+                {% endfor %}
+            {% endif %}
+
+            {% if result.object.person_names_asian %}
+                <br>
+                {% trans "Asian names" %}:
+                {% for name in result.object.person_names_asian_list %}
+                    <a href="{% url SLUG_APPENDIX_SEARCH %}?asian_name={{ name }}">{{ name }}</a>{% if forloop.last %}{%else%};{%endif%}
+                {% endfor %}
+            {% endif %}
+            {% if result.object.place_names %}
+                <br>
+                {% trans "Place names" %}:
+                {% for name in result.object.place_names_list %}
+                    <a href="{% url SLUG_APPENDIX_SEARCH %}?place_name={{ name }}">{{ name }}</a>{% if forloop.last %}{%else%};{%endif%}
+                {% endfor %}
+            {% endif %}
+            {% if result.object.notes %}
+            <br>
+            {% trans "Notes" %}:
+            {{ result.object.notes|default:"" }}
+            {% endif %}
+
+        </td>
+        {% comment %}
+        <td>
+          {% if result.object.vessel_names %}
+                {% for vessel_name in result.object.vessel_names_as_list %}
+                    <a href="{% url SLUG_APPENDIX_SEARCH %}?vessel_name={{ vessel_name }}">{{ vessel_name }}</a>
+                {% endfor %}
+            {% endif %}
+         </td>
+        {% endcomment %}
+
+
+    </tr>
+{% endblock %}

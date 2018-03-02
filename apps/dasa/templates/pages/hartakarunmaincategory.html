@@ -1,0 +1,34 @@
+{% extends "basicpage.html" %}
+{% load url from future %}
+{% load thumbnail i18n %}
+{% block content %}
+{{ block.super }}
+<table class="table_data">
+    {% for category in subcategories %}
+    <tr>
+        <td>
+ 	        {% thumbnail category.image_description '300x200'  crop="center" as im %}
+	         <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+	         {% empty %} 
+	        {% thumbnail page.image_description '300x200'  crop="center" as im %}
+	         <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+	        {% endthumbnail %}
+	        {% endthumbnail %}
+        </td>
+        <td>
+       <a href="{% url SLUG_HARTAKARUN_SUBCATEGORY category.pk %}">
+        <span class="title">
+       {{ category.title }}
+        </span>
+        <br>
+        {{ category.description|safe }}
+        <br>
+       ({{ category.print_number_of_articles }})
+          </a>  
+       <a href="{% url SLUG_HARTAKARUN_SUBCATEGORY category.pk %}" style="float:right">{% trans "read more" %}...</a>
+        </td>
+    
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

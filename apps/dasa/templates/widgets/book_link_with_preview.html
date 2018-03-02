@@ -1,0 +1,16 @@
+{% load thumbnail i18n %}
+    <div class="book_list_cell">
+    {% comment %}
+        <a href="{{ book.link_to_pagebrowser }}" target="pagebrowser_window">
+        {% thumbnail book.get_image '170x150' as im %}
+             <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+        {% endthumbnail %}
+        
+        <div class="caption">{{ book.title }}</div>
+        </a>
+    {% endcomment %}
+        <a href="{{ book.link_to_pagebrowser }}" target="pagebrowser_window">
+        {{ book.title }}
+        [{{ book.number_of_scans }} scan(s)]
+        </a>
+    </div>

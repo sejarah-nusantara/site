@@ -1,0 +1,24 @@
+{% extends "basicpage.html" %}
+{% load thumbnail i18n %}
+
+{% block content %} 
+<div id="content_block" class="content">
+    {% thumbnail page.image '500' upscale=false as im %}
+    <span class="image">
+         <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+         {% if page.image_caption %}
+	    <span class="caption">{{ page.image_caption|safe }}</span>
+	    {% endif %}
+    </span>
+    {% endthumbnail %}
+    {% if page.content %}
+    {{ page.content|safe }}
+    {% endif %}
+    <p>
+    
+{{ page.date }}
+
+<a href="{% url "news_index" %}">{% trans "back to index of news" %}</a>
+</p>
+</div>
+{% endblock %}

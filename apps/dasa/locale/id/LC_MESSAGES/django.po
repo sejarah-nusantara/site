@@ -1,0 +1,1406 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-09-27 17:29+0200\n"
+"PO-Revision-Date: 2017-09-27 17:40+0200\n"
+"Last-Translator: jelle <jelle>\n"
+"Language-Team: \n"
+"Language: id\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#: forms.py:153 templates/pages/appendix-search.html:57
+#: templates/pages/corpusdiplomaticum-contracts-search.html:42
+#: templates/pages/diplomaticletters-locations.html:26
+#: templates/pages/diplomaticletters-rulers.html:20
+#: templates/pages/diplomaticletters-search.html:43
+#: templates/pages/inventory_tree.html:65
+#: templates/pages/marginalia-search.html:39
+#: templates/pages/placards-search.html:47
+#: templates/pages/realia-search.html:65 templates/search/search.html:13
+msgid "Search"
+msgstr "Telusur"
+
+#: forms.py:172
+msgid "Entire site"
+msgstr "Seluruh situs"
+
+#: forms.py:173
+msgid "Harta Karun Categories"
+msgstr "Kategori Harta Karun"
+
+#: forms.py:174 models.py:496
+msgid "Harta Karun Articles"
+msgstr "Artikel-artikel Harta Karun"
+
+#: forms.py:175 models.py:1035 models.py:1036
+msgid "Marginalia to the Daily Journals"
+msgstr "Marginalia jalan masuk ke Catatan harian"
+
+#: forms.py:176
+msgid "Realia to the Resolutions and Besognes"
+msgstr "Realia jalan masuk ke Resolusi dan Besognes"
+
+#: forms.py:177 models.py:811
+msgid "Diplomatic Letters"
+msgstr "Surat-surat Diplomatik "
+
+#: forms.py:178 models.py:768
+msgid "Placards"
+msgstr "Plakat"
+
+#: forms.py:179
+msgid "Appendices Resolutions"
+msgstr "Lampiran Resolusi Umum"
+
+#: forms.py:180 models.py:1421
+msgid "Corpus Diplomaticum Contracts"
+msgstr "Corpus Diplomaticum Kontrak"
+
+#: forms.py:183
+msgid "Search In"
+msgstr "telusur dalam"
+
+#: forms.py:215 forms.py:493 forms.py:562 models.py:265 models.py:344
+#: models.py:360 models.py:400 models.py:512 models.py:1038 models.py:1305
+#: templates/pages/appendix-browse.html:27
+#: templates/pages/corpusdiplomaticum-contracts-browse.html:16
+#: templates/pages/diplomaticletters-browse.html:21
+#: templates/pages/marginalia-browse.html:22
+#: templates/pages/placards-browse.html:25
+#: templates/pages/realia-browse.html:13
+msgid "Description"
+msgstr "Deskripsi"
+
+#: forms.py:222 forms.py:506 forms.py:567 forms.py:624 forms.py:709
+msgid "Date from"
+msgstr "Tanggal dari"
+
+#: forms.py:227 forms.py:511 forms.py:572 forms.py:630 forms.py:715
+msgid "Date to"
+msgstr "Tanggal hingga"
+
+#: forms.py:233 forms.py:364
+msgid "Ship name"
+msgstr "Nama kapal"
+
+#: forms.py:239 forms.py:370
+msgid "European name"
+msgstr "Nama Eropa"
+
+#: forms.py:245 forms.py:376
+msgid "Asian name"
+msgstr "Nama Asia"
+
+#: forms.py:251 forms.py:382
+msgid "Place name"
+msgstr "Nama Tempat"
+
+#: forms.py:257 forms.py:389 forms.py:743
+msgid "Archive file"
+msgstr "Berkas arsip"
+
+#: forms.py:335
+msgid "Document date from"
+msgstr "Dokumen tanggal dari"
+
+#: forms.py:340
+msgid "Document date to"
+msgstr "Dokumen tanggal ke"
+
+#: forms.py:347
+msgid "Resolution date from"
+msgstr "Resolusi tanggal dari"
+
+#: forms.py:352
+msgid "Resolution date to"
+msgstr "Resolusi tanggal ke"
+
+#: forms.py:358 templates/pages/appendix-browse.html:68
+msgid "Document type"
+msgstr "Jenis dokumen"
+
+#: forms.py:395 forms.py:641 forms.py:755
+msgid "Search in text"
+msgstr "Pencarian dalam teks"
+
+#: forms.py:499 models.py:1303 templates/pages/realia-browse.html:23
+msgid "Subject"
+msgstr "Subyek"
+
+#: forms.py:576 templates/pages/placards-browse.html:29
+msgid "Governor"
+msgstr "Gubernur"
+
+#: forms.py:635 templates/pages/corpusdiplomaticum-contracts-browse.html:17
+msgid "Area"
+msgstr "Daerah"
+
+#: forms.py:720 forms.py:763 models.py:1307
+#: templates/pages/diplomaticletters-browse.html:50
+msgid "Source"
+msgstr "Sumber"
+
+#: forms.py:726 forms.py:762 templates/pages/diplomaticletters-browse.html:65
+msgid "Destination"
+msgstr "Tujuan"
+
+#: forms.py:732 templates/pages/diplomaticletters-locations.html:72
+#: templates/pages/diplomaticletters-rulers.html:64
+msgid "Location"
+msgstr "Catatan"
+
+#: forms.py:737 forms.py:761 templates/pages/diplomaticletters-browse.html:89
+msgid "Ruler"
+msgstr "Penguasa"
+
+#: forms.py:749 templates/pages/corpusdiplomaticum-contracts-browse.html:14
+#: templates/pages/corpusdiplomaticum-contracts-browse.html:26
+#: templates/pages/placards-browse.html:16
+#: templates/pages/placards-browse.html:41
+msgid "Volume"
+msgstr "Jilid"
+
+#: forms.py:825 forms.py:872 forms.py:920 forms.py:968
+msgid "Search keyword"
+msgstr "Pencarian dalam teks"
+
+#: forms.py:1025 forms.py:1088
+msgid "First name"
+msgstr "Nama pertama"
+
+#: forms.py:1026 forms.py:1089
+msgid "Last name"
+msgstr "Nama terakhir"
+
+#: forms.py:1027
+msgid "Repeat password"
+msgstr "Ketik uland sandi"
+
+#: forms.py:1028 models.py:1132
+msgid "Country"
+msgstr "Negara"
+
+#: forms.py:1029 templates/userena/signup_complete.html:5
+#: templates/userena/signup_form.html:12
+msgid "Signup"
+msgstr "Daftar"
+
+#: forms.py:1031 forms.py:1114
+msgid "This email is already in use. Please supply a different email."
+msgstr "Alamat email ini sudah digunakan. Gunakan alamat email yang lain."
+
+#: forms.py:1041 forms.py:1141
+msgid "Password"
+msgstr "Kata sandi"
+
+#: forms.py:1091
+msgid "Email"
+msgstr "Email"
+
+#: forms.py:1092 templates/userena/profile_form.html:19
+msgid "Save changes"
+msgstr "Simpan perubahan"
+
+#: forms.py:1138
+msgid "Email address"
+msgstr "Alamat email"
+
+#: forms.py:1138
+msgid "Please supply us with your email address."
+msgstr "Masukkan alamat email anda"
+
+#: forms.py:1142
+#, python-format
+msgid "Remember me for %(days)s"
+msgstr "Ingatkan saya untuk beberapa hari %(days)s"
+
+#: forms.py:1143
+msgid "Signin"
+msgstr "Masuk"
+
+#: forms.py:1161
+msgid ""
+"Please enter a correct email and password. Note that both fields are case-"
+"sensitive."
+msgstr ""
+"Harap masukkan alamat email dan sandi yang benar. Catatan: keduanya "
+"membedakan antara huruf besar dan huruf kecil."
+
+#: forms.py:1164
+msgid "Send password"
+msgstr "Mengirim sandi"
+
+#: models.py:61
+msgid "Image (main text)"
+msgstr "Gambar (naskah utama)"
+
+#: models.py:73
+msgid "Image (description)"
+msgstr "Gambar (Deskrispi)"
+
+#: models.py:89
+msgid "Caption for "
+msgstr "Kutipan"
+
+#: models.py:108 models.py:264 models.py:342 models.py:359 models.py:399
+#: models.py:507 models.py:1111 templates/pages/appendix-browse.html:66
+#: templates/pages/hartakarun-all-articles.html:14
+msgid "Title"
+msgstr "Judul "
+
+#: models.py:190
+msgid "Appendix to general resolutions"
+msgstr "Lampiran Resolusi Umum"
+
+#: models.py:191
+msgid "Appendices to general resolutions"
+msgstr "Lampiran Resolusi Umum"
+
+#: models.py:194 models.py:818
+msgid "Filenumber"
+msgstr "Nomor Folio"
+
+#: models.py:195 models.py:196 models.py:197 models.py:819 models.py:820
+#: models.py:1041 models.py:1042
+msgid "Folionumber"
+msgstr "Nomor Folio"
+
+#: models.py:195 models.py:774 models.py:775 models.py:819 models.py:1041
+msgid "from"
+msgstr "dari"
+
+#: models.py:196 models.py:820 models.py:1042
+msgid "to"
+msgstr "kepada"
+
+#: models.py:197
+msgid "extra"
+msgstr "tambahan"
+
+#: models.py:209 models.py:1044
+#: templates/widgets/appendix-vessel-tagcloud.html:3
+#: templates/widgets/marginalia-vessel-tagcloud.html:3
+msgid "Ship Names"
+msgstr "Nama Kapal"
+
+#: models.py:210 models.py:1048
+msgid "Asian names"
+msgstr "Nama Asia"
+
+#: models.py:211 models.py:1049
+msgid "European names"
+msgstr "Nama Eropa"
+
+#: models.py:212 models.py:1050
+msgid "Place names"
+msgstr "Nama Tempat"
+
+#: models.py:217 models.py:785 models.py:839 models.py:1045 models.py:1122
+#: models.py:1315
+msgid "Order"
+msgstr "Susunan"
+
+#: models.py:260
+msgid "Page"
+msgstr "Halaman"
+
+#: models.py:261
+msgid "Pages"
+msgstr "Halaman-halaman"
+
+#: models.py:268 models.py:347
+msgid "Content"
+msgstr "Isi"
+
+#: models.py:272
+msgid "Slug"
+msgstr "lambat"
+
+#: models.py:343 models.py:1039 models.py:1302
+#: templates/filebrowser/detail.html:81 templates/filebrowser/detail.html:116
+#: templates/pages/corpusdiplomaticum-contracts-browse.html:15
+#: templates/pages/marginalia-browse.html:17
+#: templates/pages/realia-browse.html:8
+msgid "Date"
+msgstr "Tanggal"
+
+#: models.py:363
+msgid "Main Text"
+msgstr "Naskah Utama"
+
+#: models.py:366
+msgid "Position"
+msgstr "Posisi "
+
+#: models.py:405 models.py:546 templates/hartakarun_item.html:49
+msgid "Introduction"
+msgstr "Kata Pengantar"
+
+#: models.py:444
+msgid "article"
+msgstr "Artikel"
+
+#: models.py:446
+msgid "articles"
+msgstr "Artikel-artikel"
+
+#: models.py:495
+msgid "Harta Karun Article"
+msgstr "Artikel Harta Karun"
+
+#: models.py:500 templates/pages/hartakarun-all-articles.html:13
+msgid "Number"
+msgstr "Nomor"
+
+#: models.py:518
+msgid "Original title"
+msgstr "Judul asli"
+
+#: models.py:525
+msgid "Release Date"
+msgstr "Tanggal Penerbitan"
+
+#: models.py:540
+msgid "Citation"
+msgstr "Kutipan"
+
+#: models.py:548
+msgid "a scientific introduction to the Harta Karun document."
+msgstr "Kata Pengantar ilmiah pada dokumen Harta Karun"
+
+#: models.py:552
+msgid "Editing"
+msgstr "Disunting oleh"
+
+#: models.py:558 templates/hartakarun_item.html:81
+msgid "Introduced"
+msgstr "Kata Pengantar oleh"
+
+#: models.py:564
+msgid "Document selection"
+msgstr "Dokumen dipilih oleh"
+
+#: models.py:570
+msgid "Transcription"
+msgstr "Transkripsi"
+
+#: models.py:576
+msgid "Dutch Text Transcription"
+msgstr "Transkripsi Bahasa Belanda oleh"
+
+#: models.py:582
+msgid "Translation in Indonesian"
+msgstr "Terjemahan Indonesia "
+
+#: models.py:588
+msgid "Translation in English"
+msgstr "Terjemahan Inggris"
+
+#: models.py:594
+msgid "English translation"
+msgstr "Terjemahan Bahasa Inggris oleh"
+
+#: models.py:601
+msgid "Indonesian translation"
+msgstr "Terjemahan Bahasa Indonesi oleh"
+
+#: models.py:611
+msgid "Historical Date"
+msgstr "Tanggal yang bersejarah "
+
+#: models.py:618
+msgid "Publication Reference"
+msgstr "Rujukan penerbitan"
+
+#: models.py:621
+msgid "ISBN number or DOI number"
+msgstr "Nomor ISBN atau Nomor DOI"
+
+#: models.py:625
+msgid "Archival Source"
+msgstr "Sumber Arsip"
+
+#: models.py:633
+msgid "Comments"
+msgstr "Komentar"
+
+#: models.py:639
+msgid "PDF with full text [en]"
+msgstr "teks lengkap dalam PDF"
+
+#: models.py:648
+msgid "PDF with full text [id]"
+msgstr "teks lengkap dalam PDF"
+
+#: models.py:706
+msgid "Download the full article in PDF"
+msgstr "Unduh naskah lengkap dalam PDF"
+
+#: models.py:716 models.py:726 models.py:1114
+msgid "Image"
+msgstr "Gambar"
+
+#: models.py:717 templates/hartakarun_item.html:53
+msgid "Images"
+msgstr "Gambar"
+
+#: models.py:767
+msgid "Placard"
+msgstr "Plakat"
+
+#: models.py:810
+msgid "Diplomatic Letter"
+msgstr "Surat Diplomatik"
+
+#: models.py:872
+msgid "volume"
+msgstr "Jumlah"
+
+#: models.py:873 templates/pages/corpusdiplomaticum-contracts-browse.html:26
+#: templates/pages/placards-browse.html:46
+msgid "page"
+msgstr "Halaman"
+
+#: models.py:900
+msgid "Diplomatic Letter - Ruler"
+msgstr "Surat Diplomatik - Penguasa"
+
+#: models.py:901
+msgid "Diplomatic Letter - Rulers"
+msgstr "Surat Diplomatik - Para penguasa"
+
+#: models.py:968
+msgid "Diplomatic Letter - Location"
+msgstr "Surat Diplomatik - Tempat"
+
+#: models.py:969
+msgid "Diplomatic Letter - Locations"
+msgstr "Surat Diplomatik - Berbagai tempat"
+
+#: models.py:1040 models.py:1306
+msgid "Priority"
+msgstr "Utama"
+
+#: models.py:1043
+msgid "Annotation"
+msgstr "Catatan"
+
+#: models.py:1047
+msgid "File"
+msgstr "Berkas"
+
+#: models.py:1079
+msgid "Year"
+msgstr "Tahun"
+
+#: models.py:1080
+msgid "Month"
+msgstr "Bulan"
+
+#: models.py:1081
+msgid "Day"
+msgstr "Hari"
+
+#: models.py:1082
+msgid "Fonds"
+msgstr "Pencipta Arsip (Arsip Nasional Republik Indonesia)"
+
+#: models.py:1108
+msgid "Lightbox item (for home page)"
+msgstr "Slide"
+
+#: models.py:1109
+msgid "Lightbox items (for home page)"
+msgstr "Slide"
+
+#: models.py:1112
+msgid "URL to the page"
+msgstr "Alamat Website"
+
+#: models.py:1121
+msgid "Visible?"
+msgstr "Terlihat "
+
+#: models.py:1129
+msgid "user"
+msgstr "pengguna"
+
+#: models.py:1297 models.py:1298
+msgid "Realia"
+msgstr "Realia"
+
+#: models.py:1304
+msgid "Type"
+msgstr "Jenis"
+
+#: models.py:1308
+msgid "Register"
+msgstr "Pendaftaran"
+
+#: models.py:1308 models.py:1309
+msgid "folionumber"
+msgstr "Nomor folio"
+
+#: models.py:1309
+msgid "Resolution"
+msgstr "Resolusi"
+
+#: models.py:1310
+msgid "Institution"
+msgstr "Lembaga"
+
+#: models.py:1313
+msgid "Comment"
+msgstr "Komentar"
+
+#: models.py:1390
+msgid "Person"
+msgstr "Orang"
+
+#: models.py:1391
+msgid "Persons"
+msgstr "Orang-orang"
+
+#: models.py:1393 templates/pages/diplomaticletters-rulers.html:55
+msgid "Name"
+msgstr "Nama"
+
+#: models.py:1405 templates/pages/diplomaticletters-locations.html:60
+msgid "Place"
+msgstr "Tempat"
+
+#: models.py:1406
+msgid "Places"
+msgstr "Tempat"
+
+#: models.py:1420
+msgid "Corpus Diplomaticum Contract"
+msgstr "Corpus Diplomaticum Kontrak"
+
+#: utils.py:68
+msgid "Jan."
+msgstr "Jan."
+
+#: utils.py:69
+msgid "Feb."
+msgstr "Feb."
+
+#: utils.py:70
+msgid "Mar."
+msgstr "Mar."
+
+#: utils.py:71
+msgid "Apr."
+msgstr "Apr."
+
+#: utils.py:72
+msgid "May."
+msgstr "Mei."
+
+#: utils.py:73
+msgid "Jun."
+msgstr "Jun."
+
+#: utils.py:74
+msgid "Jul."
+msgstr "Jul."
+
+#: utils.py:75
+msgid "Aug."
+msgstr "Aug."
+
+#: utils.py:76
+msgid "Sep."
+msgstr "Sep."
+
+#: utils.py:77
+msgid "Oct."
+msgstr "Okt."
+
+#: utils.py:78
+msgid "Nov."
+msgstr "Nov."
+
+#: utils.py:79
+msgid "Dec."
+msgstr "Dec."
+
+#: templates/base.html:83
+msgid "you are here"
+msgstr "Beranda "
+
+#: templates/base.html:84
+msgid "Home"
+msgstr "Baca lebih lanjut"
+
+#: templates/basicpage_with_readmore.html:22
+#: templates/hartakarun_category.html:34 templates/news_index.html:26
+#: templates/pages/hartakarunmaincategory.html:28
+msgid "read more"
+msgstr "selanjutnya baca"
+
+#: templates/basicpage_with_readmore.html:25
+msgid "hide"
+msgstr "sembunyikan"
+
+#: templates/browse-and-search-template.html:57
+#: templates/browse-and-search-template.html:66
+msgid "No results found"
+msgstr "Hasil tidak ditemukan "
+
+#: templates/hartakarun_item.html:58
+msgid "Old Dutch Text"
+msgstr "Naskah Belanda kuno"
+
+#: templates/hartakarun_item.html:61
+msgid "Indonesian Translation"
+msgstr "Terjemahan Indonesia"
+
+#: templates/hartakarun_item.html:64
+msgid "English Translation"
+msgstr "Terjemahan Inggris"
+
+#: templates/hartakarun_item.html:67
+msgid "Colophon"
+msgstr "Kolofon"
+
+#: templates/hartakarun_item.html:118
+msgid "view image in detail"
+msgstr "Lihat rincian gambar"
+
+#: templates/resolution.html:12
+msgid "Details of the resolution"
+msgstr "Rincian resolusi"
+
+#: templates/resolution.html:30
+msgid "Retro book"
+msgstr "Buku lama"
+
+#: templates/resolution.html:32
+msgid "View this resolution"
+msgstr "Lihat resolusi ini"
+
+#: templates/resolution.html:37
+msgid "Navigation"
+msgstr "Jelajah"
+
+#: templates/resolution.html:40
+msgid "previous resolution"
+msgstr "Resolusi sebelumnya"
+
+#: templates/resolution.html:45
+msgid "next resolution"
+msgstr "Resolusi selanjutnya"
+
+#: templates/resolution.html:48
+msgid "go back to search results"
+msgstr "kembali ke hasil penelusuran"
+
+#: templates/resolution.html:66
+msgid "show in retro book"
+msgstr "lihat pada buku retro"
+
+#: templates/resolution.html:69
+msgid "We did not find any scans"
+msgstr "Kami tidak menemukan hasil pindaian"
+
+#: templates/filebrowser/detail.html:48
+msgid "Please correct the following errors."
+msgstr "Harap perbaiki kesalahan berikut"
+
+#: templates/filebrowser/detail.html:63
+msgid "Edit"
+msgstr "Sunting"
+
+#: templates/filebrowser/detail.html:78
+msgid "Folder Information"
+msgstr "Informasi Folder"
+
+#: templates/filebrowser/detail.html:93
+msgid "File Information"
+msgstr "Informasi File"
+
+#: templates/filebrowser/detail.html:96
+msgid "URL"
+msgstr "URL"
+
+#: templates/filebrowser/detail.html:106
+msgid "Filesize"
+msgstr "Ukuran berkas"
+
+#: templates/filebrowser/detail.html:127
+msgid "Size"
+msgstr "Ukuran"
+
+#: templates/filebrowser/detail.html:138
+msgid "Used on the site"
+msgstr "Gunakan situs ini"
+
+#: templates/filebrowser/detail.html:154
+msgid "Image Versions"
+msgstr "Versi gambar"
+
+#: templates/filebrowser/detail.html:158
+msgid "Thumbnail"
+msgstr "sketsa kecil"
+
+#: templates/filebrowser/detail.html:160
+#: templates/filebrowser/include/filelisting.html:100
+msgid "View Image"
+msgstr "Lihat gambar"
+
+#: templates/filebrowser/detail.html:184
+msgid "Delete"
+msgstr "Hapus"
+
+#: templates/filebrowser/detail.html:185
+msgid "Save"
+msgstr "Simpan  "
+
+#: templates/filebrowser/detail.html:186
+msgid "Save and continue editing"
+msgstr "Simpan dan lanjutkan menyunting"
+
+#: templates/filebrowser/include/filelisting.html:18
+#: templates/filebrowser/include/filelisting.html:44
+#: templates/filebrowser/include/filelisting.html:69
+msgid "Select"
+msgstr "Pilih"
+
+#: templates/filebrowser/include/filelisting.html:22
+#: templates/filebrowser/include/filelisting.html:48
+#: templates/filebrowser/include/filelisting.html:73
+msgid "Versions"
+msgstr "Versi"
+
+#: templates/filebrowser/include/filelisting.html:130
+msgid "Change"
+msgstr "Ubah"
+
+#: templates/pages/appendix-browse.html:18
+#: templates/pages/diplomaticletters-browse.html:25
+#: templates/pages/marginalia-browse.html:27
+#: templates/pages/realia-browse.html:18
+msgid "Archive Reference"
+msgstr "Rujukan arsip"
+
+#: templates/pages/appendix-browse.html:23
+msgid "Document Date"
+msgstr "Dokumen tanggal"
+
+#: templates/pages/appendix-browse.html:59
+msgid "Resolution Date"
+msgstr "Resolusi tanggal"
+
+#: templates/pages/appendix-browse.html:73
+#: templates/pages/diplomaticletters-browse.html:102
+msgid "Notes"
+msgstr "Catatan"
+
+#: templates/pages/appendix-search.html:58
+#: templates/pages/corpusdiplomaticum-contracts-search.html:43
+#: templates/pages/diplomaticletters-locations.html:27
+#: templates/pages/diplomaticletters-rulers.html:21
+#: templates/pages/diplomaticletters-search.html:44
+#: templates/pages/marginalia-search.html:40
+#: templates/pages/placards-search.html:48
+#: templates/pages/realia-search.html:66
+msgid "Reset"
+msgstr "Pengaturan ulang"
+
+#: templates/pages/appendix-search.html:87
+#: templates/pages/corpusdiplomaticum-contracts-search.html:60
+#: templates/pages/diplomaticletters-locations.html:36
+#: templates/pages/diplomaticletters-rulers.html:31
+#: templates/pages/diplomaticletters-search.html:64
+#: templates/pages/marginalia-search.html:69
+#: templates/pages/placards-search.html:64
+#: templates/pages/realia-search.html:82 templates/search/resolution.html:15
+msgid "You searched for"
+msgstr "Anda mencari hal tentang"
+
+#: templates/pages/appendix-search.html:90
+#: templates/pages/corpusdiplomaticum-contracts-search.html:63
+#: templates/pages/diplomaticletters-locations.html:38
+#: templates/pages/diplomaticletters-rulers.html:33
+#: templates/pages/diplomaticletters-search.html:67
+#: templates/pages/marginalia-search.html:72
+#: templates/pages/placards-search.html:67
+#: templates/pages/realia-search.html:85 templates/search/search.html:23
+#, python-format
+msgid "We found %(count)s results"
+msgstr "Kami menemukan %(count)s hasil"
+
+#: templates/pages/appendix-search.html:93
+#: templates/pages/corpusdiplomaticum-contracts-search.html:66
+#: templates/pages/diplomaticletters-search.html:70
+#: templates/pages/marginalia-search.html:75
+#: templates/pages/placards-search.html:70
+#: templates/pages/realia-search.html:87
+msgid "show search form"
+msgstr "tampilkan hasil pencarian"
+
+#: templates/pages/appendix-search.html:95
+#: templates/pages/corpusdiplomaticum-contracts-search.html:68
+#: templates/pages/diplomaticletters-search.html:72
+#: templates/pages/marginalia-search.html:77
+#: templates/pages/placards-search.html:72
+#: templates/pages/realia-search.html:88
+msgid "hide search form"
+msgstr "sembunyikan hasil pencarian"
+
+#: templates/pages/collections.html:11
+msgid "Inventory Number"
+msgstr "Nomor inventaris"
+
+#: templates/pages/collections.html:12
+msgid "Date period"
+msgstr "Tanggal"
+
+#: templates/pages/collections.html:13
+msgid "Image viewer"
+msgstr "Lihat gambar"
+
+#: templates/pages/collections.html:25
+msgid "Indonesian [short]"
+msgstr "Indonesia"
+
+#: templates/pages/collections.html:30
+msgid "English [short]"
+msgstr "Inggris"
+
+#: templates/pages/collections.html:35
+msgid "Dutch [short]"
+msgstr "Belanda"
+
+#: templates/pages/corpusdiplomaticum-contracts-browse.html:38
+msgid "contract number"
+msgstr "nomor kontrak"
+
+#: templates/pages/corpusdiplomaticum-contracts-browse.html:39
+msgid "name kingdom"
+msgstr "nama raja"
+
+#: templates/pages/corpusdiplomaticum-contracts-browse.html:40
+msgid "description"
+msgstr "deskripsi"
+
+#: templates/pages/corpusdiplomaticum-contracts-browse.html:41
+msgid "place signed"
+msgstr "empat di tandatangani"
+
+#: templates/pages/corpusdiplomaticum-contracts-browse.html:43
+msgid "signed by Asians"
+msgstr "ditandatangani oleh orang-orang Asia"
+
+#: templates/pages/corpusdiplomaticum-contracts-browse.html:46
+msgid "signed by Europeans"
+msgstr "ditandatangani oleh orang-orang Eropa"
+
+#: templates/pages/corpusdiplomaticum-persons.html:24
+#: templates/pages/corpusdiplomaticum-places.html:25
+msgid "see also"
+msgstr "lihat juga"
+
+#: templates/pages/diplomaticletters-browse.html:17
+msgid "Inserted on"
+msgstr "Disisipkan pada"
+
+#: templates/pages/diplomaticletters-browse.html:41
+msgid "Original Date"
+msgstr "Tangal asli"
+
+#: templates/pages/diplomaticletters-browse.html:52
+msgid "Sources"
+msgstr "Sumber"
+
+#: templates/pages/diplomaticletters-browse.html:67
+msgid "Destinations"
+msgstr "Tujuan"
+
+#: templates/pages/diplomaticletters-browse.html:79
+msgid "Original text"
+msgstr "Teks asli"
+
+#: templates/pages/diplomaticletters-browse.html:91
+msgid "Rulers"
+msgstr "Para Penguasa"
+
+#: templates/pages/diplomaticletters-browse.html:104
+msgid "Original letter available"
+msgstr "Surat asli tersedia"
+
+#: templates/pages/diplomaticletters-browse.html:107
+msgid "Sealed"
+msgstr "Segel"
+
+#: templates/pages/diplomaticletters-browse.html:115
+msgid "Language"
+msgstr "Bahasa"
+
+#: templates/pages/diplomaticletters-browse.html:117
+msgid "original"
+msgstr "Asli"
+
+#: templates/pages/diplomaticletters-browse.html:120
+msgid "translated"
+msgstr "Diterjemahkan"
+
+#: templates/pages/diplomaticletters-locations.html:68
+#: templates/pages/diplomaticletters-rulers.html:69
+msgid "Number of letters"
+msgstr "Sejumlah Surat"
+
+#: templates/pages/diplomaticletters-rulers.html:59
+msgid "Alternative names"
+msgstr "Nama Lain"
+
+#: templates/pages/hartakarun-all-articles.html:12
+msgid "Release date"
+msgstr "Tanggal Penerbitan"
+
+#: templates/pages/hartakarun-all-articles.html:19
+msgid "Category"
+msgstr "Kategori"
+
+#: templates/pages/inventory_tree.html:64
+msgid "Contents"
+msgstr "Isi"
+
+#: templates/pages/news.html:21
+msgid "back to index of news"
+msgstr "kembali ke indeks berita"
+
+#: templates/pages/placards-browse.html:20
+msgid "Date issued"
+msgstr "Tanggal pemesanan "
+
+#: templates/pages/placards-browse.html:43
+msgid "pages"
+msgstr "Halaman-halaman"
+
+#: templates/pages/placards-browse.html:57
+msgid "published on"
+msgstr "Tanggal Penerbitan"
+
+#: templates/search/resolution.html:18
+msgid "Results"
+msgstr "Hasil"
+
+#: templates/search/search.html:21
+msgid "you searched for"
+msgstr "anda mencari hal tentang"
+
+#: templates/search/search.html:28
+msgid "You did not provide a search term"
+msgstr "Anda tidak menyediakan istilah pencarian"
+
+#: templates/search/search.html:33
+msgid "Search results"
+msgstr "Hasil penelusuran"
+
+#: templates/userena/password_form.html:6 templates/userena/profile_form.html:4
+#, python-format
+msgid "Account &raquo; %(username)s"
+msgstr "Account &raquo; %(username)s"
+
+#: templates/userena/password_form.html:21
+#: templates/userena/profile_detail.html:18
+#: templates/userena/profile_form.html:23
+msgid "Change password"
+msgstr "Ubah kata sandi"
+
+#: templates/userena/password_form.html:26
+msgid "Edit profile"
+msgstr "Sunting profil"
+
+#: templates/userena/password_reset_confirm_form.html:12
+#: templates/userena/password_reset_form.html:9
+msgid "Reset password"
+msgstr "Ubah kata sandi"
+
+#: templates/userena/profile_detail.html:5
+#, python-format
+msgid "%(username)s's profile."
+msgstr "%(username)s's profil."
+
+#: templates/userena/profile_detail.html:16
+msgid "View profile"
+msgstr "Lihat profil"
+
+#: templates/userena/profile_detail.html:17
+msgid "Edit details"
+msgstr "Edit secara rinci"
+
+#: templates/userena/profile_detail.html:19
+msgid "Change email"
+msgstr "Ganti email"
+
+#: templates/userena/signin_form.html:14
+msgid "Sign in"
+msgstr "Masuk"
+
+#: templates/userena/signin_form.html:15
+msgid "Forgot your password?"
+msgstr "Anda lupa kata sandi?"
+
+#: templates/userena/emails/activation_email_message.html:4
+#: templates/userena/emails/activation_email_message.txt:2
+#: templates/userena/emails/confirmation_email_message_new.html:4
+#: templates/userena/emails/confirmation_email_message_new.txt:2
+#: templates/userena/emails/confirmation_email_message_old.txt:2
+#, python-format
+msgid "Dear %(username)s,"
+msgstr "Yang terhormat %(username)s,"
+
+#: templates/userena/emails/activation_email_message.html:5
+#: templates/userena/emails/activation_email_message.txt:4
+#, python-format
+msgid "Thank you for signing up at %(site)s."
+msgstr "Terimakasih telah mendaftar di %(site)s."
+
+#: templates/userena/emails/activation_email_message.html:7
+#: templates/userena/emails/activation_email_message.txt:5
+msgid "To activate your account you should click on the link below:"
+msgstr "Mengaktivasi akun anda, anda harus menge-klik link di bawah ini:"
+
+#: templates/userena/emails/activation_email_message.html:11
+#: templates/userena/emails/activation_email_message.txt:9
+#: templates/userena/emails/confirmation_email_message_new.html:13
+#: templates/userena/emails/confirmation_email_message_new.txt:12
+#: templates/userena/emails/confirmation_email_message_old.txt:8
+#: templates/userena/emails/password_reset_message.html:18
+#: templates/userena/emails/password_reset_message.txt:14
+msgid "Thanks for using our site!"
+msgstr "Terimakasih telah mengunjungi situs kami"
+
+#: templates/userena/emails/activation_email_message.html:12
+#: templates/userena/emails/activation_email_message.txt:11
+#: templates/userena/emails/confirmation_email_message_new.html:14
+#: templates/userena/emails/confirmation_email_message_new.txt:14
+#: templates/userena/emails/confirmation_email_message_old.txt:10
+#: templates/userena/emails/password_reset_message.html:19
+#: templates/userena/emails/password_reset_message.txt:16
+msgid "Sincerely"
+msgstr "Hormat"
+
+#: templates/userena/emails/activation_email_subject.txt:2
+#, python-format
+msgid "Your signup at %(site)s."
+msgstr "Pendaftaran anda di %(site)s."
+
+#: templates/userena/emails/confirmation_email_message_new.html:6
+#: templates/userena/emails/confirmation_email_message_new.txt:4
+#, python-format
+msgid "You requested a change of your email address at %(site)s."
+msgstr "Anda meminta perubahan alamat email anda di %(site)s."
+
+#: templates/userena/emails/confirmation_email_message_new.html:9
+#: templates/userena/emails/confirmation_email_message_new.txt:7
+msgid "Please confirm this email address by clicking on the link below:"
+msgstr "Konfirmasi alamat email ini dengan menge-klik link di bawah ini:"
+
+#: templates/userena/emails/confirmation_email_message_old.txt:4
+#, python-format
+msgid "There was a request to change your email address at %(site)s."
+msgstr "Telah permintaan untuk mengubah alamat email anda di %(site)s."
+
+#: templates/userena/emails/confirmation_email_message_old.txt:6
+#, python-format
+msgid ""
+"An email has been send to %(new_email)s which contains a verification link. "
+"Click on the link in this email to activate it."
+msgstr ""
+"Email telah dikirimkan ke %(new_email)s yang berisi sebuah link verifikasi. "
+"Klik link tersebut untuk mengaktivasi."
+
+#: templates/userena/emails/confirmation_email_subject_new.html:4
+#: templates/userena/emails/confirmation_email_subject_new.txt:2
+#, python-format
+msgid "Email verification for %(site)s."
+msgstr "Verifikasi email untuk %(site)s."
+
+#: templates/userena/emails/confirmation_email_subject_old.txt:2
+#, python-format
+msgid "A request to change your email address is made at %(site)s."
+msgstr "Permohonan perubahan alamat email anda telah di buat di %(site) s."
+
+#: templates/userena/emails/password_reset_message.html:5
+#, python-format
+msgid ""
+"You're receiving this e-mail because you requested a password reset\n"
+"            for your user account at %(site_name)s"
+msgstr ""
+"Anda menerima email ini karena anda meminta menghapus kata sandi untuk akun "
+"anda %(site_name)s"
+
+#: templates/userena/emails/password_reset_message.html:9
+#: templates/userena/emails/password_reset_message.txt:5
+msgid "Please go to the following page and choose a new password:"
+msgstr "Lanjutkan ke halaman berikutnya dan pilih kata sandi baru:"
+
+#: templates/userena/emails/password_reset_message.html:15
+#, python-format
+msgid "Your username, in case you've forgotten: %(username)s"
+msgstr "Username anda, jangan lupa: %(username)s"
+
+#: templates/userena/emails/password_reset_message.txt:2
+#, python-format
+msgid ""
+"You're receiving this e-mail because you requested a password reset\n"
+"for your user account at %(site_name)s"
+msgstr ""
+"Anda menerima email ini karena anda meminta menghapus kata sandi untuk akun "
+"anda %(site_name)s"
+
+#: templates/userena/emails/password_reset_message.txt:10
+#, python-format
+msgid ""
+"\n"
+"Your username, in case you've forgotten: %(username)s\n"
+msgstr ""
+"\n"
+"Username anda, jangan lupa: %(username)s\n"
+
+#: templates/widgets/appendix-asiannames-tagcloud.html:3
+#: templates/widgets/marginalia-asiannames-tagcloud.html:3
+msgid "Asian Names"
+msgstr "Nama Asia"
+
+#: templates/widgets/appendix-asiannames-tagcloud.html:9
+#: templates/widgets/marginalia-asiannames-tagcloud.html:9
+msgid "all Asian names"
+msgstr "semua nama Asia"
+
+#: templates/widgets/appendix-documenttype-tagcloud.html:3
+msgid "Document types"
+msgstr "Jenis dokumen"
+
+#: templates/widgets/appendix-documenttype-tagcloud.html:9
+msgid "all document types"
+msgstr "semua jenis documen"
+
+#: templates/widgets/appendix-europeannames-tagcloud.html:3
+#: templates/widgets/marginalia-europeannames-tagcloud.html:3
+msgid "European Names"
+msgstr "Nama Eropa"
+
+#: templates/widgets/appendix-europeannames-tagcloud.html:9
+#: templates/widgets/marginalia-europeannames-tagcloud.html:9
+msgid "all European names"
+msgstr "semua nama Eropa"
+
+#: templates/widgets/appendix-placenames-tagcloud.html:3
+#: templates/widgets/marginalia-placenames-tagcloud.html:3
+msgid "Place Names"
+msgstr "Nama Tempat"
+
+#: templates/widgets/appendix-placenames-tagcloud.html:9
+#: templates/widgets/marginalia-placenames-tagcloud.html:9
+msgid "all place names"
+msgstr "semua nama tempat"
+
+#: templates/widgets/appendix-vessel-tagcloud.html:9
+#: templates/widgets/marginalia-vessel-tagcloud.html:9
+msgid "all ship names"
+msgstr "semua nama kapal"
+
+#: templates/widgets/corpusdiplomaticum-areas-tagcloud.html:8
+msgid "all areas"
+msgstr "semua tempat"
+
+#: templates/widgets/diplomaticletters-locations-tagcloud.html:8
+msgid "all locations"
+msgstr "Semua tempat"
+
+#: templates/widgets/diplomaticletters-rulers-tagcloud.html:8
+msgid "all rulers"
+msgstr "Semua penguasa"
+
+#: templates/widgets/header.html:5
+msgid "Go to homepage"
+msgstr "masuk ke halaman beranda"
+
+#: templates/widgets/header.html:18
+msgid "search"
+msgstr "telusur"
+
+#: templates/widgets/login_and_edit.html:4
+msgid "welcome"
+msgstr "selamat datang"
+
+#: templates/widgets/login_and_edit.html:7
+msgid "sign out"
+msgstr "keluar"
+
+#: templates/widgets/login_and_edit.html:12
+#: templates/widgets/login_and_edit.html:19
+msgid "edit this page"
+msgstr "sunting halaman ini"
+
+#: templates/widgets/login_and_edit.html:26
+msgid "sign in"
+msgstr "masuk"
+
+#: templates/widgets/paginator_navigation.html:3
+msgid "results found"
+msgstr "hasil yang ditemukan"
+
+#: templates/widgets/paginator_navigation.html:4
+#, python-format
+msgid "page %(page_number)s of %(number_of_pages)s"
+msgstr "Halaman %(page_number)s atau %(number_of_pages)s"
+
+#: templates/widgets/paginator_navigation.html:7
+msgid "first"
+msgstr "Pertama"
+
+#: templates/widgets/paginator_navigation.html:8
+msgid "previous"
+msgstr "sebelumnya"
+
+#: templates/widgets/paginator_navigation.html:18
+msgid "next"
+msgstr "selanjutnya "
+
+#: templates/widgets/paginator_navigation.html:19
+msgid "last"
+msgstr "terakhir"
+
+#: templates/widgets/placards-governors-tagcloud.html:8
+msgid "all governors"
+msgstr "Semua gubernur"
+
+#: templates/widgets/realia-subject-tagcloud.html:8
+msgid "all subjects"
+msgstr "Semua subyek"
+
+#: views/__init__.py:144 views/__init__.py:175 views/__init__.py:210
+msgid "Harta Karun"
+msgstr "Harta Karun"
+
+#: views/__init__.py:234
+msgid "PDF"
+msgstr "PDF"
+
+#: views/__init__.py:235
+msgid "Harta Karun Category"
+msgstr "Kategori Harta Karun"
+
+#: views/__init__.py:1135
+msgid "Your profile has been updated."
+msgstr "Profil anda telah di perbaharui"
+
+#: views/__init__.py:1181
+msgid "You have been signed out."
+msgstr "Anda telah keluar"
+
+#, fuzzy
+#~ msgid "volumePage"
+#~ msgstr "Jumlah"
+
+#~ msgid "Ships"
+#~ msgstr "Nama-nama Kapal"
+
+#~ msgid "Document Type"
+#~ msgstr "Jenis dokumen"
+
+#~ msgid "Document Types"
+#~ msgstr "Jenis dokumen"
+
+#~ msgid "Archive file number"
+#~ msgstr "Nomor berkas arsip"
+
+#~ msgid "Dear %(username)s,</p>"
+#~ msgstr "Yang terhormat %(username)s, </p>"
+
+#~ msgid "<p>Thank you for signing up at %(site)s.</p>"
+#~ msgstr "<p>Terimakasih telah mendaftar di %(site)s. </p>"
+
+#~ msgid "log in"
+#~ msgstr "masuk"
+
+#~ msgid "Dutch"
+#~ msgstr "Terjemahan Bahasa Belanda"
+
+#~ msgid "Harta Karun Items"
+#~ msgstr "Artikel Harta Karun"
+
+#~ msgid "Journal Entries"
+#~ msgstr "Lema Catatan Harian"
+
+#~ msgid "Resolutions"
+#~ msgstr "Resolusi "
+
+#~ msgid "Marginalia"
+#~ msgstr "Marginalia"
+
+#~ msgid "Scan"
+#~ msgstr "Pindaian"
+
+#~ msgid "Scans"
+#~ msgstr "Pindaian-pindaian"
+
+#~ msgid "Introduced by"
+#~ msgstr "Kata Pengantar oleh"
+
+#~ msgid "Vessel name"
+#~ msgstr "Nama kapal"
+
+#~ msgid "Retro Book"
+#~ msgstr "Buku lama"
+
+#~ msgid "Retro Books"
+#~ msgstr "Buku-buku lama"
+
+#~ msgid "Short title"
+#~ msgstr "Judul singkat"
+
+#~ msgid "Short title (Dutch)"
+#~ msgstr "Judul singkat (Bhs. Belanda)"
+
+#~ msgid "Full title"
+#~ msgstr "Judul lengkap"
+
+#~ msgid "Full title (Dutch)"
+#~ msgstr "Judul lengkap (Bhs. Belanda)"
+
+#~ msgid "Author"
+#~ msgstr "Penulis"
+
+#~ msgid "Place of publication"
+#~ msgstr "Tempat penerbitan"
+
+#~ msgid "Year of publication"
+#~ msgstr "Tahun penerbitan"
+
+#~ msgid "Original language"
+#~ msgstr "Bahasa asli"
+
+#~ msgid "Short summary"
+#~ msgstr "Ringkasan singkat"
+
+#~ msgid "Daily Journal Entry"
+#~ msgstr "Lema Catatan Harian"
+
+#~ msgid "Daily Journal Entries"
+#~ msgstr "Lema-lema Catatan Harian"
+
+#~ msgid "Daily journals"
+#~ msgstr "Catatan-catatan harian"
+
+#~ msgid "Besogne books"
+#~ msgstr "Buku-buku Besogne"
+
+#~ msgid "Historical date"
+#~ msgstr "tanggal yang bersejarah "
+
+#~ msgid "Download PDF file"
+#~ msgstr "Unduh berkas dalam PDF"
+
+#~ msgid "Download"
+#~ msgstr "Unduh"

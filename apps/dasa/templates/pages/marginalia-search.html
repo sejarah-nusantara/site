@@ -1,0 +1,119 @@
+{% extends "pages/marginalia-browse.html" %}
+{% load url from future %}
+{% load i18n highlight %}
+{% block js %}
+{{ block.super }}
+<link href="{{ STATIC_URL }}selectable/css/dj.selectable.css" type="text/css" media="all" rel="stylesheet">
+<script type="text/javascript" src="{{ STATIC_URL }}selectable/js/jquery.dj.selectable.js"></script>
+<script>
+    $(document).ready(function() {
+    	min_date = new Date({{min_year}}, {{ min_month}}, {{ min_day }})
+    	max_date = new Date({{max_year}}, {{ max_month}}, {{ max_day }})
+        $("#id_date_from").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            showButtonPanel: true,
+            yearRange: '{{ min_year }}:{{ max_year }}',
+            defaultDate: min_date
+        });
+        $("#id_date_to").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            showButtonPanel: true,
+            yearRange: '{{ min_year }}:{{ max_year }}',
+            defaultDate: max_date
+        });
+    });
+</script>
+{% endblock %}
+
+{% block search_form %}
+    <div id="search_container" class="search_container_marginalia">
+        <div id="search_box">
+            <form method="get" action="." id="search_resolution">
+                <table>
+                    {{ form.as_table }}
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>
+                            <input type="submit" value="{% trans "Search" %}">
+                            <input type="reset" value="{% trans "Reset" %}"
+                                onclick="frm=$('#search_resolution');resetForm(frm);frm.submit();return false;" >
+                        </td>
+                    </tr>
+                </table>
+           </form>
+        </div>
+    </div>
+    <br class="clear" />
+    <div class="tagcloud_box tagcloud_box_marginalia" >
+        {% include "widgets/marginalia-vessel-tagcloud.html" %}
+    </div>
+    <div class="tagcloud_box tagcloud_box_marginalia">
+        {% include "widgets/marginalia-europeannames-tagcloud.html" %}
+    </div>
+    <br class="clear" />
+    <div class="tagcloud_box tagcloud_box_marginalia">
+        {% include "widgets/marginalia-asiannames-tagcloud.html" %}
+    </div>
+    <div class="tagcloud_box tagcloud_box_marginalia">
+        {% include "widgets/marginalia-placenames-tagcloud.html" %}
+    </div>
+    <br class="clear" />
+    <div id="search_description">
+    {% if query_prettyprinted %}
+        {% trans "You searched for" %}: {{ query_prettyprinted|safe }}.
+    {% endif %}
+	    {% with paginator_page.paginator.count as count %}
+        {% blocktrans  %}We found {{ count }} results{% endblocktrans %}.
+        {% endwith %}
+        <a href="" onclick="$('#search_container').show(500);$('.tagcloud_box').show(500);$('#show').hide();$('#hide').show();return false;" id="show" style="display:none">
+	        {% trans "show search form" %}</a>
+        <a href="" onclick="$('#search_container').hide(500);$('.tagcloud_box').hide(500);$('#show').show();$('#hide').hide();return false;" id="hide">
+	        {% trans "hide search form" %}
+	    </a>
+    </div>
+
+<br class="clear" clear="both" />
+
+{% endblock search_form %}
+
+{% block result_row %}
+    <tr>
+        <td>
+            <a href="{% url SLUG_MARGINALIA_BROWSE %}?selected={{ result.order }}">
+            {{ result.date|default:"" }}
+            </a>
+        </td>
+        <td>
+            <a href="{% url SLUG_MARGINALIA_BROWSE %}?selected={{ result.order }}">
+                {% if request.GET.q %}
+                    {% highlight result.description with request.GET.q css_class "highlight" max_length 1000 %}
+                {% else %}
+                {{ result.description }}
+                {% endif %}
+            </a>
+        </td>
+        <td>
+        {% if result.object.archiveFile in published_archivefiles %}
+        <a href="#" onClick="return openPageBrowser('{{result.object.link_to_pagebrowser}}');">
+            {{ result.object.archive_reference }}
+            <img src="{{STATIC_URL}}images/book.png" style="float:right">
+        </a>
+        {% else %}
+        {{ result.object.archive_reference }}
+        {% endif %}
+        </td>
+        {% comment %}
+        <td>
+            <a href="{% url SLUG_MARGINALIA_BROWSE %}?selected={{ result.order }}">
+            {{ result.vessel_names|default:"" }}
+            </a>
+
+        </td>
+        <td> {{ result.person_names_asian|default:""}} </td>
+        <td> {{ result.person_names_european|default:""}} </td>
+        <td> {{ result.place_names|default:""}} </td>
+        {% endcomment %}
+    </tr>
+{% endblock %}

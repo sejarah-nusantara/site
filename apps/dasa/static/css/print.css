@@ -1,0 +1,55 @@
+/************************************************/
+/* Bouman GGZ corporate website            			*/
+/* Website styles                               */
+/* Medium: print                            		*/
+/* -------------------------------------------- */
+/* Copyright Hic et Nunc            						*/
+/* www.hicetnunc.nl - info@hicetnunc.nl         */
+/************************************************/
+
+body {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	font-family: Verdana, Arial, Helvetica, san-serif;
+	font-size: 80%;
+	color: #000;
+	text-align: left;
+	background-color: #fff;
+}
+
+#header_bg, #footer_bg, #header, #logo, #topNavBar, #search, #toolbar, #left_column, #breadCrumb { display: none; }
+
+#print_logo { 
+	display: block;
+	width: 250px;
+	float: left;
+	vertical-align: middle;
+}
+
+h1#pageTitle { height: 200px;  }
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 300;  
+	margin-bottom: 1em;
+}
+h1 {font-size: 2em}
+h2 {font-size: 1.2em}
+h3 {font-size: 1.1em}
+h4 {font-size: 1em}
+h5 {font-size: 1em}
+h6 {font-size: 1em}
+
+#footer {
+	padding: 1em;
+	font-size: .8em;
+	text-align: center;
+	border-top: 1px solid #a9c399;
+}
+#footer a {
+	color: #888;
+	text-decoration: none;
+}
+
+#footer ul {
+	list-style: none; }

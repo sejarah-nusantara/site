@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>DASA - Scanstore - Viewer</title>
+    <link rel="stylesheet" href="{{ STATIC_URL }}iviewer/jquery/jquery-ui.min.css">
+    <link rel="stylesheet" href="{{ STATIC_URL }}iviewer/styles.css">
+    <link rel="icon" type="image/png" href="{{ STATIC_URL }}iviewer/images/application.png" />
+    <link rel="shortcut icon" type="image/png" href="{{ STATIC_URL }}iviewer/images/application.png" />
+	<script type="text/javascript" src="{{ STATIC_URL }}iviewer/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}iviewer/jquery/jquery-ui.min.js" ></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}iviewer/jquery/jquery.mousewheel.js" ></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}iviewer/jquery/jquery.iviewer.min.js" ></script>
+    <script src="{{ STATIC_URL }}iviewer/pixastic/pixastic.js"></script>
+    <script src="{{ STATIC_URL }}iviewer/pixastic/pixastic.effects.js"></script>
+    <script src="{{ STATIC_URL }}iviewer/pixastic/pixastic.worker.js"></script>
+    <script src="{{ STATIC_URL }}iviewer/scripts.js"></script>
+	<script>
+	$(document).ready(function() {
+		document.oncontextmenu = function() {return false;}
+	})	
+	</script>
+</head>
+<body>
+	<img id="image" />
+	<div id="loader">Masukan alat pemindai, tunggu sebentar...</div>
+	<!-- wrapper div is needed for opera because it shows scroll bars for reason -->
+	<div class="wrapper">
+		<div id="viewer"></div>
+	</div>
+	<div id="controlPanel">
+
+		<div class="left">
+			<button id="fitButton">Zoom sesuai ukuran</button>
+			<button id="zoomOrgButton">Zoom ke ukuran penuh</button>
+			<button id="zoomInButton">Zoom masuk </button>
+			<button id="zoomOutButton">Zoom keluar</button>
+			<button id="rotateLeftButton">Putar alat pemindai ke kiri</button>
+			<button id="rotateRightButton">Putar alat pemindai ke kanan</button>
+			<div id="resolutionButton">
+				<input type="radio" id="resolutionButton1" name="resolutionButton" value="1750" checked="checked" /><label for="resolutionButton1">Lihat pemindaian beresolusi rendah [ &plusmn; 2MP ]</label>
+				<input type="radio" id="resolutionButton2" name="resolutionButton" value="3500" /><label for="resolutionButton2">Lihat pemindaian beresolusi menengah [ &plusmn; 8MP ]</label>
+				<input type="radio" id="resolutionButton3" name="resolutionButton" /><label for="resolutionButton3">Lihat pemindaian berseolusi tinggi [ &plusmn; 15MP ]</label>
+			</div>			
+		</div>
+		<div class="right">
+			<span id="filterControl">
+				<input type="checkbox" id="autoFilterButton" name="autoFilterButton" checked="checked" /><label for="autoFilterButton">Tutup/Buka filter otomatis</label>
+				<button id="applyButton">Pasang filter </button>
+			</span>
+			<button id="resetButton">Kembalikan filter ke pemindaian asli </button>
+			<input type="checkbox" id="filterPanelButton" name="filterPanelButton" /><label for="filterPanelButton">Buka filter panil</label>
+		</div>
+	</div>
+	<div id="panelIdleText">Panil filter</div>
+	<div id="panelFailureText">Tidak ada filter</div>
+    <div id="panelFailureIOSText">iOS is not supported</div>
+	<div id="panelProcessingText">Proses pemindaian:</div>
+	<div id="panelReplacingText">Mengganti pemindaian...</div>
+	<div id="filterPanel">
+		<div id="progressBar" class="progress"><div class="progress-label">&nbsp;</div></div>
+		<div id="contractSlider" class="slider"><div>Kontras</div></div>
+		<div id="brightnessSlider" class="slider"><div>Pencahayaan</div></div>
+		<div id="hueSlider" class="slider"><div>Warna</div></div>
+		<div id="saturationSlider" class="slider"><div>Tingkat kejenuhan </div></div>
+		<div id="lightnessSlider" class="slider"><div>Kejernihan</div></div>
+		<div id="sharpenSlider" class="slider"><div>Tajam</div></div>
+	</div>
+</body>
+</html>

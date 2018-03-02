@@ -1,0 +1,25 @@
+{% load localeurl_tags i18n thumbnail %}
+<div id="header">
+            <!-- logo -->
+            <div id="logo">
+                <a href="{% url "home" %}" title="{% trans "Go to homepage" %}"><img src="{{ STATIC_URL }}images/header_logo_81px.png" alt="HomePage" border="0" /></a>
+            </div>
+            <div id="header_text">
+            <img src="{{ STATIC_URL }}images/ArsipNasionalRepublikIndonesia_text3-01.png" >
+            </div>
+            <!-- sub title -->
+            <div id="subTitle">
+            {{ home_page.title }}
+                </div>
+            <!-- toolbar -->
+            <div id="toolbar">
+                {% include "widgets/login_and_edit.html" %}
+                <li>
+                <a href="{% url "search" %}">{% trans "search" %}</a>
+                </li> 
+                    
+                 {% include "widgets/select_language.html" %}
+        </div>
+</div>
+    
+ 

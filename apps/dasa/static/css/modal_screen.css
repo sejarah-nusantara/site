@@ -1,0 +1,32 @@
+/************************************************/
+/* e_Gress DemoSite                        			*/
+/* Medium: screen                           		*/
+/* Common HTML and custom styles              	*/
+/* Version: 2.1                                 */
+/* -------------------------------------------- */
+/* Copyright Hic et Nunc            						*/
+/* www.hicetnunc.nl - info@hicetnunc.nl         */
+/* Date: july 2004                              */
+/************************************************/
+
+@charset "UTF-8";
+
+html,body { 
+	margin: 0;
+	padding: 0;
+}
+/* font-size is 62,5%: 1em = 10pt */
+body { 
+	width: 98%;
+	font: 62.5% normal Tahoma, "Lucida Grande", Arial, Helvetica, sans-serif;
+	color: #243559;
+	background-color: #fff;
+}
+
+#modal_pageWrapper {
+	
+	position: relative;
+	padding: 10px 20px 10px 15px;
+	font-size: 1.2em;
+}
+

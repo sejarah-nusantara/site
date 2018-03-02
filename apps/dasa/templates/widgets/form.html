@@ -1,0 +1,21 @@
+{% load i18n %}
+	{% csrf_token %}
+      {% for field in form %}
+    {% comment %} Displaying checkboxes differently {% endcomment %}
+    {% if field.name == 'tos' %}
+    <p class="checkbox">
+    <label for="id_{{ field.name }}">{{ field }} {{ field.label }}</label>
+    </p>
+    {% else %}
+    <tr>
+    <th>
+    {{ field.label_tag }} 
+    </th>
+    <td>
+    {{ field }}
+    {{ field.errors }}
+    </td>
+    </tr>
+    {% endif %}
+    {% endfor %}
+    {{ form.non_field_errors }}

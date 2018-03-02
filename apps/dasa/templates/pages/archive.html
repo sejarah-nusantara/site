@@ -1,0 +1,28 @@
+{% extends "basicpage.html" %}
+{% load localeurl_tags i18n thumbnail admin_urls %}
+
+{% block content %}
+{{ block.super }}
+<table id="hartakarun_categories_grid" class="table_data showcase">
+    <tr>
+    {% for page in archive_sections %}
+       <th>
+       <a href="{% url "basicpage" page.slug %}">{{ page.title|safe }}</a>
+       <br>
+       <a href="{% url "basicpage" page.slug %}">
+        {% thumbnail page.image_description '160x110' as im %}
+         <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+        {% empty %}
+         <span style="height:110px;width:160px;">&nbsp;</span>
+        {% endthumbnail %}
+       </a>
+    </th>
+    {% endfor %}
+    </tr>
+   <tr>
+    {% for page in archive_sections %}
+       <td>{{ page.description|safe }}</td>
+    {% endfor %}
+    </tr>
+</table>
+{% endblock %}

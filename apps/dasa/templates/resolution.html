@@ -1,0 +1,74 @@
+<!--  OBSOLETE??? -->
+{% extends "base.html" %}
+{% load thumbnail i18n %}
+{% load url from future %}
+
+{% block body_id %}retrobooks_index{% endblock %}
+{% block header %}
+{% endblock %}
+{% block description %}
+{% endblock %}
+{% block content %}
+<h1>{% trans "Details of the resolution" %}</h1>
+<table class="table_data">
+{% for fld, val in page.get_public_fields %}
+<tr>
+    <th>{{ fld.verbose_name }}</th>
+    <td>
+    {% ifequal fld.name "subject"%}
+    <a href="{% url SLUG_REALIA_SEARCH %}?q=&subject={{ val }}">
+    {{ val }}
+    </a>
+    {% else %}
+	    {{ val }}
+	{% endifequal %}   
+	    </td>
+</tr>
+{% endfor %}
+{% if page.get_scans %}
+<tr>
+    <th>{% trans "Retro book" %}</th>
+    <td><a href="{{ pagebrowser_url }}/?page_number={{ page.get_scans.0.get_pagenumber }}" target="_pagebrowser">
+    {% trans "View this resolution" %}</a>
+    </div></td>
+</tr>
+{% endif %}
+<tr>
+<th>{% trans "Navigation" %}</th>
+<td>
+{% if page.previous_resolution %}
+<a href="{% url "resolution" page.previous_resolution.pk %}">{% trans "previous resolution" %}</a>
+|
+{% endif %}
+
+{% if page.next_resolution %}
+<a href="{% url "resolution" page.next_resolution.pk %}">{% trans "next resolution" %}</a>
+|
+{% endif %}
+<a href="{% url "realia_index" %}?{{ search_query_string }}">{% trans "go back to search results" %}</a>
+</td>
+</tr>
+</table>
+
+<br class="clear" />
+<div>
+{% for scan in page.get_scans %}
+	<div class="scan_preview">
+	{% thumbnail scan.image '165' as im %}
+	<a href="#" onClick="return openPageBrowser('{{ pagebrowser_url }}/?page_number={{ scan.get_pagenumber }}');">
+	     <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"></a>
+	{% endthumbnail %}
+	<br />
+	{% for k, v in scan.get_public_fields %}
+	{{ k.verbose_name }}: {{ v }}<br>
+	{% endfor %}
+	<a href="#" onClick="return openPageBrowser('{{ pagebrowser_url }}/?page_number={{ scan.get_pagenumber }}');">
+	{% trans "show in retro book" %}</a>
+	</div>
+{% empty %}
+{% trans "We did not find any scans" %}
+{% endfor %}
+<br class="clear" />
+</div>
+{{ block.super }}
+{% endblock %}

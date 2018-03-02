@@ -1,0 +1,21 @@
+{% extends "basicpage.html" %}
+{% load localeurl_tags i18n thumbnail admin_urls %}
+
+{% block content %}
+{{ block.super }}
+{% if page_foreword_2 %}
+<div id="content_block" class="content">
+    {% thumbnail page_foreword_2.image '500' upscale=false as im %}
+    <span class="image">
+         <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+         {% if page_foreword_2.image_caption %}
+	    <span class="caption">{{ page_foreword_2.image_caption|safe }}</span>
+	    {% endif %}
+    </span>
+    {% endthumbnail %}
+    {% if page_foreword_2.content %}
+    {{ page_foreword_2.content|safe }}
+    {% endif %}
+</div>
+{% endif %}
+{% endblock %}
