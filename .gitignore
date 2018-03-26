@@ -46,3 +46,4 @@ fabfile.py
 dumped_versions.cfg
 src/
 apps/log/
+venv/
