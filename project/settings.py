@@ -18,10 +18,10 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',  # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'dasa',  # Or path to database file if using sqlite3.
-        'USER': '',  # Not used with sqlite3.
-        'PASSWORD': '',  # Not used with sqlite3.
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'dasa',
+        'USER': '',
+        'PASSWORD': '',
         #        'HOST': '/tmp/',  #this is where the socket file can be found
         #        'PORT': '5430',                      # Set to empty string for default. Not used with sqlite3.
     },
@@ -402,7 +402,7 @@ TEXT_FIELDS = [
 ]
 
 ALLOWED_HOSTS = [
-    'localhost', 
+    'localhost',
     '.dc-dottcom.org',
     '127.0.0.1:8000', '127.0.0.1', '.sejarah-nusantara.anri.go.id', '.cortsfoundation.org', '.anri.id', '.sejarah-nusantara.anri.go.id.',
     '.gerbrandy.com',

@@ -1496,3 +1496,60 @@ class CorpusDiplomaticumContract(DasaWrapper, models.Model):
     def repr_for_search_result(self):
         return '<span class="searchresult_title">%s - %s</span> <span class="searchresult_type">(%s)</span>' % (
             self.numberRoman, self.numberDigits, self._meta.verbose_name)
+
+
+class DeHaan(DasaWrapper, models.Model):
+    """DeHaan
+
+    """
+    class Meta:
+        verbose_name = _("DeHaan")
+        verbose_name_plural = _("DeHaan")
+
+    def __unicode__(self):
+        return u'Map from collection DeHaan with ID {self.ID}'.format(self=self)
+
+    IDSource = models.CharField(max_length=6)
+    originalMissingYN = models.CharField(max_length=1)
+    scanMissingYN	 = models.CharField(max_length=1)
+    refScanFrontImage = models.CharField(max_length=255, blank=True)
+    refScanBackImage	= models.CharField(max_length=255, blank=True)
+    descriptionByDeHaanNL	= models.CharField(max_length=2000, blank=True)
+    descriptionOnMapNL	= models.CharField(max_length=2000, blank=True)
+    titleNL	= models.CharField(max_length=1000, blank=True)
+    titleEN	= models.CharField(max_length=1000, blank=True)
+    typeMap	= models.CharField(max_length=255, blank=True)
+    scale	= models.CharField(max_length=255, blank=True)
+    locationEN	= models.CharField(max_length=255, blank=True)
+    dimensionHWinCM	= models.CharField(max_length=255, blank=True)
+    Color	= models.CharField(max_length=255, blank=True)
+    typeGraphics	= models.CharField(max_length=255, blank=True)
+    Blurred	= models.CharField(max_length=255, blank=True)
+    maker	= models.CharField(max_length=255, blank=True)
+    date	= models.CharField(max_length=255, blank=True)
+    commentsEN	= models.CharField(max_length=1000, blank=True)
+    refOtherMaps	= models.CharField(max_length=255, blank=True)
+    refOriginalEN	= models.CharField(max_length=1000, blank=True)
+    refArchiveFile	= models.CharField(max_length=255, blank=True)
+    refArchiveDateBijlagen	= models.CharField(max_length=255, blank=True)
+    refArchiveDescription	= models.CharField(max_length=255, blank=True)
+    indexTerms	= models.CharField(max_length=1000, blank=True)
+    numIndexTerms= models.CharField(max_length=255, blank=True)
+
+    order = models.PositiveIntegerField(_("Order"), blank=True, null=True)
+    # @property
+    # def governors(self):
+    #     return filter(None, [self.governor])
+    #
+    # def issued_date(self):
+    #     return utils.prettyprint_date(self.issued_date_y, self.issued_date_m, self.issued_date_d)
+    #
+    # @property
+    # def issued_date_as_date(self):
+    #     return utils.to_date(self.issued_date_y, self.issued_date_m, self.issued_date_d)
+    #
+    # def published_date(self):
+    #     return utils.prettyprint_date(self.published_date_y, self.published_date_m, self.published_date_d)
+
+    def get_absolute_url(self):
+        return reverse(config.SLUG_DEHAAN_BROWSE) + '?selected=%s' % self.id
