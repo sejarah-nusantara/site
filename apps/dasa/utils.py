@@ -163,7 +163,7 @@ def get_page(slug, default=None):
         page = models.BasicPage.objects.get(slug=slug)
     except models.BasicPage.DoesNotExist:
         if default is None:
-            msg = 'Could not find BasicPage with slug "%s"' % slug
+            msg = 'Could not find BasicPage with slug "%s" - please add one on /admin/dasa/basicpage/' % slug
             raise Http404(msg)
         else:
             return default

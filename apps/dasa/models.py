@@ -1507,7 +1507,7 @@ class DeHaan(DasaWrapper, models.Model):
         verbose_name_plural = _("DeHaan")
 
     def __unicode__(self):
-        return u'Map from collection DeHaan with ID {self.ID}'.format(self=self)
+        return u'Map from collection DeHaan with ID {self.IDSource}'.format(self=self)
 
     IDSource = models.CharField(max_length=6)
     originalMissingYN = models.CharField(max_length=1)
@@ -1537,8 +1537,25 @@ class DeHaan(DasaWrapper, models.Model):
     numIndexTerms= models.CharField(max_length=255, blank=True)
 
     order = models.PositiveIntegerField(_("Order"), blank=True, null=True)
+
+    @property
+    def description(self):
+        return ' '.join([self.descriptionByDeHaanNL, self.descriptionOnMapNL, self.titleNL, self.titleEN])
+
+    @property
+    def otherMaps(self):
+        ls =  self.refOtherMaps.split(';')
+        ls = [s.strip() for s in ls]
+        return ls
+
+    @property
+    def indexTermsSplitted(self):
+        ls =  self.indexTerms.split(';')
+        ls = [s.strip() for s in ls]
+        return ls
+
     # @property
-    # def governors(self):
+        # def governors(self):
     #     return filter(None, [self.governor])
     #
     # def issued_date(self):

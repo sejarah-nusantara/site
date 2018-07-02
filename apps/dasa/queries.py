@@ -96,6 +96,15 @@ def get_documenttypes_appendix():
     except KeyError:
         return []
 
+def get_dehaan_indexTerms():
+    # the indexMaps index is called vessle_names_list (for reasons of quick coding)
+    qry = SearchQuerySet().models(models.DeHaan).facet('vessel_names_list', limit=10000, mincount=1)
+    try:
+        vessel_names = qry.facet_counts()['fields']['vessel_names_list']
+        return vessel_names
+    except KeyError:
+        return []
+
 
 def get_min_max_dates(model, fld='date'):
     # given a model, get minimal and maximal values for the date field from solr

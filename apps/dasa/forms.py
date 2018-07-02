@@ -1161,4 +1161,68 @@ class AuthenticationForm(userena_forms.AuthenticationForm):
                 raise forms.ValidationError(_(u"Please enter a correct email and password. Note that both fields are case-sensitive."))
         return self.cleaned_data
 
+class DeHaanSearchForm(SearchForm):
+    searchqueryset = SearchQuerySet().models(models.DeHaan)
+
+    def __init__(self, *args, **kwargs):
+        super(DeHaanSearchForm, self).__init__(*args, label_suffix='', **kwargs)
+
+    ID = forms.CharField(
+        label=_('ID'),
+        # widget=selectable.forms.AutoCompleteWidget(lookups.DocumentTypeAppendixLookup, allow_new=True, attrs=JQUERY_UI_ATTRS),
+        required=False,
+    )
+
+    description = forms.CharField(
+        label=_('Description'),
+        required=False,
+        widget=forms.widgets.TextInput(attrs=JQUERY_UI_ATTRS),
+    )
+
+    index_term = forms.CharField(
+        label=_('Index Term'),
+        # widget=selectable.forms.AutoCompleteWidget(lookups.VesselNameAppendixLookup, allow_new=True, attrs=JQUERY_UI_ATTRS),
+        required=False,
+    )
+
+    text = forms.CharField(
+        label=_('Search in text'),
+        required=False,
+        widget=forms.widgets.TextInput(attrs=JQUERY_UI_ATTRS),
+    )
+
+    order_by = forms.CharField(required=False, widget=forms.HiddenInput())
+
+    def search(self):
+        # First, store the SearchQuerySet received from other processing.
+        sqs = super(DeHaanSearchForm, self).search()
+        if self.is_valid():
+            IDOrig = self.cleaned_data.get('ID')
+            if IDOrig:
+                sqs = sqs.filter(type=IDOrig)
+            if self.cleaned_data.get('description'):
+                sqs = sqs.filter(description=DasaQuery(self.cleaned_data['description']))
+
+            if self.cleaned_data.get('index_term'):  # and self.cleaned_data['vessel_name'] not in [',']:
+                # exact filtering on tags does not work, so we do it by hand
+                # (WHICH IS VERY EXPENSIVE)
+                sqs = [x for x in sqs if self.cleaned_data.get('index_term') in (x.vessel_names_list or '')]
+            if self.cleaned_data.get('text'):
+                sqs = sqs.filter(text=self.cleaned_data['text'])
+        else:
+            sqs = sqs.order_by('order')
+        return sqs
+
+    def no_query_found(self):
+        """
+        Determines the behavior when no query was found.
+
+        By default, no results are returned (``EmptySearchQuerySet``).
+
+        Should you want to show all results, override this method in your
+        own ``SearchForm`` subclass and do ``return self.searchqueryset.all()``.
+        """
+        return self.searchqueryset  # .all()
+
+
 _('Send password')

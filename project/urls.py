@@ -201,6 +201,9 @@ urlpatterns = patterns('',
     url(r'^%(SLUG_APPENDIX_EUROPEANNAMES)s/$' % c, views.appendix.AppendixEuropeanNames.as_view(), name=config.SLUG_APPENDIX_EUROPEANNAMES),
     url(r'^%(SLUG_APPENDIX_PLACENAMES)s/$' % c, views.appendix.AppendixPlaceNames.as_view(), name=config.SLUG_APPENDIX_PLACENAMES),
 
+    url(r'^%(SLUG_DEHAAN_BROWSE)s/$' % c, views.DeHaanBrowse(), name=config.SLUG_DEHAAN_BROWSE),
+    url(r'^%(SLUG_DEHAAN_SEARCH)s/$' % c, views.DeHaanSearch(), name=config.SLUG_DEHAAN_SEARCH),
+    url(r'^%(SLUG_DEHAAN_INDEXTERMS)s/$' % c, views.DeHaanIndexMap.as_view(), name=config.SLUG_DEHAAN_INDEXTERMS),
 
     url(r'^%(SLUG_PLACARD_BROWSE)s/$' % c, views.PlacardsBrowse(), name=config.SLUG_PLACARD_BROWSE),
     url(r'^%(SLUG_PLACARD_SEARCH)s/$' % c, views.PlacardsSearch(), name=config.SLUG_PLACARD_SEARCH),

@@ -11,7 +11,7 @@ XXX: body_id should be changed, but CSS depends on this id
 {{ block.super }}
 <div class="alphabet">
     {% for letter, count in letters %}
-    <a href="{% url SLUG_APPENDIX_VESSELNAMES %}?first_letter={{ letter }}">
+    <a href="{% url SLUG_DEHAAN_INDEXTERMS %}?first_letter={{ letter }}">
         <span class="letter">{{letter}}</span>
         <br>
         <span class="count">
@@ -21,12 +21,12 @@ XXX: body_id should be changed, but CSS depends on this id
     {% endfor %}
 </div>
 <br class="clear" />
-{% for col in vessel_names %}
+{% for col in index_terms %}
 	<div class="column">
 	<ul>
 	{% for subject, nr in col %}
 	<li>
-	<a href="{% url SLUG_APPENDIX_SEARCH %}?vessel_name={{ subject }}&q=">
+	<a href="{% url SLUG_DEHAAN_SEARCH %}?index_term={{ subject }}&q=">
 	{{ subject }} ({{ nr }})
 	</a>
 	</li>

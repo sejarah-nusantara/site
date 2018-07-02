@@ -1,7 +1,7 @@
 # encoding=utf-8
 
 #
-# this file defines which elements are indexed (and how)
+# this file defines which elements are indexed by solr (and how)
 #
 #
 import datetime
@@ -11,15 +11,6 @@ import models
 
 # TODO: this not very elegant, mixing test code with production code
 TEST_ENVIRONMENT = getattr(settings, 'TEST_ENVIRONMENT', False)
-#
-# if TEST_ENVIRONMENT:
-#     # when testing, we have no solr engine running, so we fall back on the 'normal' search index
-#     _SearchIndex = indexes.SearchIndex
-# else:
-# #   "The RealTimeSearchIndex provides all the same functionality as the standard SearchIndex. However, in addition, it connects to the post_save/post_delete signals of the model it’s registered with."
-# #     http://django-haystack.readthedocs.org/en/latest/searchindex_api.html#realtimesearchindex
-#     _SearchIndex = indexes.RealTimeSearchIndex
-
 
 class SiteSearchIndex(indexes.SearchIndex, indexes.Indexable):
     """
@@ -38,6 +29,39 @@ class SiteSearchIndex(indexes.SearchIndex, indexes.Indexable):
         else:
             # return some date in the past
             return datetime.datetime(2000, 1, 1)
+
+
+
+class DeHaanIndex(SiteSearchIndex):
+    #     The following search fields are shown and can be used:
+    #  Map ID (searches in: ID)
+    #  Description (searches in fields: descriptionByDeHaanNL, descriptionOnMapNL, titleEN
+    #  Index term (searches in: indexTerms)
+    #  Search in text (means search in all fields)
+
+    # abusing the 'type' index for storing the IDSource
+    type = indexes.CharField(model_attr='IDSource', faceted=False)
+    description = indexes.CharField(model_attr='description', faceted=False)
+    # abusing the 'vessel_names' index to also store the indexTerms
+    vessel_names = indexes.CharField(model_attr='indexTerms', faceted=True)
+    vessel_names_list = indexes.MultiValueField(model_attr='indexTermsSplitted', faceted=True)
+    locations = indexes.MultiValueField(model_attr='indexTerms', faceted=True)
+    vessel_names_list = indexes.MultiValueField(faceted=True)
+    text = indexes.CharField(model_attr='solr_index', document=True)
+    order = indexes.IntegerField(model_attr='order', faceted=False, null=True)
+
+    def get_model(self):
+        return models.DeHaan
+
+    def prepare_vessel_names_list(self, obj):
+        s = obj.indexTerms
+        if s:
+            ls = s.split(';')
+            ls = [x.strip(',. \n') for x in ls]
+            return ls
+        else:
+            return []
+
 
 
 class ResolutionIndex(SiteSearchIndex):

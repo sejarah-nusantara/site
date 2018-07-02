@@ -1,0 +1,9 @@
+{% load url from future %}
+{% load i18n %}
+<h2>{% trans "Index" %}</h2>
+<div  id="tagcloud">
+{% for tag, font_size in tags_indexTerms %}
+<a href="{% url SLUG_DEHAAN_SEARCH %}?q=&index_term={{ tag }}" style="font-size:{{ font_size }}px">{{ tag }}</a>
+{% endfor %}
+</div>
+<a href="{% url SLUG_DEHAAN_INDEXTERMS %}" class="link_to_subjects">{% trans "all items" %}</a>

@@ -1,0 +1,113 @@
+{% extends "browse-and-search-template.html" %}
+{% load thumbnail i18n highlight snippet %}
+
+{% block js %}
+{{ block.super }}
+<script>
+    $(document).ready(function() {
+        $(document).tooltip();
+ 	});
+</script>
+{% endblock %}
+
+
+{% block headers %}
+    <tr class="headers">
+        <th style="width:145px">
+            <a href=".?{{ qs.order_by_archive_reference }}">
+            {% trans "Identification" %}
+            </a>
+        </th>
+        <th style="width: 300px">
+            {% trans "Description" %}
+        </th>
+        <th style="width: 300px">
+        </div>
+            {% trans "References" %}
+        </th>
+    </tr>
+{% endblock headers %}
+
+{% block result_row %}
+    <tr {% ifequal selected_order result.order %}class="selected"{% endifequal %}>
+        <td>
+            {{ result.object.IDSource }}<br />
+            {% if result.object.originalMissingYN == 'Y '%}
+              {% trans "original map is missing" %}<br />
+            {% endif %}
+            {% if result.object.scanMissingYN == 'Y' %}
+              {% trans "map not scanned" %}<br />
+            {% endif %}
+            {% if result.object.refScanFrontImage  %}
+              {{ result.object.refScanFrontImage  }}<br />
+              [[ TODO: add link + thumb.. ]]<br />
+            {% endif %}
+            {% if result.object.refScanBackImage  %}
+              {{ result.object.refScanBackImage  }}<br />
+              [[ TODO: add link + thumb.. ]]<br />
+            {% endif %}
+        </td>
+        <td>
+            By de Haan: {{ result.object.descriptionByDeHaanNL }}<br />
+            {% if result.object.descriptionOnMapNL %}
+              {% trans "On the map:" %} {{ result.object.descriptionOnMapNL }}<br />
+            {% endif %}
+            {% if result.object.titleEN %}
+              {% trans "English title:" %} {{ result.object.titleEN }}<br />
+            {% endif %}
+            {% if result.object.typeMap %}
+              {% trans "Type:" %} {{ result.object.typeMap }}<br />
+            {% endif %}
+            {% if result.object.scale %}
+              {% trans "Scale:" %} {{ result.object.scale }}<br />
+            {% endif %}
+            {% if result.object.locationEN %}
+              {% trans "Location:" %} {{ result.object.locationEN }}<br />
+            {% endif %}
+            {% if result.object.dimensionHWinCM %}
+              {% trans "Dimension:" %} {{ result.object.dimensionHWinCM }}<br />
+            {% endif %}
+            {% if result.object.color %}
+              {% trans "Color:" %} {{ result.object.color }}<br />
+            {% endif %}
+            {% if result.object.typeGraphicstypeGraphics %}
+              {% trans "Graphics:" %} {{ result.object.descriptionOnMapNL }}<br />
+            {% endif %}
+            {% if result.object.maker %}
+              {% trans "Maker:" %} {{ result.object.maker }}<br />
+            {% endif %}
+            {% if result.object.datedate %}
+              {% trans "Date:" %} {{ result.object.description}}<br />
+            {% endif %}
+            {% if result.object.commentsEN %}
+              {% trans "Comments:" %} {{ result.object.commentsEN }}<br />
+            {% endif %}
+            {% if result.object.refOriginalEN %}
+              {% trans "Reference notes:" %} {{ result.object.refOriginalEN }}<br />
+            {% endif %}
+        </td>
+        <td>
+            {% if result.object.refArchiveFile %}
+              {% trans "archive file" %}<a href="">{{ result.object.refArchiveFile }} </a>
+              <tt>(a hyperlink to the pagebrowser for the file, can be pointed to the</tt>
+              <br />
+              {% trans "date:" %} {{ result.object.refArchiveDateBijlagen }}
+              <br />
+              {% trans "description:" %} {{ result.object.refArchiveDescription }}
+              <br />
+            {% endif %}
+            {% if result.object.refOtherMaps %}
+              {% trans "Related maps:" %} {% for ref in result.object.otherMaps %}
+                <a href="{% url SLUG_DEHAAN_SEARCH %}?ID={{ref}}">{{ ref }}</a>;
+              {% endfor %}
+              <br />
+            {% endif %}
+            {% if result.object.indexTerms %}
+              {% trans "Index terms:" %}
+               {% for ref in result.object.indexTermsSplitted %}
+                <a href="{% url SLUG_DEHAAN_SEARCH %}?index_term={{ref}}">{{ ref }}</a>;
+              {% endfor %}
+            {% endif %}
+        </td>
+    </tr>
+{% endblock %}

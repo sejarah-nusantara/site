@@ -60,6 +60,7 @@ from common import DasaSearchView, Page, translate, admin_link, prettyprint_quer
 from common import repository_logger
 import corpusdiplomaticum
 import appendix
+from dehaan import DeHaanBrowse, DeHaanSearch, DeHaanIndexMap
 
 
 
