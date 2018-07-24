@@ -62,14 +62,25 @@ Verzameling van Politieke contracten en verdere Verdragen door de Nederlanders i
 Per deel:
 =====================
 """
-CORPUSDIPLOMATICUMTITLES = [
-    "Corpus Diplomaticum Volume 1 (1596 - 1650), Mr. J. E. Heeres, KITLV 57, 1907",
-    "Corpus Diplomaticum Volume 2 (1650 - 1675), Mr. J. E. Heeres, KITLV 87, 1931",
-    "Corpus Diplomaticum Volume 3 (1676 - 1691), Prof. Mr. J. E. Heeres, KITLV 91, 1934",
-    "Corpus Diplomaticum Volume 4 (1691 - 1725), Dr. F. W. Stapel, KITLV 93, 1935",
-    "Corpus Diplomaticum Volume 5 (1726 - 1752), Dr. F. W. Stapel, KITLV 96, 1938",
-    "Corpus Diplomaticum Volume 6 (1753 - 1799), Dr. F. W. Stapel, KITLV, 1955",
-]
+# this is a map from archiveFile to titles
+CORPUSDIPLOMATICUM_DEHAAN_TITLES = {
+    '1': "Corpus Diplomaticum Volume 1 (1596 - 1650), Mr. J. E. Heeres, KITLV 57, 1907",
+    '2': "Corpus Diplomaticum Volume 2 (1650 - 1675), Mr. J. E. Heeres, KITLV 87, 1931",
+    '3': "Corpus Diplomaticum Volume 3 (1676 - 1691), Prof. Mr. J. E. Heeres, KITLV 91, 1934",
+    '4': "Corpus Diplomaticum Volume 4 (1691 - 1725), Dr. F. W. Stapel, KITLV 93, 1935",
+    '5': "Corpus Diplomaticum Volume 5 (1726 - 1752), Dr. F. W. Stapel, KITLV 96, 1938",
+    '6': "Corpus Diplomaticum Volume 6 (1753 - 1799), Dr. F. W. Stapel, KITLV, 1955",
+    # DEHAAN_TITLES = {
+    'A': 'De Haan A',
+    'B': 'De Haan B',
+    'C': 'De Haan C',
+    'D': 'De Haan D',
+    'E': 'De Haan E',
+    'F': 'De Haan F',
+    'G': 'De Haan G',
+    'H': 'De Haan H',
+    'I': 'De Haan I',
+}
 
 
 class SyncArchiveFiles(TemplateView):
@@ -124,7 +135,7 @@ class SyncArchiveFiles(TemplateView):
             if 'redirect' in request.GET:
                 return redirect('{0}?message={1}'.format(urlresolvers.reverse('sync_archivefiles'), msg))
             else:
-                return HttpResponse('Updated %s - %s [%s]' % (ead_id, archivefile_id, msg))
+                return HttpResponse('Published %s - %s [%s]' % (ead_id, archivefile_id, msg))
 
         elif 'delete' in request.GET:
             archivefile_id = self.request.GET.get('archivefile')
@@ -173,7 +184,6 @@ class SyncArchiveFiles(TemplateView):
             else:
                 archivefile.is_published = False
                 archivefile.pagebrowser_last_changed = ''
-
 
         return super(SyncArchiveFiles, self).get(request, *args, **kwargs)
 
@@ -301,13 +311,18 @@ class SyncArchiveFiles(TemplateView):
                 msg = ''
             show_homePane = True
         else:
+            # we have no ead, thse sare special cases: CorpusDiplamticum and De Haan
+            # corpusdiplomaitcum has numeric arhiveFiles, de haan has capital letters..
             language = 'nl'
             try:
-                title = CORPUSDIPLOMATICUMTITLES[int(archivefile.archiveFile) - 1]
+                title = CORPUSDIPLOMATICUM_DEHAAN_TITLES[archivefile.archiveFile]
             except IndexError:
-                msg = 'No known CorpusDipl. title for this archiveFile: {archivefile.archiveFile}'.format(archivefile=archivefile)
+                msg = 'No known CorpusDipl. or DeHaan title for this archiveFile: {archivefile.archiveFile}'.format(archivefile=archivefile)
                 raise Exception(msg)
                 title = '-'
+            except Exception as error:
+
+                return unicode(error)
             subtitle = ''
             content = ''
             msg = ''
@@ -346,7 +361,7 @@ class SyncArchiveFiles(TemplateView):
 
         try:
             book.add_or_update_document('page_view_home', subtitle, content)
-        except:
+        except Exception as error:
             # TODO: this is a hack - the second time it often works :-(
             book.add_or_update_document('page_view_home', subtitle, content)
 
