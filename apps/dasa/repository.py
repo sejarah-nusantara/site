@@ -46,7 +46,10 @@ class ArchiveFileWrapper(object):
             ead_id = self.ead_id
 
         if not ead_id:
-            ead_id = 'CorpusDiplomaticum'
+            if self.archiveFile in 'ABCDEFGHIJKMLNOPQRSTUVWX':
+                ead_id = 'DeHaan'
+            else:
+                ead_id = 'CorpusDiplomaticum'
             # raise Exception('No ead_id argument provided')
 
         return pagebrowser_id(ead_id, self.archive_id, self.archiveFile)

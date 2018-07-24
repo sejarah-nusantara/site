@@ -1557,6 +1557,7 @@ class DeHaan(DasaWrapper, models.Model):
 
     @property
     def refScanFrontImageThumb(self):
+        # return a link to the thubmail
         if self.refScanFrontImage:
             code = self.refScanFrontImage.split('_')[-1]
             archiveFile, folioNumber = code.split('-')
