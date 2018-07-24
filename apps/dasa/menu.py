@@ -138,7 +138,6 @@ class Menu(object):
         return self.get_menuitems()
 
     def get_menuitems(self):
-
         if self._menuitems is None:
             self._menuitems = self._menustructure()
         return self._menuitems

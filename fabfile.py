@@ -183,7 +183,7 @@ def migrate(where='local'):
 
 @task
 def copy_data(source, dest):
-    """copy data between instances, i.e. fab copy_data:production,local moves data from production to local instance"""
+    """copy data between website instances, i.e. fab copy_data:production,local moves data from production to local instance"""
     """migrate data of the stie from source to dest"""
     if dest != 'local':
         if not raw_input('You are about to change data in an instance that is not the local instance. Are you sure? [y/n]') == 'y':

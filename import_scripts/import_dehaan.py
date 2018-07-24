@@ -1,10 +1,8 @@
 #!../bin/python
 # encoding=utf-8
-import datetime
 import os
 import sys
-import copy
-
+import requests
 
 DEBUG = False
 
@@ -58,6 +56,57 @@ class PlacardImporter(Importer):
         for i, record in enumerate(records):
             record['pk'] = i + 1
             record['order'] = i + 1
+            # if record['refScanFrontImage']:
+            #     # print record['refScanFrontImage']
+            #     code = record['refScanFrontImage'].split('_')[-1]
+            #     # print code
+            #     # print code.split('-')
+            #     archiveFile, folioNumber = code.split('-')
+            #     record['refScanFrontImageArchiveFile'] = archiveFile
+            #     record['refScanFrontImageFolioNumber'] = folioNumber
+            #     url = 'https://repository.cortsfoundation.org/scans'
+            #     params = {
+            #         'folioNumber': folioNumber,
+            #         'archiveFile': archiveFile
+            #     }
+            #     response = requests.get(url, params=params, timeout=10)
+            #     result = response.json()
+            #     # print result
+            #     if result['total_results'] == 1:
+            #         print '[{i}] Scan found for {refScanFrontImage}'.format(i=i, **record)
+            #         record['refScanFrontImageThumb'] = result['results'][0]['images'][0]['URL']
+            #     else:
+            #         print '[{i}] WARNING: No scan found for {refScanFrontImage}'.format(i=i, **record)
+            #         record['refScanFrontImageThumb'] = None
+            # else:
+            #     print '[{i}] This record has no refScanBackImage defined'.format(i=i, **record)
+            #
+            # if record['refScanBackImage']:
+            #     # print record['refScanBackImage']
+            #     code = record['refScanBackImage'].split('_')[-1]
+            #     # print code
+            #     # print code.split('-')
+            #     archiveFile, folioNumber = code.split('-')
+            #     record['refScanBackImageArchiveFile'] = archiveFile
+            #     record['refScanBackImageFolioNumber'] = folioNumber
+            #     url = 'https://repository.cortsfoundation.org/scans'
+            #     params = {
+            #         'folioNumber': folioNumber,
+            #         'archiveFile': archiveFile
+            #     }
+            #     response = requests.get(url, params=params, timeout=10)
+            #     result = response.json()
+            #     # print result
+            #     if result['total_results'] == 1:
+            #         print '[{i}] Scan found for {refScanBackImage}'.format(i=i, **record)
+            #         record['refScanBackImageThumb'] = result['results'][0]['images'][0]['URL']
+            #     else:
+            #         print '[{i}] WARNING: No scan found for {refScanBackImage}'.format(i=i, **record)
+            #         record['refScanBackImageThumb'] = None
+            # else:
+            #     print '[{i}] This record has no refScanBackImage defined'.format(i=i, **record)
+
+
 #             if i < len(records) - 1:
 #                 record['next'] = unicode(record['pk'] + 1)
 #

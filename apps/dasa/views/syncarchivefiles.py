@@ -124,7 +124,7 @@ class SyncArchiveFiles(TemplateView):
             if 'redirect' in request.GET:
                 return redirect('{0}?message={1}'.format(urlresolvers.reverse('sync_archivefiles'), msg))
             else:
-                return HttpResponse('Updated %s - %s' % (ead_id, archivefile_id))
+                return HttpResponse('Updated %s - %s [%s]' % (ead_id, archivefile_id, msg))
 
         elif 'delete' in request.GET:
             archivefile_id = self.request.GET.get('archivefile')
@@ -306,7 +306,7 @@ class SyncArchiveFiles(TemplateView):
                 title = CORPUSDIPLOMATICUMTITLES[int(archivefile.archiveFile) - 1]
             except IndexError:
                 msg = 'No known CorpusDipl. title for this archiveFile: {archivefile.archiveFile}'.format(archivefile=archivefile)
-                # raise Exception(msg)
+                raise Exception(msg)
                 title = '-'
             subtitle = ''
             content = ''

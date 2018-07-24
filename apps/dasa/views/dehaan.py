@@ -58,6 +58,7 @@ from dasa import utils
 
 from common import DasaSearchView, Page, translate, admin_link, prettyprint_query, _tagcloud
 
+
 class DeHaanBrowse(DasaSearchView):
     slug = config.SLUG_DEHAAN_BROWSE
     template_name = 'pages/dehaan-browse.html'
@@ -68,9 +69,8 @@ class DeHaanBrowse(DasaSearchView):
         self.form_class = forms.DeHaanSearchForm
 
     def extra_context(self):
-        return {}
         context = super(DeHaanBrowse, self).extra_context()
-        context.update(self.get_context_order_by(self.orderable_fields, default='archive_reference'))
+        # context.update(self.get_context_order_by(self.orderable_fields, default='archive_reference'))
         # published_archivefiles = repository.get_archivefiles(status=config.STATUS_PUBLISHED)
         # context['published_archivefiles'] = [x.archiveFile for x in published_archivefiles]
         return context

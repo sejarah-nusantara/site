@@ -31,6 +31,7 @@ from haystack.query import SearchQuerySet
 
 from dasa.utils import first_words, format_date_for_timeglider, sluggify
 from dasa.utils import pagebrowser_id
+from dasa.repository import repository
 from dasa import config
 from dasa import utils
 
@@ -1511,9 +1512,9 @@ class DeHaan(DasaWrapper, models.Model):
 
     IDSource = models.CharField(max_length=6)
     originalMissingYN = models.CharField(max_length=1)
-    scanMissingYN	 = models.CharField(max_length=1)
+    scanMissingYN = models.CharField(max_length=1)
     refScanFrontImage = models.CharField(max_length=255, blank=True)
-    refScanBackImage	= models.CharField(max_length=255, blank=True)
+    refScanBackImage = models.CharField(max_length=255, blank=True)
     descriptionByDeHaanNL	= models.CharField(max_length=2000, blank=True)
     descriptionOnMapNL	= models.CharField(max_length=2000, blank=True)
     titleNL	= models.CharField(max_length=1000, blank=True)
@@ -1544,15 +1545,70 @@ class DeHaan(DasaWrapper, models.Model):
 
     @property
     def otherMaps(self):
-        ls =  self.refOtherMaps.split(';')
+        ls = self.refOtherMaps.split(';')
         ls = [s.strip() for s in ls]
         return ls
 
     @property
     def indexTermsSplitted(self):
-        ls =  self.indexTerms.split(';')
+        ls = self.indexTerms.split(';')
         ls = [s.strip() for s in ls]
         return ls
+
+    @property
+    def refScanFrontImageThumb(self):
+        if self.refScanFrontImage:
+            code = self.refScanFrontImage.split('_')[-1]
+            archiveFile, folioNumber = code.split('-')
+            params = {
+                'folioNumber': folioNumber,
+                'archiveFile': archiveFile
+            }
+            result = repository.open_url('/scans', **params)
+            # result = response.json()
+            # print result
+            print result
+            if result['total_results'] == 1:
+                # print 'Scan found for {self.refScanFrontImage}'
+                # image_url = result['results'][0]['images'][0]['URL']
+                image_url = result['results'][0]['URL'] + '/image'
+                return image_url
+            else:
+                print 'WARNING: No scan found for {self.refScanFrontImage}'.format(self=self)
+                return 'No scan found'
+                # record['refScanFrontImageThumb'] = None
+        else:
+            print 'This record has no refScanFrontImage defined'
+
+    @property
+    def refScanBackImageThumb(self):
+        if self.refScanBackImage:
+            code = self.refScanBackImage.split('_')[-1]
+            archiveFile, folioNumber = code.split('-')
+        #     url = 'https://repository.cortsfoundation.org/scans'
+            params = {
+                'folioNumber': folioNumber,
+                'archiveFile': archiveFile
+            }
+            result = repository.open_url('/scans', **params)
+            # result = response.json()
+            # print result
+            print result
+            if result['total_results'] == 1:
+                # print 'Scan found for {self.refScanBackImage}'
+                # image_url = result['results'][0]['images'][0]['URL']
+                image_url = result['results'][0]['URL'] + '/image'
+                return image_url
+            else:
+                print 'WARNING: No scan found for {self.refScanBackImage}'.format(self=self)
+                return 'No scan found'
+                # record['refScanBackImageThumb'] = None
+        else:
+            print 'This record has no refScanBackImage defined'
+            # repository.open_url('/scans?folioNumber=0006A1&archiveFile=E')
+
+    def link_to_pagebrowser(self):
+        return link_to_pagebrowser(self.archiveFile, self.folio_number_from)
 
     # @property
         # def governors(self):

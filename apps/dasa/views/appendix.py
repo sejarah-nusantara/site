@@ -56,7 +56,8 @@ from dasa.utils import get_page
 from dasa.menu import get_menu
 from dasa import utils
 
-from common import DasaSearchView, Page, translate, admin_link, prettyprint_query, _tagcloud
+from common import DasaSearchView, Page, translate, prettyprint_query, _tagcloud
+
 
 class AppendixBrowse(DasaSearchView):
     slug = config.SLUG_APPENDIX_BROWSE
@@ -118,8 +119,6 @@ class AppendixSearch(AppendixBrowse):
         context['tags_europeannames'] = _tagcloud(queries.get_appendix_europeannames())
         context['tags_asiannames'] = _tagcloud(queries.get_appendix_asiannames())
         context['tags_placenames'] = _tagcloud(queries.get_appendix_placenames())
-
-
 
         # get mininal and maximal dates
         context['doc_min_year'], context['doc_max_year'] = queries.get_min_max_values(models.Appendix, 'doc_y')
@@ -230,6 +229,7 @@ class AppendixDocumentTypes(Page):
             'letters': letters_and_counts,
         })
         return context
+
 
 class AppendixAsianNames(Page):
     slug = config.SLUG_APPENDIX_ASIANNAMES

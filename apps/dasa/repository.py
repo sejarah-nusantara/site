@@ -71,6 +71,8 @@ class Repository(object):
         cache_key = self.compute_hash((url, kwargs))
         try:
             print url, kwargs
+            if (not url.startswith('http')):
+                url = self.url + url
             response = requests.get(url, params=kwargs, timeout=10)
             result = response.json()
         except requests.exceptions.Timeout as error:
@@ -82,7 +84,7 @@ class Repository(object):
             result = self.cache_get(cache_key)
             return result
         except ValueError, error:
-            msg = error.msg + '. Is {url} responding? [params={params}'.format(url=url, params=kwargs)
+            msg = getattr(error, 'msg', '') + '. Is {url} responding? [params={params}'.format(url=url, params=kwargs)
             raise Exception(msg)
         except requests.ConnectionError, error:
             msg = ''
