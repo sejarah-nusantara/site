@@ -1564,7 +1564,7 @@ class DeHaan(DasaWrapper, models.Model):
                 'folioNumber': folioNumber,
                 'archiveFile': archiveFile
             }
-            result = repository.open_url('/scans', **params)
+            result = repository.open_url('scans', **params)
             # result = response.json()
             # print result
             print result
@@ -1590,7 +1590,7 @@ class DeHaan(DasaWrapper, models.Model):
                 'folioNumber': folioNumber,
                 'archiveFile': archiveFile
             }
-            result = repository.open_url('/scans', **params)
+            result = repository.open_url('scans', **params)
             # result = response.json()
             # print result
             print result
