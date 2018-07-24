@@ -12,5 +12,3 @@ from dasa import config
 def base_html(request):
     context = {}
     return render(request, 'base.html', context)
-
-

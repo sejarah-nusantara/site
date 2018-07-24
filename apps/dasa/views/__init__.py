@@ -5,20 +5,16 @@
 #
 
 
-import copy
 import os
 import random
 import json
-import types
 from datetime import datetime
-import logging
 from textwrap import dedent
 
 from django.core.paginator import Page as PaginatorPage, Paginator, InvalidPage
 from django.contrib import messages
 from django.contrib.auth import views as auth_views
 from django.http import Http404, HttpResponse
-from django.shortcuts import render_to_response
 from django.utils.decorators import method_decorator
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext as _

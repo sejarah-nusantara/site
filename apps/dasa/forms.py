@@ -163,6 +163,7 @@ class SiteSearchForm(SearchForm):
         'placards': ['dasa.placard'],
         'appendices': ['dasa.appendix'],
         'corpusdiplomaticumcontracts': ['dasa.corpusdiplomaticumcontract'],
+        'maps': ['dasa.dehaan'],
     }
 
     def __init__(self, *args, **kwargs):
@@ -178,9 +179,11 @@ class SiteSearchForm(SearchForm):
             ('placards', _('Placards')),
             ('appendices', _('Appendices Resolutions')),
             ('corpusdiplomaticumcontracts', _('Corpus Diplomaticum Contracts')),
+            ('maps', _('Maps')),
             ]
         choices = self.choices
-        self.fields['models'] = forms.MultipleChoiceField(choices=choices, required=False, label=_('Search In'),
+        self.fields['models'] = forms.MultipleChoiceField(
+            choices=choices, required=False, label=_('Search In'),
             widget=forms.CheckboxSelectMultiple(),
             )
 
