@@ -1616,6 +1616,13 @@ class DeHaan(DasaWrapper, models.Model):
             return ''
             # repository.open_url('/scans?folioNumber=0006A1&archiveFile=E')
 
+    @property
+    def refArchiveFileAsString(self):
+        s = self.refArchiveFile
+        if s.endswith('.0'):
+            s = s[:-len('.0')]
+        return s
+
     def link_to_pagebrowser(self):
         return link_to_pagebrowser(self.archiveFile, self.folio_number_from)
 

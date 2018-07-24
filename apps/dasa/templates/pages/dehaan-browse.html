@@ -18,10 +18,10 @@
             {% trans "Identification" %}
             </a>
         </th>
-        <th style="width: 300px">
+        <th style="width: 400px">
             {% trans "Description" %}
         </th>
-        <th style="width: 300px">
+        <th style="width: 200px">
         </div>
             {% trans "References" %}
         </th>
@@ -42,13 +42,14 @@
               {{ result.object.refScanBackImageThumb | safe }}
         </td>
         <td>
-            By de Haan: {{ result.object.descriptionByDeHaanNL }}<br />
+            {% trans "By de Haan:" %} {{ result.object.descriptionByDeHaanNL }}<br />
             {% if result.object.descriptionOnMapNL %}
               {% trans "On the map:" %} {{ result.object.descriptionOnMapNL }}<br />
             {% endif %}
             {% if result.object.titleEN %}
               {% trans "English title:" %} {{ result.object.titleEN }}<br />
             {% endif %}
+            <br>
             {% if result.object.typeMap %}
               {% trans "Type:" %} {{ result.object.typeMap }}<br />
             {% endif %}
@@ -73,6 +74,7 @@
             {% if result.object.datedate %}
               {% trans "Date:" %} {{ result.object.description}}<br />
             {% endif %}
+            <br>
             {% if result.object.commentsEN %}
               {% trans "Comments:" %} {{ result.object.commentsEN }}<br />
             {% endif %}
@@ -82,22 +84,24 @@
         </td>
         <td>
             {% if result.object.refArchiveFile %}
-              {% trans "archive file" %}<a href="">{{ result.object.refArchiveFile }} </a>
-              <tt>(a hyperlink to the pagebrowser for the file, can be pointed to the</tt>
+              {% trans "archive file:" %}<a href="">{{ result.object.refArchiveFileAsString }} </a>
               <br />
               {% trans "date:" %} {{ result.object.refArchiveDateBijlagen }}
               <br />
               {% trans "description:" %} {{ result.object.refArchiveDescription }}
               <br />
+              <br />
+
             {% endif %}
             {% if result.object.refOtherMaps %}
               {% trans "Related maps:" %} {% for ref in result.object.otherMaps %}
                 <a href="{% url SLUG_DEHAAN_SEARCH %}?ID={{ref}}">{{ ref }}</a>;
               {% endfor %}
-              <br />
+              <br >
+              <br>
             {% endif %}
             {% if result.object.indexTerms %}
-              {% trans "Index terms:" %}
+               {% trans "Index terms:" %}
                {% for ref in result.object.indexTermsSplitted %}
                 <a href="{% url SLUG_DEHAAN_SEARCH %}?index_term={{ref}}">{{ ref }}</a>;
               {% endfor %}

@@ -29,7 +29,6 @@ from django.views.generic import View
 from django.conf import settings
 
 from haystack.query import SearchQuerySet
-from haystack.views import SearchView
 
 from sorl.thumbnail import get_thumbnail
 
@@ -57,7 +56,6 @@ from common import repository_logger
 import corpusdiplomaticum
 import appendix
 from dehaan import DeHaanBrowse, DeHaanSearch, DeHaanIndexMap
-
 
 
 LENGTH_OF_RESULTS_LIST = 4
