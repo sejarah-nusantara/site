@@ -75,7 +75,7 @@ class Repository(object):
         try:
             print url, kwargs
             if (not url.startswith('http')):
-                url = self.url + url
+                url = os.path.join(self.url, url)
             response = requests.get(url, params=kwargs, timeout=10)
             result = response.json()
         except requests.exceptions.Timeout as error:

@@ -214,7 +214,6 @@ class Appendix(DasaWrapper, models.Model):
 
     notes = models.TextField(blank=True, null=True)
 
-
     order = models.PositiveIntegerField(_("Order"), blank=True, null=True)
 
     def __unicode__(self):
@@ -780,6 +779,8 @@ def link_to_pagebrowser(archiveFile, folio_number, archive='K66a'):
     language_code = translation.get_language()
     if archive == 'CorpusDipl':
         ead_id = 'CorpusDiplomaticum'
+    elif archive == 'DeHaan':
+        ead_id = 'DeHaan'
     else:
         ead_id = settings.LANGUAGE2EAD.get(language_code, settings.LANGUAGE_CODE)
     pb_url = os.path.join(settings.PAGEBROWSER_PUBLIC_URL, pagebrowser_id(ead_id=ead_id, archive_id=archive_id, archiveFile=archiveFile))
@@ -1515,12 +1516,12 @@ class DeHaan(DasaWrapper, models.Model):
     scanMissingYN = models.CharField(max_length=1)
     refScanFrontImage = models.CharField(max_length=255, blank=True)
     refScanBackImage = models.CharField(max_length=255, blank=True)
-    descriptionByDeHaanNL	= models.CharField(max_length=2000, blank=True)
-    descriptionOnMapNL	= models.CharField(max_length=2000, blank=True)
-    titleNL	= models.CharField(max_length=1000, blank=True)
-    titleEN	= models.CharField(max_length=1000, blank=True)
-    typeMap	= models.CharField(max_length=255, blank=True)
-    scale	= models.CharField(max_length=255, blank=True)
+    descriptionByDeHaanNL = models.CharField(max_length=2000, blank=True)
+    descriptionOnMapNL = models.CharField(max_length=2000, blank=True)
+    titleNL = models.CharField(max_length=1000, blank=True)
+    titleEN = models.CharField(max_length=1000, blank=True)
+    typeMap = models.CharField(max_length=255, blank=True)
+    scale = models.CharField(max_length=255, blank=True)
     locationEN	= models.CharField(max_length=255, blank=True)
     dimensionHWinCM	= models.CharField(max_length=255, blank=True)
     Color	= models.CharField(max_length=255, blank=True)
@@ -1529,13 +1530,13 @@ class DeHaan(DasaWrapper, models.Model):
     maker	= models.CharField(max_length=255, blank=True)
     date	= models.CharField(max_length=255, blank=True)
     commentsEN	= models.CharField(max_length=1000, blank=True)
-    refOtherMaps	= models.CharField(max_length=255, blank=True)
-    refOriginalEN	= models.CharField(max_length=1000, blank=True)
-    refArchiveFile	= models.CharField(max_length=255, blank=True)
-    refArchiveDateBijlagen	= models.CharField(max_length=255, blank=True)
-    refArchiveDescription	= models.CharField(max_length=255, blank=True)
-    indexTerms	= models.CharField(max_length=1000, blank=True)
-    numIndexTerms= models.CharField(max_length=255, blank=True)
+    refOtherMaps = models.CharField(max_length=255, blank=True)
+    refOriginalEN = models.CharField(max_length=1000, blank=True)
+    refArchiveFile = models.CharField(max_length=255, blank=True)
+    refArchiveDateBijlagen = models.CharField(max_length=255, blank=True)
+    refArchiveDescription = models.CharField(max_length=255, blank=True)
+    indexTerms = models.CharField(max_length=1000, blank=True)
+    numIndexTerms = models.CharField(max_length=255, blank=True)
 
     order = models.PositiveIntegerField(_("Order"), blank=True, null=True)
 
@@ -1555,14 +1556,29 @@ class DeHaan(DasaWrapper, models.Model):
         ls = [s.strip() for s in ls]
         return ls
 
+    def _splitCode(self, s):
+        code = s.split('_')[-1]
+        archiveFile, folioNumber = code.split('-')
+        return archiveFile, folioNumber
+
+    @property
+    def linkToPagebrowserFrontImage(self):
+        archiveFile, folio_number = self._splitCode(self.refScanFrontImage)
+        return link_to_pagebrowser(archiveFile, folio_number, archive='DeHaan')
+        # return link_to_pagebrowser(self.volumeNumber, self.pageFrom, archive='CorpusDipl')
+        # return self.refScanFrontImage
+
+    def linkToPagebrowserBackImage(self):
+        archiveFile, folio_number = self._splitCode(self.refScanBackImage)
+        return link_to_pagebrowser(archiveFile, folio_number, archive='DeHaan')
+
     @property
     def refScanFrontImageThumb(self):
         # return a link to the thubmail
         if self.refScanFrontImage:
-            code = self.refScanFrontImage.split('_')[-1]
-            archiveFile, folioNumber = code.split('-')
+            archiveFile, folio_number = self._splitCode(self.refScanFrontImage)
             params = {
-                'folioNumber': folioNumber,
+                'folioNumber': folio_number,
                 'archiveFile': archiveFile
             }
             result = repository.open_url('scans', **params)
@@ -1584,11 +1600,10 @@ class DeHaan(DasaWrapper, models.Model):
     @property
     def refScanBackImageThumb(self):
         if self.refScanBackImage:
-            code = self.refScanBackImage.split('_')[-1]
-            archiveFile, folioNumber = code.split('-')
+            archiveFile, folio_number = self._splitCode(self.refScanBackImag)
         #     url = 'https://repository.cortsfoundation.org/scans'
             params = {
-                'folioNumber': folioNumber,
+                'folioNumber': folio_number,
                 'archiveFile': archiveFile
             }
             result = repository.open_url('scans', **params)

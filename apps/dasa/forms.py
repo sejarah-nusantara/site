@@ -1161,6 +1161,7 @@ class AuthenticationForm(userena_forms.AuthenticationForm):
                 raise forms.ValidationError(_(u"Please enter a correct email and password. Note that both fields are case-sensitive."))
         return self.cleaned_data
 
+
 class DeHaanSearchForm(SearchForm):
     searchqueryset = SearchQuerySet().models(models.DeHaan)
 
@@ -1195,6 +1196,7 @@ class DeHaanSearchForm(SearchForm):
 
     def search(self):
         # First, store the SearchQuerySet received from other processing.
+        # import ipdb; ipdb.set_trace()
         sqs = super(DeHaanSearchForm, self).search()
         if self.is_valid():
             IDOrig = self.cleaned_data.get('ID')

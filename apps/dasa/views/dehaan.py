@@ -49,14 +49,7 @@ import dasa
 from dasa import config, models
 from dasa import forms
 from dasa import queries
-from dasa.utils import sluggify, urlencode
-from dasa.pagebrowser import PageBrowserBook
-from dasa.repository import repository
-from dasa.utils import get_page
-from dasa.menu import get_menu
-from dasa import utils
-
-from common import DasaSearchView, Page, translate, admin_link, prettyprint_query, _tagcloud
+from common import DasaSearchView, Page, prettyprint_query, _tagcloud
 
 
 class DeHaanBrowse(DasaSearchView):

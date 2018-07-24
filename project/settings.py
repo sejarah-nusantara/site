@@ -354,6 +354,7 @@ LANGUAGE2EAD = {
 ARCHIVE_IDS = {
     'K66a': '1',
     'CorpusDipl': '3',
+    'DeHaan': '11'
 }
 
 

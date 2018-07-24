@@ -39,11 +39,15 @@
               {% trans "map not scanned" %}<br />
             {% endif %}
             {% if result.object.refScanFrontImage  %}
-              <img src="{{ result.object.refScanFrontImageThumb }}?size=200x300" />
+              <a href="{{ result.object.linkToPagebrowserFrontImage }}">
+                <img src="{{ result.object.refScanFrontImageThumb }}?size=200x300" />
+              </a>
               <!-- {{ result.object.refScanFrontImage  }}<br /> -->
             {% endif %}
             {% if result.object.refScanBackImage  %}
-              <img src="{{ result.object.refScanBackImageThumb }}?size=200x300" />
+              <a href="{{ result.object.linkToPagebrowserBackImage }}">
+                <img src="{{ result.object.refScanBackImageThumb }}?size=200x300" />
+              </a>
             {% endif %}
         </td>
         <td>
