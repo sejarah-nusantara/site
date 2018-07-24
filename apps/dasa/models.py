@@ -1582,45 +1582,36 @@ class DeHaan(DasaWrapper, models.Model):
                 'archiveFile': archiveFile
             }
             result = repository.open_url('scans', **params)
-            # result = response.json()
-            # print result
-            print result
+            url = self.linkToPagebrowserFrontImage
             if result['total_results'] == 1:
-                # print 'Scan found for {self.refScanFrontImage}'
-                # image_url = result['results'][0]['images'][0]['URL']
                 image_url = result['results'][0]['URL'] + '/image'
-                return image_url
+                return '<a href="{url}"><img src="{image_url}?size=200x300"></img></a>'.format(url=url, image_url=image_url)
             else:
                 print 'WARNING: No scan found for {self.refScanFrontImage}'.format(self=self)
-                return 'No scan found'
-                # record['refScanFrontImageThumb'] = None
+                return '<a href="{url}">Image not found</a>'.format(url=url)
         else:
             print 'This record has no refScanFrontImage defined'
+            return ''
 
     @property
     def refScanBackImageThumb(self):
         if self.refScanBackImage:
             archiveFile, folio_number = self._splitCode(self.refScanBackImag)
-        #     url = 'https://repository.cortsfoundation.org/scans'
             params = {
                 'folioNumber': folio_number,
                 'archiveFile': archiveFile
             }
             result = repository.open_url('scans', **params)
-            # result = response.json()
-            # print result
-            print result
+            url = self.linkToPagebrowserBackImage
             if result['total_results'] == 1:
-                # print 'Scan found for {self.refScanBackImage}'
-                # image_url = result['results'][0]['images'][0]['URL']
                 image_url = result['results'][0]['URL'] + '/image'
-                return image_url
+                return '<a href="{url}"><img src="{image_url}?size=200x300"></img></a>'.format(url=url, image_url=image_url)
             else:
                 print 'WARNING: No scan found for {self.refScanBackImage}'.format(self=self)
-                return 'No scan found'
-                # record['refScanBackImageThumb'] = None
+                return '<a href="{url}">Image not found</a>'.format(url=url)
         else:
             print 'This record has no refScanBackImage defined'
+            return ''
             # repository.open_url('/scans?folioNumber=0006A1&archiveFile=E')
 
     def link_to_pagebrowser(self):

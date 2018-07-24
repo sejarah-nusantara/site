@@ -38,17 +38,8 @@
             {% if result.object.scanMissingYN == 'Y' %}
               {% trans "map not scanned" %}<br />
             {% endif %}
-            {% if result.object.refScanFrontImage  %}
-              <a href="{{ result.object.linkToPagebrowserFrontImage }}">
-                <img src="{{ result.object.refScanFrontImageThumb }}?size=200x300" />
-              </a>
-              <!-- {{ result.object.refScanFrontImage  }}<br /> -->
-            {% endif %}
-            {% if result.object.refScanBackImage  %}
-              <a href="{{ result.object.linkToPagebrowserBackImage }}">
-                <img src="{{ result.object.refScanBackImageThumb }}?size=200x300" />
-              </a>
-            {% endif %}
+              {{ result.object.refScanFrontImageThumb | safe }}
+              {{ result.object.refScanBackImageThumb | safe }}
         </td>
         <td>
             By de Haan: {{ result.object.descriptionByDeHaanNL }}<br />
