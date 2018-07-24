@@ -1585,6 +1585,7 @@ class DeHaan(DasaWrapper, models.Model):
             url = self.linkToPagebrowserFrontImage
             if result['total_results'] == 1:
                 image_url = result['results'][0]['URL'] + '/image'
+                image_url = image_url.replace('http://localhost:5000', settings.REPOSITORY_PUBLIC_URL)
                 return '<a href="{url}"><img src="{image_url}?size=200x300"></img></a>'.format(url=url, image_url=image_url)
             else:
                 print 'WARNING: No scan found for {self.refScanFrontImage}'.format(self=self)
@@ -1605,6 +1606,7 @@ class DeHaan(DasaWrapper, models.Model):
             url = self.linkToPagebrowserBackImage
             if result['total_results'] == 1:
                 image_url = result['results'][0]['URL'] + '/image'
+                image_url = image_url.replace('http://localhost:5000', settings.REPOSITORY_PUBLIC_URL)
                 return '<a href="{url}"><img src="{image_url}?size=200x300"></img></a>'.format(url=url, image_url=image_url)
             else:
                 print 'WARNING: No scan found for {self.refScanBackImage}'.format(self=self)
