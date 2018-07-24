@@ -80,6 +80,12 @@ CORPUSDIPLOMATICUM_DEHAAN_TITLES = {
     'G': 'De Haan G',
     'H': 'De Haan H',
     'I': 'De Haan I',
+    'K': 'De Haan K',
+    'L': 'De Haan L',
+    'M': 'De Haan M',
+    'N': 'De Haan N',
+    'O': 'De Haan O',
+    'X': 'De Haan X',
 }
 
 
