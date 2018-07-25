@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-25 15:43+0200\n"
-"PO-Revision-Date: 2018-07-25 15:43+0200\n"
+"POT-Creation-Date: 2018-07-25 15:56+0200\n"
+"PO-Revision-Date: 2018-07-25 15:56+0200\n"
 "Last-Translator: jelle <jelle>\n"
 "Language-Team: \n"
 "Language: id\n"
@@ -942,83 +942,87 @@ msgstr "Identifikasi"
 msgid "References"
 msgstr "Refrensi"
 
-#: templates/pages/dehaan-browse.html:36
+#: templates/pages/dehaan-browse.html:36 templates/pages/dehaan-browse.html:39
 msgid "original map is missing"
 msgstr "Peta asli hilang"
 
-#: templates/pages/dehaan-browse.html:39
+#: templates/pages/dehaan-browse.html:42
 msgid "map not scanned"
 msgstr "Peta tidak di pindai"
 
-#: templates/pages/dehaan-browse.html:45
+#: templates/pages/dehaan-browse.html:48
 msgid "By de Haan:"
 msgstr "Oleh De Haan:"
 
-#: templates/pages/dehaan-browse.html:47
+#: templates/pages/dehaan-browse.html:50
 msgid "On the map:"
 msgstr "Pada Peta:"
 
-#: templates/pages/dehaan-browse.html:50
+#: templates/pages/dehaan-browse.html:53
 msgid "English title:"
 msgstr "Judul Bahasa Inggris:"
 
-#: templates/pages/dehaan-browse.html:54
+#: templates/pages/dehaan-browse.html:57
 msgid "Type:"
 msgstr "Jenis"
 
-#: templates/pages/dehaan-browse.html:57
+#: templates/pages/dehaan-browse.html:60
 msgid "Scale:"
 msgstr "Skala:"
 
-#: templates/pages/dehaan-browse.html:60
+#: templates/pages/dehaan-browse.html:63
 msgid "Location:"
 msgstr "Lokasi:"
 
-#: templates/pages/dehaan-browse.html:63
+#: templates/pages/dehaan-browse.html:66
 msgid "Dimension:"
 msgstr "Dimensi:"
 
-#: templates/pages/dehaan-browse.html:66
+#: templates/pages/dehaan-browse.html:69
 msgid "Color:"
 msgstr "Warna:"
 
-#: templates/pages/dehaan-browse.html:69
+#: templates/pages/dehaan-browse.html:72
 msgid "Graphics:"
 msgstr "Grafik:"
 
-#: templates/pages/dehaan-browse.html:72
+#: templates/pages/dehaan-browse.html:75
 msgid "Maker:"
 msgstr "Pembuat:"
 
-#: templates/pages/dehaan-browse.html:75
+#: templates/pages/dehaan-browse.html:78
 msgid "Date:"
 msgstr "Tanggal:"
 
-#: templates/pages/dehaan-browse.html:79
+#: templates/pages/dehaan-browse.html:82
 msgid "Comments:"
 msgstr "Komentar:"
 
-#: templates/pages/dehaan-browse.html:82
+#: templates/pages/dehaan-browse.html:85
 msgid "Reference notes:"
 msgstr "Catatan referensi:"
 
-#: templates/pages/dehaan-browse.html:87
+#: templates/pages/dehaan-browse.html:90
+msgid "Bijlagen Resoluties"
+msgstr "Lampiran Keputusan"
+
+#: templates/pages/dehaan-browse.html:91
 msgid "archive file:"
 msgstr "Nomor Arsip:"
 
-#: templates/pages/dehaan-browse.html:89
+#: templates/pages/dehaan-browse.html:93
 msgid "date:"
 msgstr "Tanggal:"
 
-#: templates/pages/dehaan-browse.html:91
+#: templates/pages/dehaan-browse.html:95
 msgid "description:"
 msgstr "deskripsi:"
 
-#: templates/pages/dehaan-browse.html:97
+#: templates/pages/dehaan-browse.html:101
 msgid "Related maps:"
 msgstr "Peta terkait:"
 
-#: templates/pages/dehaan-browse.html:104
+#: templates/pages/dehaan-browse.html:108
 msgid "Index terms:"
 msgstr "Indeks:"
 
@@ -1457,9 +1461,6 @@ msgstr "Anda telah keluar"
 
 #~ msgid "Journal Entries"
 #~ msgstr "Lema Catatan Harian"
-
-#~ msgid "Resolutions"
-#~ msgstr "Resolusi "
 
 #~ msgid "Marginalia"
 #~ msgstr "Marginalia"

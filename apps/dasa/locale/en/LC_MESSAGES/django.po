@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-25 15:43+0200\n"
+"POT-Creation-Date: 2018-07-25 15:56+0200\n"
 "PO-Revision-Date: 2013-05-17 12:37+0100\n"
 "Last-Translator: jelle <jelle>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -943,84 +943,88 @@ msgstr ""
 msgid "References"
 msgstr ""
 
-#: templates/pages/dehaan-browse.html:36
+#: templates/pages/dehaan-browse.html:36 templates/pages/dehaan-browse.html:39
 msgid "original map is missing"
 msgstr ""
 
-#: templates/pages/dehaan-browse.html:39
+#: templates/pages/dehaan-browse.html:42
 msgid "map not scanned"
 msgstr ""
 
-#: templates/pages/dehaan-browse.html:45
+#: templates/pages/dehaan-browse.html:48
 msgid "By de Haan:"
 msgstr ""
 
-#: templates/pages/dehaan-browse.html:47
+#: templates/pages/dehaan-browse.html:50
 msgid "On the map:"
 msgstr ""
 
-#: templates/pages/dehaan-browse.html:50
+#: templates/pages/dehaan-browse.html:53
 #, fuzzy
 msgid "English title:"
 msgstr "English"
 
-#: templates/pages/dehaan-browse.html:54
+#: templates/pages/dehaan-browse.html:57
 msgid "Type:"
 msgstr ""
 
-#: templates/pages/dehaan-browse.html:57
+#: templates/pages/dehaan-browse.html:60
 msgid "Scale:"
 msgstr ""
 
-#: templates/pages/dehaan-browse.html:60
+#: templates/pages/dehaan-browse.html:63
 msgid "Location:"
 msgstr ""
 
-#: templates/pages/dehaan-browse.html:63
+#: templates/pages/dehaan-browse.html:66
 msgid "Dimension:"
 msgstr ""
 
-#: templates/pages/dehaan-browse.html:66
+#: templates/pages/dehaan-browse.html:69
 msgid "Color:"
 msgstr ""
 
-#: templates/pages/dehaan-browse.html:69
+#: templates/pages/dehaan-browse.html:72
 msgid "Graphics:"
 msgstr ""
 
-#: templates/pages/dehaan-browse.html:72
+#: templates/pages/dehaan-browse.html:75
 msgid "Maker:"
 msgstr ""
 
-#: templates/pages/dehaan-browse.html:75
+#: templates/pages/dehaan-browse.html:78
 msgid "Date:"
 msgstr ""
 
-#: templates/pages/dehaan-browse.html:79
+#: templates/pages/dehaan-browse.html:82
 msgid "Comments:"
 msgstr ""
 
-#: templates/pages/dehaan-browse.html:82
+#: templates/pages/dehaan-browse.html:85
 msgid "Reference notes:"
 msgstr ""
 
-#: templates/pages/dehaan-browse.html:87
-msgid "archive file:"
-msgstr ""
-
-#: templates/pages/dehaan-browse.html:89
-msgid "date:"
+#: templates/pages/dehaan-browse.html:90
+msgid "Bijlagen Resoluties"
 msgstr ""
 
 #: templates/pages/dehaan-browse.html:91
+msgid "archive file:"
+msgstr ""
+
+#: templates/pages/dehaan-browse.html:93
+msgid "date:"
+msgstr ""
+
+#: templates/pages/dehaan-browse.html:95
 msgid "description:"
 msgstr ""
 
-#: templates/pages/dehaan-browse.html:97
+#: templates/pages/dehaan-browse.html:101
 msgid "Related maps:"
 msgstr ""
 
-#: templates/pages/dehaan-browse.html:104
+#: templates/pages/dehaan-browse.html:108
 msgid "Index terms:"
 msgstr ""
 
