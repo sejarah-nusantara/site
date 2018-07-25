@@ -1565,9 +1565,8 @@ class DeHaan(DasaWrapper, models.Model):
     def linkToPagebrowserFrontImage(self):
         archiveFile, folio_number = self._splitCode(self.refScanFrontImage)
         return link_to_pagebrowser(archiveFile, folio_number, archive='DeHaan')
-        # return link_to_pagebrowser(self.volumeNumber, self.pageFrom, archive='CorpusDipl')
-        # return self.refScanFrontImage
 
+    @property
     def linkToPagebrowserBackImage(self):
         archiveFile, folio_number = self._splitCode(self.refScanBackImage)
         return link_to_pagebrowser(archiveFile, folio_number, archive='DeHaan')
