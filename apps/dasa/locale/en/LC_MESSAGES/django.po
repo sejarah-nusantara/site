@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-27 17:29+0200\n"
+"POT-Creation-Date: 2018-07-24 21:28+0200\n"
 "PO-Revision-Date: 2013-05-17 12:37+0100\n"
 "Last-Translator: jelle <jelle>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,6 +18,7 @@ msgstr ""
 
 #: forms.py:153 templates/pages/appendix-search.html:57
 #: templates/pages/corpusdiplomaticum-contracts-search.html:42
+#: templates/pages/dehaan-search.html:19
 #: templates/pages/diplomaticletters-locations.html:26
 #: templates/pages/diplomaticletters-rulers.html:20
 #: templates/pages/diplomaticletters-search.html:43
@@ -28,50 +29,55 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: forms.py:172
+#: forms.py:173
 msgid "Entire site"
 msgstr ""
 
-#: forms.py:173
+#: forms.py:174
 msgid "Harta Karun Categories"
 msgstr ""
 
-#: forms.py:174 models.py:496
+#: forms.py:175 models.py:523
 msgid "Harta Karun Articles"
 msgstr ""
 
-#: forms.py:175 models.py:1035 models.py:1036
+#: forms.py:176 models.py:1064 models.py:1065
 msgid "Marginalia to the Daily Journals"
 msgstr ""
 
-#: forms.py:176
+#: forms.py:177
 msgid "Realia to the Resolutions and Besognes"
 msgstr ""
 
-#: forms.py:177 models.py:811
+#: forms.py:178 models.py:840
 msgid "Diplomatic Letters"
 msgstr ""
 
-#: forms.py:178 models.py:768
+#: forms.py:179 models.py:797
 msgid "Placards"
 msgstr ""
 
-#: forms.py:179
+#: forms.py:180
 msgid "Appendices Resolutions"
 msgstr ""
 
-#: forms.py:180 models.py:1421
+#: forms.py:181 models.py:1450
 msgid "Corpus Diplomaticum Contracts"
 msgstr ""
 
-#: forms.py:183
+#: forms.py:182
+msgid "Maps"
+msgstr ""
+
+#: forms.py:186
 msgid "Search In"
 msgstr ""
 
-#: forms.py:215 forms.py:493 forms.py:562 models.py:265 models.py:344
-#: models.py:360 models.py:400 models.py:512 models.py:1038 models.py:1305
-#: templates/pages/appendix-browse.html:27
+#: forms.py:218 forms.py:496 forms.py:565 forms.py:1181 models.py:292
+#: models.py:371 models.py:387 models.py:427 models.py:539 models.py:1067
+#: models.py:1334 templates/pages/appendix-browse.html:27
 #: templates/pages/corpusdiplomaticum-contracts-browse.html:16
+#: templates/pages/dehaan-browse.html:22
 #: templates/pages/diplomaticletters-browse.html:21
 #: templates/pages/marginalia-browse.html:22
 #: templates/pages/placards-browse.html:25
@@ -79,250 +85,258 @@ msgstr ""
 msgid "Description"
 msgstr ""
 
-#: forms.py:222 forms.py:506 forms.py:567 forms.py:624 forms.py:709
+#: forms.py:225 forms.py:509 forms.py:570 forms.py:627 forms.py:712
 msgid "Date from"
 msgstr ""
 
-#: forms.py:227 forms.py:511 forms.py:572 forms.py:630 forms.py:715
+#: forms.py:230 forms.py:514 forms.py:575 forms.py:633 forms.py:718
 msgid "Date to"
 msgstr ""
 
-#: forms.py:233 forms.py:364
+#: forms.py:236 forms.py:367
 msgid "Ship name"
 msgstr ""
 
-#: forms.py:239 forms.py:370
+#: forms.py:242 forms.py:373
 msgid "European name"
 msgstr ""
 
-#: forms.py:245 forms.py:376
+#: forms.py:248 forms.py:379
 msgid "Asian name"
 msgstr ""
 
-#: forms.py:251 forms.py:382
+#: forms.py:254 forms.py:385
 msgid "Place name"
 msgstr ""
 
-#: forms.py:257 forms.py:389 forms.py:743
+#: forms.py:260 forms.py:392 forms.py:746
 msgid "Archive file"
 msgstr ""
 
-#: forms.py:335
+#: forms.py:338
 msgid "Document date from"
 msgstr ""
 
-#: forms.py:340
+#: forms.py:343
 msgid "Document date to"
 msgstr ""
 
-#: forms.py:347
+#: forms.py:350
 msgid "Resolution date from"
 msgstr ""
 
-#: forms.py:352
+#: forms.py:355
 msgid "Resolution date to"
 msgstr ""
 
-#: forms.py:358 templates/pages/appendix-browse.html:68
+#: forms.py:361 templates/pages/appendix-browse.html:68
 msgid "Document type"
 msgstr ""
 
-#: forms.py:395 forms.py:641 forms.py:755
+#: forms.py:398 forms.py:644 forms.py:758 forms.py:1193
 msgid "Search in text"
 msgstr ""
 
-#: forms.py:499 models.py:1303 templates/pages/realia-browse.html:23
+#: forms.py:502 models.py:1332 templates/pages/realia-browse.html:23
 msgid "Subject"
 msgstr ""
 
-#: forms.py:576 templates/pages/placards-browse.html:29
+#: forms.py:579 templates/pages/placards-browse.html:29
 msgid "Governor"
 msgstr ""
 
-#: forms.py:635 templates/pages/corpusdiplomaticum-contracts-browse.html:17
+#: forms.py:638 templates/pages/corpusdiplomaticum-contracts-browse.html:17
 msgid "Area"
 msgstr ""
 
-#: forms.py:720 forms.py:763 models.py:1307
+#: forms.py:723 forms.py:766 models.py:1336
 #: templates/pages/diplomaticletters-browse.html:50
 msgid "Source"
 msgstr ""
 
-#: forms.py:726 forms.py:762 templates/pages/diplomaticletters-browse.html:65
+#: forms.py:729 forms.py:765 templates/pages/diplomaticletters-browse.html:65
 msgid "Destination"
 msgstr ""
 
-#: forms.py:732 templates/pages/diplomaticletters-locations.html:72
+#: forms.py:735 templates/pages/diplomaticletters-locations.html:72
 #: templates/pages/diplomaticletters-rulers.html:64
 msgid "Location"
 msgstr ""
 
-#: forms.py:737 forms.py:761 templates/pages/diplomaticletters-browse.html:89
+#: forms.py:740 forms.py:764 templates/pages/diplomaticletters-browse.html:89
 msgid "Ruler"
 msgstr ""
 
-#: forms.py:749 templates/pages/corpusdiplomaticum-contracts-browse.html:14
+#: forms.py:752 templates/pages/corpusdiplomaticum-contracts-browse.html:14
 #: templates/pages/corpusdiplomaticum-contracts-browse.html:26
 #: templates/pages/placards-browse.html:16
 #: templates/pages/placards-browse.html:41
 msgid "Volume"
 msgstr ""
 
-#: forms.py:825 forms.py:872 forms.py:920 forms.py:968
+#: forms.py:828 forms.py:875 forms.py:923 forms.py:971
 msgid "Search keyword"
 msgstr ""
 
-#: forms.py:1025 forms.py:1088
+#: forms.py:1028 forms.py:1091
 msgid "First name"
 msgstr ""
 
-#: forms.py:1026 forms.py:1089
+#: forms.py:1029 forms.py:1092
 msgid "Last name"
 msgstr ""
 
-#: forms.py:1027
+#: forms.py:1030
 msgid "Repeat password"
 msgstr ""
 
-#: forms.py:1028 models.py:1132
+#: forms.py:1031 models.py:1161
 msgid "Country"
 msgstr ""
 
-#: forms.py:1029 templates/userena/signup_complete.html:5
+#: forms.py:1032 templates/userena/signup_complete.html:5
 #: templates/userena/signup_form.html:12
 msgid "Signup"
 msgstr ""
 
-#: forms.py:1031 forms.py:1114
+#: forms.py:1034 forms.py:1117
 msgid "This email is already in use. Please supply a different email."
 msgstr ""
 
-#: forms.py:1041 forms.py:1141
+#: forms.py:1044 forms.py:1144
 msgid "Password"
 msgstr ""
 
-#: forms.py:1091
+#: forms.py:1094
 msgid "Email"
 msgstr ""
 
-#: forms.py:1092 templates/userena/profile_form.html:19
+#: forms.py:1095 templates/userena/profile_form.html:19
 msgid "Save changes"
 msgstr ""
 
-#: forms.py:1138
+#: forms.py:1141
 msgid "Email address"
 msgstr ""
 
-#: forms.py:1138
+#: forms.py:1141
 msgid "Please supply us with your email address."
 msgstr ""
 
-#: forms.py:1142
+#: forms.py:1145
 #, python-format
 msgid "Remember me for %(days)s"
 msgstr ""
 
-#: forms.py:1143
+#: forms.py:1146
 msgid "Signin"
 msgstr ""
 
-#: forms.py:1161
+#: forms.py:1164
 msgid ""
 "Please enter a correct email and password. Note that both fields are case-"
 "sensitive."
 msgstr ""
 
-#: forms.py:1164
+#: forms.py:1175
+msgid "ID"
+msgstr ""
+
+#: forms.py:1187
+msgid "Index Term"
+msgstr ""
+
+#: forms.py:1233
 msgid "Send password"
 msgstr ""
 
-#: models.py:61
+#: models.py:62
 msgid "Image (main text)"
 msgstr ""
 
-#: models.py:73
+#: models.py:74
 msgid "Image (description)"
 msgstr ""
 
-#: models.py:89
+#: models.py:90
 msgid "Caption for "
 msgstr ""
 
-#: models.py:108 models.py:264 models.py:342 models.py:359 models.py:399
-#: models.py:507 models.py:1111 templates/pages/appendix-browse.html:66
+#: models.py:109 models.py:291 models.py:369 models.py:386 models.py:426
+#: models.py:534 models.py:1140 templates/pages/appendix-browse.html:66
 #: templates/pages/hartakarun-all-articles.html:14
 msgid "Title"
 msgstr ""
 
-#: models.py:190
+#: models.py:191
 msgid "Appendix to general resolutions"
 msgstr ""
 
-#: models.py:191
+#: models.py:192
 msgid "Appendices to general resolutions"
 msgstr ""
 
-#: models.py:194 models.py:818
+#: models.py:195 models.py:847
 msgid "Filenumber"
 msgstr ""
 
-#: models.py:195 models.py:196 models.py:197 models.py:819 models.py:820
-#: models.py:1041 models.py:1042
+#: models.py:196 models.py:197 models.py:198 models.py:848 models.py:849
+#: models.py:1070 models.py:1071
 msgid "Folionumber"
 msgstr ""
 
-#: models.py:195 models.py:774 models.py:775 models.py:819 models.py:1041
+#: models.py:196 models.py:803 models.py:804 models.py:848 models.py:1070
 msgid "from"
 msgstr ""
 
-#: models.py:196 models.py:820 models.py:1042
+#: models.py:197 models.py:849 models.py:1071
 msgid "to"
 msgstr ""
 
-#: models.py:197
+#: models.py:198
 msgid "extra"
 msgstr ""
 
-#: models.py:209 models.py:1044
+#: models.py:210 models.py:1073
 #: templates/widgets/appendix-vessel-tagcloud.html:3
 #: templates/widgets/marginalia-vessel-tagcloud.html:3
 msgid "Ship Names"
 msgstr ""
 
-#: models.py:210 models.py:1048
+#: models.py:211 models.py:1077 templates/pages/appendix-browse.html:88
 msgid "Asian names"
 msgstr ""
 
-#: models.py:211 models.py:1049
+#: models.py:212 models.py:1078 templates/pages/appendix-browse.html:80
 msgid "European names"
 msgstr ""
 
-#: models.py:212 models.py:1050
+#: models.py:213 models.py:1079 templates/pages/appendix-browse.html:95
 msgid "Place names"
 msgstr ""
 
-#: models.py:217 models.py:785 models.py:839 models.py:1045 models.py:1122
-#: models.py:1315
+#: models.py:217 models.py:814 models.py:868 models.py:1074 models.py:1151
+#: models.py:1344 models.py:1541
 msgid "Order"
 msgstr ""
 
-#: models.py:260
+#: models.py:287
 msgid "Page"
 msgstr ""
 
-#: models.py:261
+#: models.py:288
 msgid "Pages"
 msgstr ""
 
-#: models.py:268 models.py:347
+#: models.py:295 models.py:374
 msgid "Content"
 msgstr ""
 
-#: models.py:272
+#: models.py:299
 msgid "Slug"
 msgstr ""
 
-#: models.py:343 models.py:1039 models.py:1302
+#: models.py:370 models.py:1068 models.py:1331
 #: templates/filebrowser/detail.html:81 templates/filebrowser/detail.html:116
 #: templates/pages/corpusdiplomaticum-contracts-browse.html:15
 #: templates/pages/marginalia-browse.html:17
@@ -330,257 +344,261 @@ msgstr ""
 msgid "Date"
 msgstr ""
 
-#: models.py:363
+#: models.py:390
 msgid "Main Text"
 msgstr ""
 
-#: models.py:366
+#: models.py:393
 msgid "Position"
 msgstr ""
 
-#: models.py:405 models.py:546 templates/hartakarun_item.html:49
+#: models.py:432 models.py:573 templates/hartakarun_item.html:49
 msgid "Introduction"
 msgstr ""
 
-#: models.py:444
+#: models.py:471
 msgid "article"
 msgstr ""
 
-#: models.py:446
+#: models.py:473
 msgid "articles"
 msgstr ""
 
-#: models.py:495
+#: models.py:522
 msgid "Harta Karun Article"
 msgstr ""
 
-#: models.py:500 templates/pages/hartakarun-all-articles.html:13
+#: models.py:527 templates/pages/hartakarun-all-articles.html:13
 msgid "Number"
 msgstr ""
 
-#: models.py:518
+#: models.py:545
 msgid "Original title"
 msgstr ""
 
-#: models.py:525
+#: models.py:552
 msgid "Release Date"
 msgstr ""
 
-#: models.py:540
+#: models.py:567
 msgid "Citation"
 msgstr ""
 
-#: models.py:548
+#: models.py:575
 msgid "a scientific introduction to the Harta Karun document."
 msgstr ""
 
-#: models.py:552
+#: models.py:579
 msgid "Editing"
 msgstr ""
 
-#: models.py:558 templates/hartakarun_item.html:81
+#: models.py:585 templates/hartakarun_item.html:81
 msgid "Introduced"
 msgstr ""
 
-#: models.py:564
+#: models.py:591
 msgid "Document selection"
 msgstr ""
 
-#: models.py:570
+#: models.py:597
 msgid "Transcription"
 msgstr ""
 
-#: models.py:576
+#: models.py:603
 msgid "Dutch Text Transcription"
 msgstr ""
 
-#: models.py:582
+#: models.py:609
 msgid "Translation in Indonesian"
 msgstr ""
 
-#: models.py:588
+#: models.py:615
 msgid "Translation in English"
 msgstr ""
 
-#: models.py:594
+#: models.py:621
 msgid "English translation"
 msgstr ""
 
-#: models.py:601
+#: models.py:628
 msgid "Indonesian translation"
 msgstr ""
 
-#: models.py:611
+#: models.py:638
 msgid "Historical Date"
 msgstr ""
 
-#: models.py:618
+#: models.py:645
 msgid "Publication Reference"
 msgstr ""
 
-#: models.py:621
+#: models.py:648
 msgid "ISBN number or DOI number"
 msgstr ""
 
-#: models.py:625
+#: models.py:652
 msgid "Archival Source"
 msgstr ""
 
-#: models.py:633
+#: models.py:660
 msgid "Comments"
 msgstr ""
 
-#: models.py:639
+#: models.py:666
 msgid "PDF with full text [en]"
 msgstr ""
 
-#: models.py:648
+#: models.py:675
 msgid "PDF with full text [id]"
 msgstr ""
 
-#: models.py:706
+#: models.py:733
 msgid "Download the full article in PDF"
 msgstr ""
 
-#: models.py:716 models.py:726 models.py:1114
+#: models.py:743 models.py:753 models.py:1143
 msgid "Image"
 msgstr ""
 
-#: models.py:717 templates/hartakarun_item.html:53
+#: models.py:744 templates/hartakarun_item.html:53
 msgid "Images"
 msgstr ""
 
-#: models.py:767
+#: models.py:796
 msgid "Placard"
 msgstr ""
 
-#: models.py:810
+#: models.py:839
 msgid "Diplomatic Letter"
 msgstr ""
 
-#: models.py:872
+#: models.py:901
 msgid "volume"
 msgstr ""
 
-#: models.py:873 templates/pages/corpusdiplomaticum-contracts-browse.html:26
+#: models.py:902 templates/pages/corpusdiplomaticum-contracts-browse.html:26
 #: templates/pages/placards-browse.html:46
 msgid "page"
 msgstr ""
 
-#: models.py:900
+#: models.py:929
 msgid "Diplomatic Letter - Ruler"
 msgstr ""
 
-#: models.py:901
+#: models.py:930
 msgid "Diplomatic Letter - Rulers"
 msgstr ""
 
-#: models.py:968
+#: models.py:997
 msgid "Diplomatic Letter - Location"
 msgstr ""
 
-#: models.py:969
+#: models.py:998
 msgid "Diplomatic Letter - Locations"
 msgstr ""
 
-#: models.py:1040 models.py:1306
+#: models.py:1069 models.py:1335
 msgid "Priority"
 msgstr ""
 
-#: models.py:1043
+#: models.py:1072
 msgid "Annotation"
 msgstr ""
 
-#: models.py:1047
+#: models.py:1076
 msgid "File"
 msgstr ""
 
-#: models.py:1079
+#: models.py:1108
 msgid "Year"
 msgstr ""
 
-#: models.py:1080
+#: models.py:1109
 msgid "Month"
 msgstr ""
 
-#: models.py:1081
+#: models.py:1110
 msgid "Day"
 msgstr ""
 
-#: models.py:1082
+#: models.py:1111
 msgid "Fonds"
 msgstr ""
 
-#: models.py:1108
+#: models.py:1137
 msgid "Lightbox item (for home page)"
 msgstr ""
 
-#: models.py:1109
+#: models.py:1138
 msgid "Lightbox items (for home page)"
 msgstr ""
 
-#: models.py:1112
+#: models.py:1141
 msgid "URL to the page"
 msgstr ""
 
-#: models.py:1121
+#: models.py:1150
 msgid "Visible?"
 msgstr ""
 
-#: models.py:1129
+#: models.py:1158
 msgid "user"
 msgstr ""
 
-#: models.py:1297 models.py:1298
+#: models.py:1326 models.py:1327
 msgid "Realia"
 msgstr ""
 
-#: models.py:1304
+#: models.py:1333
 msgid "Type"
 msgstr ""
 
-#: models.py:1308
+#: models.py:1337
 msgid "Register"
 msgstr ""
 
-#: models.py:1308 models.py:1309
+#: models.py:1337 models.py:1338
 msgid "folionumber"
 msgstr ""
 
-#: models.py:1309
+#: models.py:1338
 msgid "Resolution"
 msgstr ""
 
-#: models.py:1310
+#: models.py:1339
 msgid "Institution"
 msgstr ""
 
-#: models.py:1313
+#: models.py:1342
 msgid "Comment"
 msgstr ""
 
-#: models.py:1390
+#: models.py:1419
 msgid "Person"
 msgstr ""
 
-#: models.py:1391
+#: models.py:1420
 msgid "Persons"
 msgstr ""
 
-#: models.py:1393 templates/pages/diplomaticletters-rulers.html:55
+#: models.py:1422 templates/pages/diplomaticletters-rulers.html:55
 msgid "Name"
 msgstr ""
 
-#: models.py:1405 templates/pages/diplomaticletters-locations.html:60
+#: models.py:1434 templates/pages/diplomaticletters-locations.html:60
 msgid "Place"
 msgstr ""
 
-#: models.py:1406
+#: models.py:1435
 msgid "Places"
 msgstr ""
 
-#: models.py:1420
+#: models.py:1449
 msgid "Corpus Diplomaticum Contract"
+msgstr ""
+
+#: models.py:1508 models.py:1509
+msgid "DeHaan"
 msgstr ""
 
 #: utils.py:68
@@ -799,12 +817,17 @@ msgid "Resolution Date"
 msgstr ""
 
 #: templates/pages/appendix-browse.html:73
+msgid "Ship names"
+msgstr ""
+
+#: templates/pages/appendix-browse.html:102
 #: templates/pages/diplomaticletters-browse.html:102
 msgid "Notes"
 msgstr ""
 
 #: templates/pages/appendix-search.html:58
 #: templates/pages/corpusdiplomaticum-contracts-search.html:43
+#: templates/pages/dehaan-search.html:20
 #: templates/pages/diplomaticletters-locations.html:27
 #: templates/pages/diplomaticletters-rulers.html:21
 #: templates/pages/diplomaticletters-search.html:44
@@ -814,42 +837,46 @@ msgstr ""
 msgid "Reset"
 msgstr ""
 
-#: templates/pages/appendix-search.html:87
+#: templates/pages/appendix-search.html:88
 #: templates/pages/corpusdiplomaticum-contracts-search.html:60
+#: templates/pages/dehaan-search.html:37
 #: templates/pages/diplomaticletters-locations.html:36
 #: templates/pages/diplomaticletters-rulers.html:31
 #: templates/pages/diplomaticletters-search.html:64
-#: templates/pages/marginalia-search.html:69
+#: templates/pages/marginalia-search.html:65
 #: templates/pages/placards-search.html:64
 #: templates/pages/realia-search.html:82 templates/search/resolution.html:15
 msgid "You searched for"
 msgstr ""
 
-#: templates/pages/appendix-search.html:90
+#: templates/pages/appendix-search.html:91
 #: templates/pages/corpusdiplomaticum-contracts-search.html:63
+#: templates/pages/dehaan-search.html:40
 #: templates/pages/diplomaticletters-locations.html:38
 #: templates/pages/diplomaticletters-rulers.html:33
 #: templates/pages/diplomaticletters-search.html:67
-#: templates/pages/marginalia-search.html:72
+#: templates/pages/marginalia-search.html:68
 #: templates/pages/placards-search.html:67
 #: templates/pages/realia-search.html:85 templates/search/search.html:23
 #, python-format
 msgid "We found %(count)s results"
 msgstr ""
 
-#: templates/pages/appendix-search.html:93
+#: templates/pages/appendix-search.html:94
 #: templates/pages/corpusdiplomaticum-contracts-search.html:66
+#: templates/pages/dehaan-search.html:43
 #: templates/pages/diplomaticletters-search.html:70
-#: templates/pages/marginalia-search.html:75
+#: templates/pages/marginalia-search.html:71
 #: templates/pages/placards-search.html:70
 #: templates/pages/realia-search.html:87
 msgid "show search form"
 msgstr ""
 
-#: templates/pages/appendix-search.html:95
+#: templates/pages/appendix-search.html:96
 #: templates/pages/corpusdiplomaticum-contracts-search.html:68
+#: templates/pages/dehaan-search.html:45
 #: templates/pages/diplomaticletters-search.html:72
-#: templates/pages/marginalia-search.html:77
+#: templates/pages/marginalia-search.html:73
 #: templates/pages/placards-search.html:72
 #: templates/pages/realia-search.html:88
 msgid "hide search form"
@@ -906,6 +933,95 @@ msgstr ""
 #: templates/pages/corpusdiplomaticum-persons.html:24
 #: templates/pages/corpusdiplomaticum-places.html:25
 msgid "see also"
+msgstr ""
+
+#: templates/pages/dehaan-browse.html:18
+msgid "Identification"
+msgstr ""
+
+#: templates/pages/dehaan-browse.html:26
+msgid "References"
+msgstr ""
+
+#: templates/pages/dehaan-browse.html:36
+msgid "original map is missing"
+msgstr ""
+
+#: templates/pages/dehaan-browse.html:39
+msgid "map not scanned"
+msgstr ""
+
+#: templates/pages/dehaan-browse.html:45
+msgid "By de Haan:"
+msgstr ""
+
+#: templates/pages/dehaan-browse.html:47
+msgid "On the map:"
+msgstr ""
+
+#: templates/pages/dehaan-browse.html:50
+#, fuzzy
+msgid "English title:"
+msgstr "English"
+
+#: templates/pages/dehaan-browse.html:54
+msgid "Type:"
+msgstr ""
+
+#: templates/pages/dehaan-browse.html:57
+msgid "Scale:"
+msgstr ""
+
+#: templates/pages/dehaan-browse.html:60
+msgid "Location:"
+msgstr ""
+
+#: templates/pages/dehaan-browse.html:63
+msgid "Dimension:"
+msgstr ""
+
+#: templates/pages/dehaan-browse.html:66
+msgid "Color:"
+msgstr ""
+
+#: templates/pages/dehaan-browse.html:69
+msgid "Graphics:"
+msgstr ""
+
+#: templates/pages/dehaan-browse.html:72
+msgid "Maker:"
+msgstr ""
+
+#: templates/pages/dehaan-browse.html:75
+msgid "Date:"
+msgstr ""
+
+#: templates/pages/dehaan-browse.html:79
+msgid "Comments:"
+msgstr ""
+
+#: templates/pages/dehaan-browse.html:82
+msgid "Reference notes:"
+msgstr ""
+
+#: templates/pages/dehaan-browse.html:87
+msgid "archive file:"
+msgstr ""
+
+#: templates/pages/dehaan-browse.html:89
+msgid "date:"
+msgstr ""
+
+#: templates/pages/dehaan-browse.html:91
+msgid "description:"
+msgstr ""
+
+#: templates/pages/dehaan-browse.html:97
+msgid "Related maps:"
+msgstr ""
+
+#: templates/pages/dehaan-browse.html:104
+msgid "Index terms:"
 msgstr ""
 
 #: templates/pages/diplomaticletters-browse.html:17
@@ -1207,6 +1323,14 @@ msgstr ""
 msgid "all areas"
 msgstr ""
 
+#: templates/widgets/dehaan-index-tagcloud.html:3
+msgid "Index"
+msgstr ""
+
+#: templates/widgets/dehaan-index-tagcloud.html:9
+msgid "all items"
+msgstr ""
+
 #: templates/widgets/diplomaticletters-locations-tagcloud.html:8
 msgid "all locations"
 msgstr ""
@@ -1273,22 +1397,22 @@ msgstr ""
 msgid "all subjects"
 msgstr ""
 
-#: views/__init__.py:144 views/__init__.py:175 views/__init__.py:210
+#: views/__init__.py:139 views/__init__.py:170 views/__init__.py:205
 msgid "Harta Karun"
 msgstr ""
 
-#: views/__init__.py:234
+#: views/__init__.py:229
 msgid "PDF"
 msgstr ""
 
-#: views/__init__.py:235
+#: views/__init__.py:230
 msgid "Harta Karun Category"
 msgstr ""
 
-#: views/__init__.py:1135
+#: views/__init__.py:1130
 msgid "Your profile has been updated."
 msgstr ""
 
-#: views/__init__.py:1181
+#: views/__init__.py:1176
 msgid "You have been signed out."
 msgstr ""

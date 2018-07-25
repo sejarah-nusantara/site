@@ -1586,10 +1586,10 @@ class DeHaan(DasaWrapper, models.Model):
             if result['total_results'] == 1:
                 image_url = result['results'][0]['URL'] + '/image'
                 image_url = image_url.replace('http://localhost:5000', settings.REPOSITORY_PUBLIC_URL)
-                return '<a href="{url}"><img src="{image_url}?size=200x300"></img></a>'.format(url=url, image_url=image_url)
+                return '<a href="{url}" target="_pagebrowser"><img src="{image_url}?size=200x300"></img></a>'.format(url=url, image_url=image_url)
             else:
                 print 'WARNING: No scan found for {self.refScanFrontImage}'.format(self=self)
-                return '<a href="{url}">Image not found</a>'.format(url=url)
+                return '<a href="{url}" target="_pagebrowser">Image not found</a>'.format(url=url)
         else:
             print 'This record has no refScanFrontImage defined'
             return ''
@@ -1607,10 +1607,10 @@ class DeHaan(DasaWrapper, models.Model):
             if result['total_results'] == 1:
                 image_url = result['results'][0]['URL'] + '/image'
                 image_url = image_url.replace('http://localhost:5000', settings.REPOSITORY_PUBLIC_URL)
-                return '<a href="{url}"><img src="{image_url}?size=200x300"></img></a>'.format(url=url, image_url=image_url)
+                return '<a href="{url}" target="_pagebrowser"><img src="{image_url}?size=200x300"></img></a>'.format(url=url, image_url=image_url)
             else:
                 print 'WARNING: No scan found for {self.refScanBackImage}'.format(self=self)
-                return '<a href="{url}">Image not found</a>'.format(url=url)
+                return '<a href="{url}" target="_pagebrowser">Image not found</a>'.format(url=url)
         else:
             print 'This record has no refScanBackImage defined'
             return ''
