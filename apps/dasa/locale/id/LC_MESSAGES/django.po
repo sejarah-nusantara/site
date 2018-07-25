@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-24 21:28+0200\n"
-"PO-Revision-Date: 2017-09-27 17:40+0200\n"
+"POT-Creation-Date: 2018-07-25 15:43+0200\n"
+"PO-Revision-Date: 2018-07-25 15:43+0200\n"
 "Last-Translator: jelle <jelle>\n"
 "Language-Team: \n"
 "Language: id\n"
@@ -63,7 +63,7 @@ msgstr "Corpus Diplomaticum Kontrak"
 
 #: forms.py:182
 msgid "Maps"
-msgstr ""
+msgstr "Peta"
 
 #: forms.py:186
 msgid "Search In"
@@ -238,11 +238,11 @@ msgstr ""
 
 #: forms.py:1175
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: forms.py:1187
 msgid "Index Term"
-msgstr ""
+msgstr "Indeks"
 
 #: forms.py:1233
 msgid "Send password"
@@ -597,7 +597,7 @@ msgstr "Corpus Diplomaticum Kontrak"
 
 #: models.py:1508 models.py:1509
 msgid "DeHaan"
-msgstr ""
+msgstr "DeHaan"
 
 #: utils.py:68
 msgid "Jan."
@@ -935,101 +935,92 @@ msgid "see also"
 msgstr "lihat juga"
 
 #: templates/pages/dehaan-browse.html:18
-#, fuzzy
 msgid "Identification"
-msgstr "Tujuan"
+msgstr "Identifikasi"
 
 #: templates/pages/dehaan-browse.html:26
-#, fuzzy
 msgid "References"
-msgstr "Rujukan arsip"
+msgstr "Refrensi"
 
 #: templates/pages/dehaan-browse.html:36
 msgid "original map is missing"
-msgstr ""
+msgstr "Peta asli hilang"
 
 #: templates/pages/dehaan-browse.html:39
 msgid "map not scanned"
-msgstr ""
+msgstr "Peta tidak di pindai"
 
 #: templates/pages/dehaan-browse.html:45
 msgid "By de Haan:"
-msgstr ""
+msgstr "Oleh De Haan:"
 
 #: templates/pages/dehaan-browse.html:47
 msgid "On the map:"
-msgstr ""
+msgstr "Pada Peta:"
 
 #: templates/pages/dehaan-browse.html:50
-#, fuzzy
 msgid "English title:"
-msgstr "Inggris"
+msgstr "Judul Bahasa Inggris:"
 
 #: templates/pages/dehaan-browse.html:54
-#, fuzzy
 msgid "Type:"
 msgstr "Jenis"
 
 #: templates/pages/dehaan-browse.html:57
 msgid "Scale:"
-msgstr ""
+msgstr "Skala:"
 
 #: templates/pages/dehaan-browse.html:60
-#, fuzzy
 msgid "Location:"
-msgstr "Catatan"
+msgstr "Lokasi:"
 
 #: templates/pages/dehaan-browse.html:63
 msgid "Dimension:"
-msgstr ""
+msgstr "Dimensi:"
 
 #: templates/pages/dehaan-browse.html:66
 msgid "Color:"
-msgstr ""
+msgstr "Warna:"
 
 #: templates/pages/dehaan-browse.html:69
 msgid "Graphics:"
-msgstr ""
+msgstr "Grafik:"
 
 #: templates/pages/dehaan-browse.html:72
 msgid "Maker:"
-msgstr ""
+msgstr "Pembuat:"
 
 #: templates/pages/dehaan-browse.html:75
-#, fuzzy
 msgid "Date:"
-msgstr "Tanggal"
+msgstr "Tanggal:"
 
 #: templates/pages/dehaan-browse.html:79
-#, fuzzy
 msgid "Comments:"
-msgstr "Komentar"
+msgstr "Komentar:"
 
 #: templates/pages/dehaan-browse.html:82
 msgid "Reference notes:"
-msgstr ""
+msgstr "Catatan referensi:"
 
 #: templates/pages/dehaan-browse.html:87
-#, fuzzy
 msgid "archive file:"
-msgstr "Berkas arsip"
+msgstr "Nomor Arsip:"
 
 #: templates/pages/dehaan-browse.html:89
 msgid "date:"
-msgstr ""
+msgstr "Tanggal:"
 
 #: templates/pages/dehaan-browse.html:91
-#, fuzzy
 msgid "description:"
-msgstr "deskripsi"
+msgstr "deskripsi:"
 
 #: templates/pages/dehaan-browse.html:97
 msgid "Related maps:"
-msgstr ""
+msgstr "Peta terkait:"
 
 #: templates/pages/dehaan-browse.html:104
 msgid "Index terms:"
-msgstr ""
+msgstr "Indeks:"
 
 #: templates/pages/diplomaticletters-browse.html:17
 msgid "Inserted on"
@@ -1340,7 +1331,7 @@ msgstr "semua tempat"
 
 #: templates/widgets/dehaan-index-tagcloud.html:3
 msgid "Index"
-msgstr ""
+msgstr "Indeks"
 
 #: templates/widgets/dehaan-index-tagcloud.html:9
 #, fuzzy
