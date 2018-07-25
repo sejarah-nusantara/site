@@ -31,7 +31,7 @@
 {% block result_row %}
     <tr {% ifequal selected_order result.order %}class="selected"{% endifequal %}>
         <td>
-            {% trans "Map" }}: {{ result.object.IDSource }}<br />
+            {% trans "Map" %}: {{ result.object.IDSource }}<br />
             {% if result.object.originalMissingYN == 'Y '%}
               {% trans "original map is missing" %}<br />
             {% endif %}
