@@ -11,7 +11,7 @@ sys.path.append(os.path.dirname(__file__))
 from common import Importer
 from common import to_date
 
-SOURCE = '/media/data2/projects/dasa/data/dehaan/CollDeHaan_inventory_V20180517_2.xlsx'
+SOURCE = '/media/data2/projects/dasa/data/dehaan/CollDeHaan_inventory_V20180725.xlsx'
 
 
 class PlacardImporter(Importer):
