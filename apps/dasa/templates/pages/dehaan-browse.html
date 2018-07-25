@@ -31,11 +31,14 @@
 {% block result_row %}
     <tr {% ifequal selected_order result.order %}class="selected"{% endifequal %}>
         <td>
-            {{ result.object.IDSource }}<br />
+            {% trans "Map" }}: {{ result.object.IDSource }}<br />
             {% if result.object.originalMissingYN == 'Y '%}
               {% trans "original map is missing" %}<br />
             {% endif %}
-            {% if result.object.scanMissingYN == 'Y' %}
+            {% if result.object.originalMissingYN == 'Y' %}
+              {% trans "original map is missing" %}<br />
+            {% endif %}
+              {% if result.object.scanMissingYN == 'Y' %}
               {% trans "map not scanned" %}<br />
             {% endif %}
               {{ result.object.refScanFrontImageThumb | safe }}
@@ -62,17 +65,17 @@
             {% if result.object.dimensionHWinCM %}
               {% trans "Dimension:" %} {{ result.object.dimensionHWinCM }}<br />
             {% endif %}
-            {% if result.object.color %}
-              {% trans "Color:" %} {{ result.object.color }}<br />
+            {% if result.object.Color %}
+              {% trans "Color:" %} {{ result.object.Color }}<br />
             {% endif %}
-            {% if result.object.typeGraphicstypeGraphics %}
-              {% trans "Graphics:" %} {{ result.object.descriptionOnMapNL }}<br />
+            {% if result.object.typeGraphics %}
+              {% trans "Graphics:" %} {{ result.object.typeGraphics }}<br />
             {% endif %}
             {% if result.object.maker %}
               {% trans "Maker:" %} {{ result.object.maker }}<br />
             {% endif %}
-            {% if result.object.datedate %}
-              {% trans "Date:" %} {{ result.object.description}}<br />
+            {% if result.object.date %}
+              {% trans "Date:" %} {{ result.object.date }}<br />
             {% endif %}
             <br>
             {% if result.object.commentsEN %}
@@ -84,6 +87,7 @@
         </td>
         <td>
             {% if result.object.refArchiveFile %}
+              {% trans "Bijlagen Resoluties" %}:
               {% trans "archive file:" %}<a href="">{{ result.object.refArchiveFileAsString }} </a>
               <br />
               {% trans "date:" %} {{ result.object.refArchiveDateBijlagen }}
