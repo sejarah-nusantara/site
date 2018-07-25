@@ -1597,7 +1597,7 @@ class DeHaan(DasaWrapper, models.Model):
     @property
     def refScanBackImageThumb(self):
         if self.refScanBackImage:
-            archiveFile, folio_number = self._splitCode(self.refScanBackImag)
+            archiveFile, folio_number = self._splitCode(self.refScanBackImage)
             params = {
                 'folioNumber': folio_number,
                 'archiveFile': archiveFile
