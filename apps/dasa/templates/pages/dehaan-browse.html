@@ -41,10 +41,12 @@
               {% if result.object.scanMissingYN == 'Y' %}
               {% trans "map not scanned" %}<br />
             {% endif %}
+            <p style="margin-bottom:6px">
               {{ result.object.refScanFrontImageThumb | safe }}
-              <br>
-              <br>
+            </p>
+            <p>
               {{ result.object.refScanBackImageThumb | safe }}
+            </p>
         </td>
         <td>
             {% trans "By de Haan:" %} {{ result.object.descriptionByDeHaanNL }}<br />
