@@ -1214,6 +1214,7 @@ class DeHaanSearchForm(SearchForm):
                 sqs = [x for x in sqs if self.cleaned_data.get('index_term') in (x.vessel_names_list or '')]
             if self.cleaned_data.get('text'):
                 sqs = sqs.filter(text=self.cleaned_data['text'])
+            sqs = sqs.order_by('order')
         else:
             sqs = sqs.order_by('order')
         return sqs
