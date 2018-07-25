@@ -1557,7 +1557,11 @@ class DeHaan(DasaWrapper, models.Model):
         return ls
 
     def _splitCode(self, s):
-        code = s.split('_')[-1]
+        if s[-3] == '_':
+            code = s.split('_')[-2]
+        else:
+            code = s.split('_')[-1]
+        # code = s.split('_')[-1]
         archiveFile, folioNumber = code.split('-')
         return archiveFile, folioNumber
 
@@ -1597,7 +1601,7 @@ class DeHaan(DasaWrapper, models.Model):
     @property
     def refScanBackImageThumb(self):
         if self.refScanBackImage:
-            archiveFile, folio_number = self._splitCode(self.refScanBackImage)
+            archiveFile, folio_number = self._splitCode(self.refScanBackImag)
             params = {
                 'folioNumber': folio_number,
                 'archiveFile': archiveFile
