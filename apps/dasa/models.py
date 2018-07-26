@@ -1557,7 +1557,7 @@ class DeHaan(DasaWrapper, models.Model):
         return ls
 
     def _splitCode(self, s):
-        if s[-3] == '_':
+        if s[-3] == '_' or s[-2] == '_':
             code = s.split('_')[-2]
         else:
             code = s.split('_')[-1]
