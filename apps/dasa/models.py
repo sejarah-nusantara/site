@@ -1557,7 +1557,10 @@ class DeHaan(DasaWrapper, models.Model):
         return ls
 
     def _splitCode(self, s):
-        code = s.split('_')[-1]
+        if s[-3] == '_':
+            code = s.split('_')[-2]
+        else:
+            code = s.split('_')[-1]
         archiveFile, folioNumber = code.split('-')
         return archiveFile, folioNumber
 
