@@ -95,7 +95,7 @@ FILEBROWSER_EXCLUDE = ['_versions', 'cache']
 FILEBROWSER_EXTENSIONS = {
     'Folder': [''],
     'Image': ['.jpg', '.jpeg', '.gif', '.png', '.tif', '.tiff'],
-    'Document': ['.pdf', '.doc', '.rtf', '.txt', '.xls', '.csv', '.docx', '.kml', '.kmz', '.xlsx', '.ods', '.odt'],
+    'Document': ['.pdf', '.doc', '.rtf', '.txt', '.xls', '.csv', '.docx', '.kml', '.kmz', '.xlsx', '.xml', '.ods', '.odt'],
     'Video': ['.mov', '.wmv', '.mpeg', '.mpg', '.avi', '.rm'],
     'Audio': ['.mp3', '.mp4', '.wav', '.aiff', '.midi', '.m4p']
 }
