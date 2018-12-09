@@ -19,7 +19,6 @@ from dasa import config
 from dasa.repository import ArchiveFileWrapper
 from dasa import models
 from dasa.utils import get_page
-from dasa.views import syncarchivefiles
 
 EAD_ID = 'ead.xml'
 ARCHIVEFILE = '855'
@@ -200,8 +199,9 @@ class BaseTestCase(WebTest):
         # patch repository object
         global repository
         from dasa import views
+        from dasa.views import syncarchivefiles
 
-        self.repository = views.repository = dasa.repository = views.syncarchivefiles.repository = dasa.repository.repository = dasa.models.repository = repository = RepositoryMock()
+        self.repository = views.repository = dasa.repository = syncarchivefiles.repository = dasa.repository.repository = dasa.models.repository = repository = RepositoryMock()
         # patch pagebrowser
         views.PageBrowser = views.syncarchivefiles.PageBrowser = dasa.pagebrowser.PageBrowser = PageBrowserMock
         views.PageBrowserBook = views.syncarchivefiles.PageBrowserBook = dasa.pagebrowser.PageBrowserBook = PageBrowserMock

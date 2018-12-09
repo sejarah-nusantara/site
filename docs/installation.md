@@ -3,23 +3,26 @@
 
 ## Prepare the environment (DEBIAN)
 
+```sh
     sudo apt install postgresql python-psycopg2 libpq-dev libreadline-dev libapache2-mod-wsgi imagemagick gettext postfix libzmq-dev
+```
 
 
 ## Create the postgres database
 
 create a user "dasa" that is not a superuser, cannot create databases, and cannot create roles:
 
-    $ sudo su postgres -c "createuser dasa -SDR"
+```sh
+sudo su postgres -c "createuser dasa -SDR" # create user
+sudo su postgres -c "createdb dasa --owner=dasa" # create the database
+```
 
-create the main database:
-
-    $ sudo su postgres -c "createdb dasa --owner=dasa"
 
 
 add the following lines to `/etc/postgresql/8.4/main/pg_hba.conf`
-
+```
     local   dasa    dasa                      md5
+```
 
 restart postgres
 
