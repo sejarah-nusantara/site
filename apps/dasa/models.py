@@ -35,7 +35,8 @@ from dasa.repository import repository
 from dasa import config
 from dasa import utils
 
-_ = lambda x: x  # @IgnorePep8
+
+def _(x): return x  # @IgnorePep8
 
 
 IMAGE_EXTENSIONS = ['.jpg', '.jpeg', '.gif', '.png', '.tif', '.tiff']
@@ -299,17 +300,19 @@ class BasicPage(DasaWrapper, models.Model):
     slug = models.CharField(_('Slug'), max_length=100, blank=True)  # defined the URL where this page can be found
 
     meta_keywords = models.TextField(
-        ('Keywords'),
+        ('Keywords (for search engines)'),
         help_text=('The "keywords" are used by search engines.'),
         null=True,
         blank=True,
         )
     meta_description = models.TextField(
-        ('Description'),
+        ('Description (for search engines)'),
         help_text=('The "description" is used by search engines and other web services'),
         null=True,
         blank=True,
         )
+
+    ead = models.CharField(_('EAD File'), max_length=255)
 
     def __unicode__(self):
         return self.title
@@ -357,6 +360,10 @@ class BasicPage(DasaWrapper, models.Model):
     def get_absolute_url(self):
         """return an url of a representation of this object"""
         return ('%s' % self.__class__.__name__.lower(), (), {'path': self.slug})
+
+    def show_ead(self):
+        """show each file (if self.ead is defined)"""
+        return bool(self.ead)
 
 
 class News(DasaWrapper, models.Model):

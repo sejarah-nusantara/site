@@ -11,7 +11,7 @@
 <script>
     var RESULTS_PER_PAGE = 10;
     var ead = "{{ead_id}}";
-    var search_service_url = "{{ repository_url }}lists/components" 
+    var search_service_url = "{{ repository_url }}lists/components"
     jQuery(document).ready(function($) {
         eadviewer = new EadViewer({
             webservice_tree: "{{ repository_url }}lists/componentTree?ead_id={ead_id}",
@@ -40,15 +40,8 @@
             custodhist_header: '{{ custodhist_header }}'
         });
         eadviewer.render();
-        
-    });    
-
+    });
 </script>
-
-<style>
-
-
-</style>
 {% endblock js %}
 
 {% block content %}
