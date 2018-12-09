@@ -11,7 +11,7 @@ import json
 from datetime import datetime
 from textwrap import dedent
 
-from django.core.paginator import Page as PaginatorPage, Paginator, InvalidPage
+from django.core.paginator import Paginator, InvalidPage
 from django.contrib import messages
 from django.contrib.auth import views as auth_views
 from django.http import Http404, HttpResponse
@@ -331,7 +331,7 @@ class Inventory(Page):
 
 class InventoryTree(Page):
 
-    template_name = 'pages/inventory_tree.html'
+    template_name = 'eadpage.html'
 
     def get_page(self, path):
         """try to find a BasicPage object with a slug corresponding to path or self.slug"""

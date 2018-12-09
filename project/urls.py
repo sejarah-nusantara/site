@@ -15,6 +15,7 @@ from userena import views as userena_views
 from userena import settings as userena_settings
 
 from dasa import views as views
+# need "unused" imports on next line to keep them availabe
 from dasa.views import get_page, corpusdiplomaticum, syncarchivefiles
 from dasa import forms
 from dasa import config
@@ -168,7 +169,7 @@ urlpatterns = patterns('',
 
     (r'^accounts/', include('userena.urls')),
 
-    url(r'^admin/sync_archivefiles$', views.syncarchivefiles.SyncArchiveFiles.as_view(), name='sync_archivefiles'),
+    url(r'^admin/sync_archivefiles$', syncarchivefiles.SyncArchiveFiles.as_view(), name='sync_archivefiles'),
 
     url(r'^$', views.Home.as_view(), name="home"),
 
@@ -213,11 +214,11 @@ urlpatterns = patterns('',
     url(r'^%(SLUG_REALIA_SEARCH)s/$' % c, views.RealiaSearch(), name=config.SLUG_REALIA_SEARCH),
     url(r'^%(SLUG_REALIA_SUBJECTS)s/$' % c, views.RealiaSubjects.as_view(), name=config.SLUG_REALIA_SUBJECTS),
 
-    url(r'^%(SLUG_CORPUSDIPLOMATICUM_CONTRACTS_BROWSE)s/$' % c, views.corpusdiplomaticum.CorpusDiplomaticumContractsBrowse(), name=config.SLUG_CORPUSDIPLOMATICUM_CONTRACTS_BROWSE),
-    url(r'^%(SLUG_CORPUSDIPLOMATICUM_CONTRACTS_SEARCH)s/$' % c, views.corpusdiplomaticum.CorpusDiplomaticumContractsSearch(), name=config.SLUG_CORPUSDIPLOMATICUM_CONTRACTS_SEARCH),
-    url(r'^%(SLUG_CORPUSDIPLOMATICUM_CONTRACTS_AREAS)s/$' % c, views.corpusdiplomaticum.CorpusDiplomaticumContractsAreas.as_view(), name=config.SLUG_CORPUSDIPLOMATICUM_CONTRACTS_AREAS),
-    url(r'^%(SLUG_CORPUSDIPLOMATICUM_PERSONS)s/$' % c, views.corpusdiplomaticum.CorpusDiplomaticumPersons.as_view(), name=config.SLUG_CORPUSDIPLOMATICUM_PERSONS),
-    url(r'^%(SLUG_CORPUSDIPLOMATICUM_PLACES)s/$' % c, views.corpusdiplomaticum.CorpusDiplomaticumPlaces.as_view(), name=config.SLUG_CORPUSDIPLOMATICUM_PLACES),
+    url(r'^%(SLUG_CORPUSDIPLOMATICUM_CONTRACTS_BROWSE)s/$' % c, corpusdiplomaticum.CorpusDiplomaticumContractsBrowse(), name=config.SLUG_CORPUSDIPLOMATICUM_CONTRACTS_BROWSE),
+    url(r'^%(SLUG_CORPUSDIPLOMATICUM_CONTRACTS_SEARCH)s/$' % c, corpusdiplomaticum.CorpusDiplomaticumContractsSearch(), name=config.SLUG_CORPUSDIPLOMATICUM_CONTRACTS_SEARCH),
+    url(r'^%(SLUG_CORPUSDIPLOMATICUM_CONTRACTS_AREAS)s/$' % c, corpusdiplomaticum.CorpusDiplomaticumContractsAreas.as_view(), name=config.SLUG_CORPUSDIPLOMATICUM_CONTRACTS_AREAS),
+    url(r'^%(SLUG_CORPUSDIPLOMATICUM_PERSONS)s/$' % c, corpusdiplomaticum.CorpusDiplomaticumPersons.as_view(), name=config.SLUG_CORPUSDIPLOMATICUM_PERSONS),
+    url(r'^%(SLUG_CORPUSDIPLOMATICUM_PLACES)s/$' % c, corpusdiplomaticum.CorpusDiplomaticumPlaces.as_view(), name=config.SLUG_CORPUSDIPLOMATICUM_PLACES),
 
     url(r'^%(SLUG_DIPLOMATICLETTERS_BROWSE)s/$' % c, views.DiplomaticLettersBrowse(), name=config.SLUG_DIPLOMATICLETTERS_BROWSE),
     url(r'^%(SLUG_DIPLOMATICLETTERS_SEARCH)s/$' % c, views.DiplomaticLettersSearch(), name=config.SLUG_DIPLOMATICLETTERS_SEARCH),
