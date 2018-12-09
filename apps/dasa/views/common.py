@@ -265,7 +265,7 @@ class Page(TemplateView):
             if key.startswith('SLUG_'):
                 context[key] = config.__dict__[key]
 
-        if self.page.ead:
+        if getattr(self.page, 'ead', None):
             # language = self._kwargs['language']
             language = 'en'
             view_archivefile_text = translate('view_the_archive_file', language)
