@@ -187,9 +187,13 @@ class Page(TemplateView):
         if os.path.exists(template_fullpath):
             return os.path.join('pages', template_name)
 
+        if getattr(self.page, 'ead', None):
+            return 'eadpage.html'
+
         # if we did not find a custom template, we return the standard one
         if getattr(self, '_template_name', None):
             return self._template_name
+
         return 'basicpage.html'
 
     def get_page(self, path=None):
@@ -260,7 +264,27 @@ class Page(TemplateView):
         for key in config.__dict__:
             if key.startswith('SLUG_'):
                 context[key] = config.__dict__[key]
+
+        if self.page.ead:
+            # language = self._kwargs['language']
+            language = 'en'
+            view_archivefile_text = translate('view_the_archive_file', language)
+            custodhist_header = translate('custodhist_header', language)
+
+            pagebrowser_url = settings.PAGEBROWSER_PUBLIC_URL
+            repository_url = settings.REPOSITORY_PUBLIC_URL
+            if not repository_url.endswith('/'):
+                repository_url += '/'
+
+            context.update({
+                'ead_id': self.page.ead,
+                'pagebrowser_url': pagebrowser_url,
+                'repository_url': repository_url,
+                'view_archivefile_text': view_archivefile_text,
+                'custodhist_header': custodhist_header,
+            })
         return context
+
 
     def get_context_order_by(self, fld_names, default=None):
         """a helper function for making orderable tables

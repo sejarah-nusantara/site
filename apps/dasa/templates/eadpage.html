@@ -1,0 +1,76 @@
+{% extends "basicpage_with_readmore.html" %}
+{% load localeurl_tags i18n thumbnail admin_urls %}
+
+{% block js %}
+<link rel="stylesheet" href="{{ STATIC_URL }}eadviewer/styles/ead.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="{{ STATIC_URL }}eadviewer/styles/search.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="{{ STATIC_URL }}eadviewer/styles/print.css" type="text/css" media="print" />
+<script type="text/javascript" src="{{ STATIC_URL }}eadviewer/scripts/jstree/jquery.jstree.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}eadviewer/scripts/eadViewer.js"></script>
+
+<script>
+    var RESULTS_PER_PAGE = 10;
+    var ead = "{{ead_id}}";
+    var search_service_url = "{{ repository_url }}lists/components"
+    jQuery(document).ready(function($) {
+        eadviewer = new EadViewer({
+            webservice_tree: "{{ repository_url }}lists/componentTree?ead_id={ead_id}",
+            webservice_ead: "{{ repository_url }}ead/{ead_id}",
+            webservice_archives: "{{ repository_url }}lists/archives?archive_id={archive_id}",
+            webservice_component: "{{ repository_url }}lists/get_component_for_viewer?ead_id={ead_id}&xpath={xpath}",
+            pagebrowser_url: "{{ pagebrowser_url }}",
+            header: {
+                htmlElement: "ead_header"         // frame for ead-titles
+            },
+            tree: {
+                htmlElement: "ead_tree",
+                themes : {
+                    theme: "classic",    // Possible values: classic, apple, default, default-rtl
+//                    "name" : 'classic',
+                    dots: true,
+                    icons: false
+                }
+            },
+            content: {
+                htmlElement: "component"    // frame for ead-content
+            },
+            ead: ead, //ead_id
+//            component: '/ead/eadheader/text()[1]', // ???
+            view_archivefile_text : '{{ view_archivefile_text }}',
+            custodhist_header: '{{ custodhist_header }}'
+        });
+        eadviewer.render();
+    });
+</script>
+{% endblock js %}
+
+{% block content %}
+{{ block.super }}
+<div id="ead">
+<div id="ead_header">
+<h1 id="ead_title"></h1>
+<h2 id="institution_description"></h2>
+<h3 id="archive"></h3>
+</div>
+<div id="component_viewer">
+	<div id="tabs">
+		<a class="tab toc selected" href="#" onclick="hideSearch();return false;">{% trans "Contents" %}</a>
+		<a class="tab search" href="#" onclick="showSearch();return false;">{% trans "Search" %}</a>
+	</div>
+    <div id="search_wrapper">
+		<div id="ead_search">
+			<form onsubmit="if ($('#contains_text').val().length>0) search($('#contains_text').val(), 0, RESULTS_PER_PAGE);return false;">
+				<input type="text" id="contains_text" name="contains_text" />
+				<input id="btnSearch" type="image" src="{{ STATIC_URL }}eadviewer/images/search.png" class="noBorder" style="position: relative; top: 3px;" />
+			</form>
+		</div>
+		<div id="result_wrapper" class="search">
+			<div id="results" style="margin:0 10px 0 0;clear: both;"></div>
+		</div>
+	</div>
+<div id="ead_tree">
+</div>
+</div>
+</div>
+
+{% endblock %}

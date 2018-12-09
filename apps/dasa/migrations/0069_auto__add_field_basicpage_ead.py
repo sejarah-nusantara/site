@@ -376,7 +376,7 @@ class Migration(SchemaMigration):
             'content': ('tinymce.models.HTMLField', [], {'blank': 'True'}),
             'content_en': ('tinymce.models.HTMLField', [], {'null': 'True', 'blank': 'True'}),
             'content_id': ('tinymce.models.HTMLField', [], {'null': 'True', 'blank': 'True'}),
-            'date': ('django.db.models.fields.DateField', [], {'default': 'datetime.datetime(2018, 12, 4, 0, 0)'}),
+            'date': ('django.db.models.fields.DateField', [], {'default': 'datetime.datetime(2018, 12, 9, 0, 0)'}),
             'description': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
             'description_en': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             'description_id': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),

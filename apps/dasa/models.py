@@ -312,7 +312,8 @@ class BasicPage(DasaWrapper, models.Model):
         blank=True,
         )
 
-    ead = models.CharField(_('EAD File'), max_length=255)
+    ead = models.CharField(_('EAD File'), max_length=255, blank=True,
+        help_text='Provide a link to an EAD file')
 
     def __unicode__(self):
         return self.title
@@ -360,10 +361,6 @@ class BasicPage(DasaWrapper, models.Model):
     def get_absolute_url(self):
         """return an url of a representation of this object"""
         return ('%s' % self.__class__.__name__.lower(), (), {'path': self.slug})
-
-    def show_ead(self):
-        """show each file (if self.ead is defined)"""
-        return bool(self.ead)
 
 
 class News(DasaWrapper, models.Model):

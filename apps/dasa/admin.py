@@ -316,9 +316,9 @@ class MetaTagsAdmin(TranslationAdmin):
 
 admin.site.register(models.MetaTags, MetaTagsAdmin)
 
+admin.site.register(models.Appendix)
+admin.site.register(models.DeHaan)
 admin.site.register(models.DiplomaticLetter)
 admin.site.register(models.DiplomaticLetterRuler)
 admin.site.register(models.DiplomaticLetterLocation)
-admin.site.register(models.DeHaan)
 admin.site.register(models.Placard)
-admin.site.register(models.Appendix)

@@ -192,22 +192,22 @@ def copy_data(source, dest):
     dst_config = get_config(dest)
 
     # dump a sql file at the source
-    # with settings(host_string=src_config['host_string']):
-    #     run('pg_dump dasa --clean -F p -f "/tmp/dasa.sql"' % src_config)
+    with settings(host_string=src_config['host_string']):
+        run('pg_dump dasa --clean -F p -f "/tmp/dasa.sql"' % src_config)
 
     with settings(host_string=dst_config['host_string']), cd(dst_config['installation_dir']):
-        # # # transfer the file
-        # run('rsync -avz %s:/tmp/dasa.sql /tmp/dasa.sql' % (src_config['host_string']))
-        # # create a backup of the data
-        # now = unicode(datetime.datetime.now()).replace(' ', '_')
-        # run('mkdir -p {backups_dir}'.format(**dst_config))
-        # # run("pg_dump dasa -F p -f /home/dasa/backups/dasa_{now}.dump".format(**locals()))
-        #
-        # # run("""psql dasa -t -c "select 'drop table \\"' || tablename || '\\" cascade;' from pg_tables where schemaname = 'public'" | psql dasa""".format(**dst_config))
-        # run('psql -f "/tmp/dasa.sql" dasa' % dst_config)
-        #
-        # # clean up
-        # run('rm /tmp/dasa.sql')
+        # # transfer the file
+        run('rsync -avz %s:/tmp/dasa.sql /tmp/dasa.sql' % (src_config['host_string']))
+        # create a backup of the data
+        now = unicode(datetime.datetime.now()).replace(' ', '_')
+        run('mkdir -p {backups_dir}'.format(**dst_config))
+        # run("pg_dump dasa -F p -f /home/dasa/backups/dasa_{now}.dump".format(**locals()))
+
+        # run("""psql dasa -t -c "select 'drop table \\"' || tablename || '\\" cascade;' from pg_tables where schemaname = 'public'" | psql dasa""".format(**dst_config))
+        run('psql -f "/tmp/dasa.sql" dasa' % dst_config)
+
+        # clean up
+        run('rm /tmp/dasa.sql')
         #
         # copy the images
         #
