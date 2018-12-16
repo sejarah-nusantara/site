@@ -66,6 +66,9 @@ class BasicPageAdmin(
         if obj and obj.slug in config.SLUGS_IN_USE.values():
             help_text = mark_safe('<span style="font-weight:bold; color: black">PLEASE DO NOT CHANGE THIS SLUG</span> - it\'s value is used by the system')
             form.base_fields['slug'].help_text = help_text
+            # hide the EAD field as it will have no effect 
+            del form.base_fields['ead']
+
 
         return form
 admin.site.register(models.BasicPage, BasicPageAdmin)
