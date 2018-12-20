@@ -125,22 +125,26 @@ def init_db(where=None):
 
 
 @task
-def deploy(where=None, with_buildout=True):
+def deploy(where=None, with_buildout=True, branch=''):
     """deploy everything"""
     config = get_config(where)
     with settings(host_string=config['host_string']), cd(config['installation_dir']):
+        run('git status')
         run('git pull')
         run('git submodule update')
 
         run('mkdir -p downloads')
-        if with_buildout != 'False':
+        if with_buildout in [True, 'True', 'true']:
             run('bin/buildout -v -c %(cfg)s' % config)
+        print('sync database..')
         run('bin/django syncdb')
-#         run('bin/django migrate dasa')
+        run('bin/django migrate dasa')
         run('bin/django collectstatic --noinput')
+        print('install translations')
         install_translations(where)
         # also update the pagebrowser
-        deploy_pagebrowser(where, restart=False)
+        print('skipping deploymnet of pagebrowser..')
+        # deploy_pagebrowser(where, restart=False)
 
         run('bin/circusd --daemon circus.ini')
         run('bin/circusctl reloadconfig')
