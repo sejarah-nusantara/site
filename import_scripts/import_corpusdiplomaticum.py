@@ -12,8 +12,8 @@ sys.path.append(THIS_DIR)
 from common import Importer
 
 DATA_DIR = os.path.abspath(os.path.join(THIS_DIR, '..', '..', 'data'))
-PERSONEN_SOURCE_FN = os.path.join(DATA_DIR, 'corpusdiplomaticum', 'CD_vol1_personen_20170306_2.xlsx')
-PLAATSEN_SOURCE_FN = os.path.join(DATA_DIR, 'corpusdiplomaticum', 'CD_vol1_plaatsen_20170306_3.xlsx')
+PERSONEN_SOURCE_FN = os.path.join(DATA_DIR, 'corpusdiplomaticum', 'CD_personen_V20190703.xlsx')
+PLAATSEN_SOURCE_FN = os.path.join(DATA_DIR, 'corpusdiplomaticum', 'CD_plaatsen_V20190703.xlsx')
 CORPUS_SOURCE_FN =   os.path.join(DATA_DIR, 'corpusdiplomaticum', 'DASA_CorpsDiplFull_V20190226.xlsx')
 
 
