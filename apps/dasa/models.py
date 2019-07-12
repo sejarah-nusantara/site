@@ -1406,10 +1406,13 @@ def prettyprint_volumePage(volumePage):
     volumePages = volumePage.split(';')
     for volume_page in volumePages:
         if '-' in volume_page:
-            volume, page = volume_page.split('-')
-            href = link_to_pagebrowser(volume, page, archive='CorpusDipl')
-            s = u'<a href="{href}" target="_pagebrowser">{volume_page}</a>'.format(href=href, volume_page=volume_page)
-            links.append(s)
+            try:
+                volume, page = volume_page.split('-')
+                href = link_to_pagebrowser(volume, page, archive='CorpusDipl')
+                s = u'<a href="{href}" target="_pagebrowser">{volume_page}</a>'.format(href=href, volume_page=volume_page)
+                links.append(s)
+            except ValueError:
+                links.append(volume_page)
         else:
             links.append(volume_page)
 
