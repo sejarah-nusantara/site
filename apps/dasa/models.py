@@ -1412,7 +1412,7 @@ def prettyprint_volumePage(volumePage):
                 s = u'<a href="{href}" target="_pagebrowser">{volume_page}</a>'.format(href=href, volume_page=volume_page)
                 links.append(s)
             except ValueError:
-                links.append(volume_page)
+                links.append(volume_page + ' <----')
         else:
             links.append(volume_page)
 
